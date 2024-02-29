@@ -1,0 +1,16 @@
+---
+props: {}
+selected: false
+idxarchitect: 71
+delete: false
+clxmlconfig: null
+txhandlerclass: "io.artfacto.core.factory.SimpleFactoryArchitect"
+txbasepackage: "io.suinsit.architecture.nczkee"
+fxalta: null
+dsdescription: "Suinsit NoCode Web APP 1.0.0  ZKEE"
+btactive: true
+txname: "Suinsit NC WA 1.0"
+mddmentity: []
+mddmproject: []
+path: null
+cocode: null

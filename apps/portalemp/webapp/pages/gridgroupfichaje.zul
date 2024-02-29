@@ -1,0 +1,53 @@
+					 <grid  height="600px" width="100%"	model="@load(vm.groups)" >  
+							<columns sizable="true" menupopup="auto">
+							       <column hflex="1" label="@load(vm.lang.getProperty('APROBADA.label', 'Aprobada'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['APROBADAAsc'])" sortDescending="@load(vm.comparators['APROBADADesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('FECHA.label', 'Fecha'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['FECHAAsc'])" sortDescending="@load(vm.comparators['FECHADesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('TMINICIO.label', 'Inicio'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['TMINICIOAsc'])" sortDescending="@load(vm.comparators['TMINICIODesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('TMFIN.label', 'Fin'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['TMFINAsc'])" sortDescending="@load(vm.comparators['TMFINDesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('TOTAL.label', 'Total'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['TOTALAsc'])" sortDescending="@load(vm.comparators['TOTALDesc'])" />
+ 							      <column hflex="1" align="center" />
+							</columns >
+							<!-- template for group -->
+                              <template name="model:group">
+                                <group label="@load(each)" style="text-align:left;"/>
+                              </template>
+							<template name="model" var="item">
+                  			<row style="text-align:right;">
+							         <label  value="@load(item.getFieldByAtribute('APROBADA').value) @converter(vm.fieldConverter)"></label>
+                                   
+							         <label  value="@load(item.getFieldByAtribute('FECHA').value) @converter(vm.fieldConverter)"></label>
+                                   
+							         <label  value="@load(item.getFieldByAtribute('TMINICIO').value) @converter(vm.fieldConverter)"></label>
+                                   
+							         <label  value="@load(item.getFieldByAtribute('TMFIN').value) @converter(vm.fieldConverter)"></label>
+                                   
+							         <label  value="@load(item.getFieldByAtribute('TOTAL').value) @converter(vm.fieldConverter)"></label>
+                                   
+							
+                  			
+                  		<cell align="center">
+						<button
+						onClick="@command('editData',item=item,page='masterfichaje.zul')"
+						iconSclass="icon-pencil7" sclass="btn btn-outline-secondary" />
+						<space></space>
+						<button
+						onClick="@command('removeData',item=item)"
+						iconSclass="icon-trash"
+						sclass="btn btn-outline-warning" />
+						
+					    </cell>
+					   </row>
+					   
+                  		</template>
+                  		            		 <!-- template for footer -->
+        <template name="model:groupfoot">
+            <groupfoot>
+                <cell colspan="5" style="text-align: right; padding-right: 15px">
+                    <label value="@load(each)" style="font-weight:bold;" />
+                </cell>
+            </groupfoot>
+        </template>
+							<foot>
+						     <footer span="4" align="right" label="@load(vm.labelTotal)" />
+						    </foot>
+						</grid>

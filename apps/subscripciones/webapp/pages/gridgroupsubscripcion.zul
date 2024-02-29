@@ -1,0 +1,55 @@
+					 <grid  height="600px" width="100%"	model="@load(vm.groups)" >  
+							<columns sizable="true" menupopup="auto">
+							       <column hflex="1" label="@load(vm.lang.getProperty('SUBSCRIPCION.label', 'subscripcion'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['SUBSCRIPCIONAsc'])" sortDescending="@load(vm.comparators['SUBSCRIPCIONDesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('CLIENTE.label', 'cliente'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['CLIENTEAsc'])" sortDescending="@load(vm.comparators['CLIENTEDesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('INICIO.label', 'inicio'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['INICIOAsc'])" sortDescending="@load(vm.comparators['INICIODesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('FIN.label', 'fin'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['FINAsc'])" sortDescending="@load(vm.comparators['FINDesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('IMPORTE.label', 'importe'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['IMPORTEAsc'])" sortDescending="@load(vm.comparators['IMPORTEDesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('ESTADO.label', ''))" align="center" sort="auto"  sortAscending="@load(vm.comparators['ESTADOAsc'])" sortDescending="@load(vm.comparators['ESTADODesc'])"/>
+ 							      <column hflex="1" align="center" />
+							</columns >
+							<!-- template for group -->
+                              <template name="model:group">
+                                <group label="@load(each)" style="text-align:left;"/>
+                              </template>
+							<template name="model" var="item">
+                  			<row style="text-align:right;">
+							         <label  value="@load(item.getFieldByAtribute('SUBSCRIPCION').value) @converter(vm.fieldConverter)"></label>
+                                   
+							         <label  value="@load(item.getFieldByAtribute('CLIENTE').value) @converter(vm.fieldConverter)"></label>
+                                   
+							         <label  value="@load(item.getFieldByAtribute('INICIO').value) @converter(vm.fieldConverter)"></label>
+                                   
+							         <label  value="@load(item.getFieldByAtribute('FIN').value) @converter(vm.fieldConverter)"></label>
+                                   
+							         <label  value="@load(item.getFieldByAtribute('IMPORTE').value) @converter(vm.fieldConverter)"></label>
+                                   
+                                   <label  value="@load(item.getFieldByAtribute('estado').value) @converter(vm.fieldConverter)"></label>
+							
+                  			
+                  		<cell align="center">
+						<button
+						onClick="@command('editData',item=item,page='mastersubscripcion.zul')"
+						iconSclass="icon-pencil7" sclass="btn btn-outline-secondary" />
+						<space></space>
+						<button
+						onClick="@command('removeData',item=item)"
+						iconSclass="icon-trash"
+						sclass="btn btn-outline-warning" />
+						
+					    </cell>
+					   </row>
+					   
+                  		</template>
+                  		            		 <!-- template for footer -->
+        <template name="model:groupfoot">
+            <groupfoot>
+                <cell colspan="5" style="text-align: right; padding-right: 15px">
+                    <label value="@load(each)" style="font-weight:bold;" />
+                </cell>
+            </groupfoot>
+        </template>
+							<foot>
+						     <footer span="4" align="right" label="@load(vm.labelTotal)" />
+						    </foot>
+						</grid>

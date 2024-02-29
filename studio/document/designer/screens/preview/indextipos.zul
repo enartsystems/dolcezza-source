@@ -1,0 +1,138 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="tipos" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',env='preview',pagina='tipos')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="tipos" />
+<custom-attributes clase="org.suinsit.apps.document.Doctipodocum" />
+	   <custom-attributes namespace="document" />
+	   <custom-attributes enviroment="preview" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+
+<div id="QGoyfztXBX" style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12"  visible="true" >
+<div id="QGoyfztXBX-row" class="row">
+
+
+				
+
+
+   
+    <h:div class="col-md-12 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('TIPODOCUMENTO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="   " value="@load(vm.lang.getProperty('TIPODOCUMENTO.label', 'Tipo de documento'))"  />
+	   </hbox>
+	   <textbox   tabindex="1" id="YcwhfvQYWO" 
+	   placeholder="@load(vm.lang.getProperty('TIPODOCUMENTO.label', 'Tipo de documento'))" 
+	   value="@bind(vm.beanData.tipodocumento) @save(vm.beanData.tipodocumento, before=('grabar')) @validator(vm.unique, field='TIPODOCUMENTO',required=true ,oldValue=vm.beanDataCpy.tipodocumento)"  sclass="margin-field form-control  form-control form-control-sm       border-danger" 
+	   visible="@load(vm.isVisible('TIPODOCUMENTO'))" disabled="@load(vm.isEditable('TIPODOCUMENTO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['YcwhfvQYWO'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+ <h:div class="col-md-12 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('SUBCARPETA'))" sclass="margin-field" >
+	    <label sclass="form-check-label font-weight-normal align-text-middle" style="      " value="@load(vm.lang.getProperty('SUBCARPETA.label', ''))"/>
+	   </hbox>
+ <checkbox mold="default" id="CZzGmMVnnj" value="@bind(vm.beanData.subcarpeta) @save(vm.beanData.subcarpeta, before=('grabar'))" sclass="margin-field form-check-input" visible="@load(vm.isVisible('SUBCARPETA'))" disabled="@load(vm.isEditable('SUBCARPETA')?false:true)" checked="@bind(vm.beanData.subcarpeta) @save(vm.beanData.subcarpeta, before=('grabar'))"/>
+</h:div>
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-12 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('BAJA'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="   " value="@load(vm.lang.getProperty('BAJA.label', 'Fecha de baja'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_BAJA" />
+	   </hbox>
+	      <datebox     id="CkOpeBLCxs"  placeholder="@load(vm.lang.getProperty('BAJA.label', 'Fecha de baja'))" tabindex="3" value="@bind(vm.beanData.baja) @save(vm.beanData.baja, before=('grabar')) "   format="dd/MM/yyyy"  
+    visible="@load(vm.isVisible('BAJA'))" disabled="@load(vm.isEditable('BAJA')?false:true)" sclass="margin-field"/>
+    <label sclass="text-danger" value="@load(vmsgs['CkOpeBLCxs'])"/>   
+    
+      </h:div>
+
+
+
+
+</div>
+</div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" disabled="true">
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " disabled="false">
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" disabled="true">
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['Tipos.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+
+
+                  
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$tipos');
+  binder.command('doLoad');
+});
+function loadtipos(){
+  var binder = zkbind.$('$tipos');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

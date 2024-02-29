@@ -1,0 +1,116 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace  viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='partidapresu')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="partidapresu" />
+	  <custom-attributes enviroment="preview" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+<h:div style="overflow:auto;" class=" col-lg-4 col-xlg-4 col-md-4">
+<h:div class="row">
+
+
+
+
+   
+    <h:div class="col-md-12">
+       <hbox spacing="3px" visible="@load(vm.isVisible('PARTIDA'))">
+	    <label id="lbPARTIDA" sclass="form-label text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('PARTIDA.label', ''))"  />
+	   </hbox>
+	   <textbox  tabindex="1" id="PARTIDA" placeholder="@load(vm.lang.getProperty('PARTIDA.label', ''))" value="@bind(vm.beanData.partida) @save(vm.beanData.partida, before=('store')) @validator(vm.unique, field='PARTIDA',required=true ,oldValue=vm.beanDataCpy.partida)"  sclass="form-control  form-control border border-danger" visible="@load(vm.isVisible('PARTIDA'))" disabled="@load(vm.isEditable('PARTIDA')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['PARTIDA'])"/>
+    </h:div>   
+
+
+
+
+   <h:div class="col-md-12">
+     <hbox spacing="3px">
+	    <label sclass="form-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('DESCRIPCIN.label', ''))"/>
+	   </hbox>
+	   <textbox rows="4" cols="80" id="988885" multiline="true" placeholder="@load(vm.lang.getProperty('DESCRIPCIN.label', ''))" value="@bind(vm.beanData.descripcin) @save(vm.beanData.descripcin, before=('store')) "  sclass="form-control  form-control border" visible="@load(vm.isVisible('DESCRIPCIN'))" disabled="@load(vm.isEditable('DESCRIPCIN')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['988885'])"/>  
+</h:div>
+
+
+
+</h:div>
+</h:div>  <h:div style="overflow:auto;" class=" col-lg-4 col-xlg-4 col-md-4">
+<h:div class="row">
+
+
+
+
+  <h:div class="col-md-12">
+       <hbox spacing="3px" visible="@load(vm.isVisible('IMPORTE'))">
+	    <label id="lbIMPORTE" sclass="form-label text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('IMPORTE.label', ''))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_IMPORTE" />
+	   </hbox>
+    <decimalbox tabindex="1" id="IMPORTE" onCreate="" placeholder="@load(vm.lang.getProperty('IMPORTE.label', ''))"   value="@bind(vm.beanData.importe) @save(vm.beanData.importe, before=('store')) "  format="###,###,###,###,##0.00€"  sclass="form-control  form-control border" visible="@load(vm.isVisible('IMPORTE'))" disabled="@load(vm.isEditable('IMPORTE')?false:true)" onChange="@command('onChangeInput',field='IMPORTE',evento=event,componente=self,calculate=true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['IMPORTE'])"/>
+    </h:div>
+
+
+
+
+</h:div>
+</h:div>  <h:div style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12">
+<h:div class="row">
+</h:div>
+</h:div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('store')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('storeNew')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['partidapresu.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+			
+			
+
+ </idspace>
+</zk>

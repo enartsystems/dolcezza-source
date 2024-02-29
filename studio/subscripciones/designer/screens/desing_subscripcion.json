@@ -1,0 +1,20 @@
+{
+  "uid" : "86995",
+  "nameScreen" : "subscripcion",
+  "nameEntidad" : "SUBSCRIPCION",
+  "pageName" : "subscripcion",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "Subscripción",
+  "title" : "Subscripción",
+  "fecha" : 1682373479419,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

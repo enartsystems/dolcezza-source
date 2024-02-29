@@ -1,0 +1,218 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="popequipo" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='popequipo')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="popequipo" />
+<custom-attributes clase="org.suinsit.apps.facturacin.Erpequipo" />
+	   <custom-attributes namespace="facturacin" />
+	      <custom-attributes uid="25506" />
+	   <custom-attributes tipo="MASTER" />
+	   
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+
+<div id="NoWjFjWMli" style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12"  visible="true" >
+<div id="NoWjFjWMli-row" class="row">
+
+
+				
+
+
+   
+    <h:div class="col-md-6 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('EQUIPO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('EQUIPO.label', 'Equipo'))"  />
+	   </hbox>
+	   <textbox   tabindex="1" id="183428" 
+	   placeholder="@load(vm.lang.getProperty('EQUIPO.label', 'Nombre del equipo'))" 
+	   value="@bind(vm.beanData.equipo) @save(vm.beanData.equipo, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('EQUIPO'))" disabled="@load(vm.isEditable('EQUIPO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['183428'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-6 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('OBJETIVO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('OBJETIVO.label', 'Objetivo Mensual'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_OBJETIVO" />
+	   </hbox>
+	      <decimalbox   tabindex="2" id="vXFKZWxTUj"  placeholder="@load(vm.lang.getProperty('OBJETIVO.label', 'Objetivo Mensual'))"  value="@bind(vm.beanData.objetivo) @save(vm.beanData.objetivo, before=('grabar')) "  format="###,###,##0.00" sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('OBJETIVO'))" disabled="@load(vm.isEditable('OBJETIVO')?false:true)" onChange="@command('onChangeInput',field='OBJETIVO',evento=event,componente=self,calculate=true)" />
+           <label sclass="text-danger" value="@load(vmsgs['vXFKZWxTUj'])"/>   
+    </h:div>
+
+
+
+
+
+<h:div class="col-md-6 border-field">
+   <hbox spacing="3px" sclass="margin-field">
+    <label sclass="fs-6 text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('idlider.label', 'Lider'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_LERxdajODo" />
+   </hbox>
+<h:div class="col-md-12">
+<div >
+<button  iconSclass="ri-search-line search-icon" sclass="btn btn-icon"   onClick="searchLERxdajODo.visible=true"></button>
+<a sclass="" tooltiptext="add" iconSclass="bx bx-link-external"  onClick="@command('appendForeingPopup',alias='idlider',win=WIN_LERxdajODo,body='body_LERxdajODo',page='popuppopcomercial.zul')"></a>
+
+<window id="WIN_LERxdajODo" mode="modal" visible="false" position="center,center" action="show: slideDown;hide: slideUp" sclass="z-messagebox-window" border="none" width="80%">
+<div class="modal-content border-0">
+<div class="modal-header bg-soft-info p-3">
+<h:h5 class="modal-title"> Crear Comercial</h:h5>
+</div>
+<div class="modal-body" id="body_LERxdajODo"></div>
+<div class="modal-footer"></div>
+</div>
+</window>
+</div>
+</h:div>
+<h:div class="mb-2">
+<textbox id="tboxLERxdajODo"  placeholder="" value="@bind(vm.beanData.idlider.nombre) @save(vm.beanData.idlider.nombre, before=('grabar'))  " 
+ onChange="@command('onChangeFindTextForeing',alias='idlider',att='nombre',event=event,idcp='cbLERxdajODo')"  sclass="form-control  bg-light border-0" />
+<combobox id="cbLERxdajODo" mold="rounded" autodrop="true" visible="false" model="@load(vm.foreings['idlider'])" onSelect="@command('onSelectTextForeing',item=self.selectedItem.value,alias='idlider',hidde=self)" width="85%">
+<template name="model" var="item"><comboitem value="${item}" label="${item.nombre}"></comboitem>
+</template></combobox>
+<label sclass="text-danger" value="@load(vmsgs['tboxLERxdajODo'])"/></h:div>
+<window id="searchLERxdajODo" mode="modal" visible="false">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content border-0">
+<div class="modal-header bg-soft-info p-3">
+<h:h5 class="modal-title" id="examplesLERxdajODo">Comercial</h:h5>
+<button id="btn_SLERxdajODo" class="btn-close"  onClick="searchLERxdajODo.visible=false" ></button>
+</div><div class="modal-body">
+<div sclass="mb-2">
+<textbox sclass="form-control  bg-light border-0" placeholder="introduzca criterios..." onOK="@command('onChangeFindForeing',alias='idlider',att='nombre,',input=self)" onChange="@command('onChangeFindForeing',alias='idlider',att='nombre,',event=event)"/>
+</div><div sclass="mb-2">
+<listbox height="400px" mold="paging" pageSize="20" pagingPosition="bottom" model="@bind(vm.foreings['idlider'])" onSelect="@command('onSelectForeingPopup', alias='idlider',item=self.selectedItem.value,hidde=searchLERxdajODo )">
+<listhead>
+<listheader label="@load(vm.lang.getProperty('NOMBRE.label','NOMBRE'))"  />
+</listhead>
+<template name="model" var="item">
+<listitem value="@load(item)">
+<listcell label="@load(item.nombre)" />
+</listitem></template></listbox>
+</div></div></div></div></window>
+
+   <popup id="pop_LERxdajODo" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idlider.helptext', 'idlider'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+
+   <h:div class="col-md-12">
+     <hbox spacing="3px">
+	    <label sclass="form-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('DESCRIPCION.label', 'Descripción'))"/>
+	   </hbox>
+	  <tbeditor id="KXBpHOYZGW" value="@bind(vm.beanData.descripcion) @save(vm.beanData.descripcion, before=('grabar')) " />
+</h:div>
+
+
+
+</div>
+</div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['popequipo.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+
+
+
+                  
+            <window id="WIN_HELP" mode="modal" visible="false" position="center,center" 
+    action="show: slideDown;hide: slideUp" sclass="z-messagebox-window" border="none"  width="70%">
+			<div class="modal-content border-0">
+				<div class="modal-header bg-soft-info p-3">
+					<h:h5 class="modal-title">
+						Ayuda
+					</h:h5>
+				</div>
+				<div class="modal-body" >
+				</div>
+				<div class="modal-footer">
+				  <div class="hstack gap-2 justify-content-end">
+									<button onClick="WIN_HELP.setVisible(false)"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+				</div>
+			</div>
+		</div>
+	</window>
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$popequipo');
+  binder.command('doLoad');
+});
+function loadpopequipo(){
+  var binder = zkbind.$('$popequipo');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

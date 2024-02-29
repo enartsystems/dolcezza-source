@@ -1,0 +1,268 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="portales" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='portales')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="portales" />
+<custom-attributes clase="org.suinsit.apps.admin.Ssoportal" />
+	   <custom-attributes namespace="admin" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+<div id="LBVVmxriHs"   visible="true"  class="col-lg-9 col-xlg-9 col-md-9">
+  <div id="LBVVmxriHs-card" class="card  shadow-xl" style="overflow:auto;" >
+       <div id="LBVVmxriHs-body" class="card-body ">
+        <div id="LBVVmxriHs-row" class="form-group row ">
+
+
+				
+
+
+  
+    <h:div class="col-md-4 border-field">
+    <hbox spacing="3px" visible="@load(vm.isVisible('CODIGO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('CODIGO.label', 'Código'))"/>
+	   </hbox>
+       <label sclass="margin-field fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.beanData.codigo)"  />
+    </h:div>
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-4 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('PORTAL'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('PORTAL.label', 'Portal'))"  />
+	   </hbox>
+	   <textbox   tabindex="2" id="765765" 
+	   placeholder="@load(vm.lang.getProperty('PORTAL.label', 'Portal'))" 
+	   value="@bind(vm.beanData.portal) @save(vm.beanData.portal, before=('grabar')) @validator(vm.unique, field='PORTAL',required=true ,oldValue=vm.beanDataCpy.portal)"  sclass="margin-field form-control  form-control border border-danger" 
+	   visible="@load(vm.isVisible('PORTAL'))" disabled="@load(vm.isEditable('PORTAL')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['765765'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-4 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('SUBDOMINIO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('SUBDOMINIO.label', 'Subdominio'))"  />
+	   </hbox>
+	   <textbox   tabindex="3" id="667030" 
+	   placeholder="@load(vm.lang.getProperty('SUBDOMINIO.label', 'Subdominio'))" 
+	   value="@bind(vm.beanData.subdominio) @save(vm.beanData.subdominio, before=('grabar')) @validator(vm.unique, field='SUBDOMINIO',required=true ,oldValue=vm.beanDataCpy.subdominio)"  sclass="margin-field form-control  form-control border border-danger" 
+	   visible="@load(vm.isVisible('SUBDOMINIO'))" disabled="@load(vm.isEditable('SUBDOMINIO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['667030'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-4 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('APLICACION'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('APLICACION.label', 'Nombre de la aplicación'))"  />
+	   </hbox>
+	   <textbox   tabindex="4" id="VkZmMdwagr" 
+	   placeholder="@load(vm.lang.getProperty('APLICACION.label', 'Nombre de la aplicación'))" 
+	   value="@bind(vm.beanData.aplicacion) @save(vm.beanData.aplicacion, before=('grabar')) @validator(vm.unique, field='APLICACION',required=true ,oldValue=vm.beanDataCpy.aplicacion)"  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('APLICACION'))" disabled="@load(vm.isEditable('APLICACION')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['VkZmMdwagr'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-4 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('DASHBOARD'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('DASHBOARD.label', 'Dashboard'))"  />
+	   </hbox>
+	   <textbox   tabindex="5" id="515974" 
+	   placeholder="@load(vm.lang.getProperty('DASHBOARD.label', 'Pagina dashboard'))" 
+	   value="@bind(vm.beanData.dashboard) @save(vm.beanData.dashboard, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('DASHBOARD'))" disabled="@load(vm.isEditable('DASHBOARD')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['515974'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-4 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('NAMESPACE'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('NAMESPACE.label', 'Namespace'))"  />
+	   </hbox>
+	   <textbox   tabindex="6" id="266828" 
+	   placeholder="@load(vm.lang.getProperty('NAMESPACE.label', 'namespace'))" 
+	   value="@bind(vm.beanData.namespace) @save(vm.beanData.namespace, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('NAMESPACE'))" disabled="@load(vm.isEditable('NAMESPACE')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['266828'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+   <h:div class="col-md-10">
+     <hbox spacing="3px">
+	    <label sclass="form-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('DESCRIPCION.label', 'descripcion'))"/>
+	   </hbox>
+	  <tbeditor id="YZdOSdOqdo" value="@bind(vm.beanData.descripcion) @save(vm.beanData.descripcion, before=('grabar')) " />
+</h:div>
+
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+<div id="lmDVglfpyn"   visible="true"  class="col-lg-3 col-xlg-3 col-md-3">
+  <div id="lmDVglfpyn-card" class="card  shadow-xl" style="overflow:auto;" >
+          <div id="lmDVglfpyn-head" class="panel-heading ">
+            <h:h3 class="panel-title " >
+               Roles</h:h3>
+          </div>
+       <div id="lmDVglfpyn-body" class="card-body ">
+        <div id="lmDVglfpyn-row" class="form-group row ">
+
+<div class="col-md-12">
+   
+
+<listbox  checkmark="true"  model="@load(vm.foreings['idssorol'])" height="300px" onCreate="@command('onSubtableCreate',alias='subssorportalrol',loadOnDemand='true')" ><listhead><listheader label="rol"></listheader></listhead> <template name="model" var="item"><listitem value="@load(item)"><listcell label="@load(item.rol)"></listcell></listitem></template></listbox>
+</div>
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+
+<div id="YxAbJQkQek" style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12"  visible="true" >
+<div id="YxAbJQkQek-row" class="row">
+</div>
+</div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['portales.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+
+
+
+
+
+
+                  
+                 
+
+
+                  
+                 
+
+                  
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$portales');
+  binder.command('doLoad');
+});
+function loadportales(){
+  var binder = zkbind.$('$portales');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

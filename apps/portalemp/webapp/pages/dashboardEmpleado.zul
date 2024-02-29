@@ -1,0 +1,233 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+	<div class="row">
+	<idspace id="fichaje" viewModel="@id('vm') @init('com.suinsit.office.rrhh.FichajeUI',pagina='fichaje')" validationMessages="@id('vmsgs')">
+	 <custom-attributes mode="dasemploy"/>
+	<div class="col-xxl-12">
+		<div class="row">
+		 	<div class="col-xl-3">
+				<div class="card card-animate">
+					<div class="card-body">
+						<div class="d-flex align-items-center">
+							<div class="flex-grow-1">
+								<h:p class="text-uppercase fw-semibold text-muted mb-0">
+									Registro de jornada hoy
+								</h:p>
+							</div>
+							<div class="flex-shrink-0">
+								<h:h5 class="text-success fs-14 mb-0">
+								<label id="now"  />
+  								    <timer id="timer" delay="1000" repeats="true" >
+                                          <attribute name="onTimer">
+                                             now.setValue(new java.text.SimpleDateFormat("HH:mm:ss").format(new Date()));
+                                             entrada.setValue(new Date());
+                                             salida.setValue(new Date());
+                                         </attribute>
+                                    </timer>
+								</h:h5>
+							</div>
+						</div>
+						<div class="row">
+						<div class="d-flex align-items-end justify-content-between mt-6">
+							<div>
+							<timebox format="HH:mm" id="entrada"  disabled="true" locale="es_ES"/>
+							 <button id="bEntrada" onClick="@command('onRegistro',accion='entrada',valor=entrada.value,boton=self,time=entrada)" iconSclass="ri-check-double-line label-icon align-middle  fd-16 ms-2" class="btn btn-success btn-label waves-effect right waves-light " label="Entrada"></button>
+							</div>
+					    </div>
+						</div>
+						<div class="row">
+						<space/>
+						<div class="d-flex align-items-end justify-content-between mt-6">
+							<div>
+							<timebox format="HH:mm" id="salida"  disabled="true" locale="es_ES"/>
+							 <button id="bSalida" onClick="@command('onRegistro',accion='salida',valor=entrada.value,boton=self,time=salida)" iconSclass="ri-error-warning-line label-icon align-middle  fd-16 ms-2" class="btn btn-info btn-label waves-effect right waves-light "  label="Salida"></button>
+							</div>
+					    </div>
+					    </div>
+					    <div class="row">
+						<space/>
+						<div class="d-flex align-items-end justify-content-between mt-6">
+							<div>
+							<h:p class="text-uppercase fw-semibold text-muted mb-0">
+									E/S Registradas hoy
+							</h:p>
+							<forEach items="@load(vm.registerToday)" var="item">
+							    <div class="row">
+							      <div class="col-lg-5">
+							       <timebox format="HH:mm" value="@bind(item.tminicio)" disabled="true" />  
+							      </div>
+							      <div class="col-lg-5">
+					                <timebox format="HH:mm" value="@bind(item.tmfin)"  disabled="true"/>		      
+							      </div>
+                 			    </div>
+							</forEach>
+							</div>
+					    </div>
+					    </div>
+					</div><!-- end card body -->
+				</div><!-- end card -->
+				
+			</div>
+			<div class="col-xl-3 col-md-3">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1">
+                                            <h:p class="text-uppercase fw-semibold text-muted mb-0">Horas estimadas / Mes</h:p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <h:h4 class="fs-22 fw-bold ff-secondary mb-4"><span class="counter-value" d:data-target="${vm.horasEstimadas}"> </span> Horas</h:h4>
+                                        </div>
+                                     </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+			
+			<forEach items="@load(vm.statsEmploy)" var="item">
+	     <div class="col-xl-3 col-md-3">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1">
+                                            <h:p class="text-uppercase fw-semibold text-muted mb-0">${item.tipo} / Mes</h:p>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <h:h5 class="text-success fs-14 mb-0">
+                                                 Autorizadas : ${item.aprobada?'Sí':'No'}
+                                            </h:h5>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                        <div>
+                                            <h:h4 class="fs-22 fw-bold ff-secondary mb-4"><span class="counter-value" d:data-target="${item.total}"></span> Horas</h:h4>
+                                        </div>
+                                     </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+	  
+	  </forEach>
+			
+			
+			<div class="col-xl-3">
+			  <div class="card card-animate">
+					<div class="card-body">
+						<div class="d-flex align-items-center">
+							<div class="flex-grow-1">
+								<h:p class="text-uppercase fw-semibold text-muted mb-0">
+									Ausencias
+								</h:p>
+							</div>
+							<div class="flex-shrink-0">
+								<h:h5 class="text-success fs-14 mb-0">
+								   Solicitud
+								</h:h5>
+							</div>
+						</div>
+						<div class="row">
+						<div class="d-flex align-items-end justify-content-between mt-6">
+							<div>
+							
+							</div>
+					    </div>
+						</div>
+						<div class="row">
+						<space/>
+						<div class="d-flex align-items-end justify-content-between mt-6">
+							<div>
+							
+							</div>
+					    </div>
+					    </div>
+					</div><!-- end card body -->
+				</div><!-- end card -->
+			</div>
+		</div>
+		
+	</div>
+	<div class="col-xxl-9">
+	  <div class="row">
+	  
+	  </div>
+	  </div>
+	  	  </idspace>
+	</div>
+
+<!-- 	  <div class="row"> -->
+<!-- 		 <div class="col-xl-12"> -->
+<!-- 			  <div class="card card-animate"> -->
+<!-- 					<div class="card-body"> -->
+<!-- 						<div class="d-flex align-items-center"> -->
+<!-- 							<div class="flex-grow-1"> -->
+<!-- 								<h:p class="text-uppercase fw-semibold text-muted mb-0"> -->
+<!-- 									Solicitud de Ausencias -->
+<!-- 								</h:p> -->
+<!-- 							</div> -->
+<!-- 							<div class="flex-shrink-0"> -->
+<!-- 								<h:h5 class="text-success fs-14 mb-0"> -->
+<!-- 								   Autorizaciones -->
+<!-- 								</h:h5> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 						<div class="d-flex align-items-end justify-content-between mt-6"> -->
+<!-- 							<div> -->
+							
+<!-- 							</div> -->
+<!-- 					    </div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 						<space/> -->
+<!-- 						<div class="d-flex align-items-end justify-content-between mt-6"> -->
+<!-- 							<div> -->
+							
+<!-- 							</div> -->
+<!-- 					    </div> -->
+<!-- 					    </div> -->
+<!-- 					</div>end card body -->
+<!-- 				</div>end card -->
+<!-- 			</div> -->
+<!-- 			 <div class="col-xl-12"> -->
+<!-- 			  <div class="card card-animate"> -->
+<!-- 					<div class="card-body"> -->
+<!-- 						<div class="d-flex align-items-center"> -->
+<!-- 							<div class="flex-grow-1"> -->
+<!-- 								<h:p class="text-uppercase fw-semibold text-muted mb-0"> -->
+<!-- 									Notificaciones -->
+<!-- 								</h:p> -->
+<!-- 							</div> -->
+<!-- 							<div class="flex-shrink-0"> -->
+<!-- 								<h:h5 class="text-success fs-14 mb-0"> -->
+<!-- 								   Mis Notificaciones -->
+<!-- 								</h:h5> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 						<div class="d-flex align-items-end justify-content-between mt-6"> -->
+<!-- 							<div> -->
+							
+<!-- 							</div> -->
+<!-- 					    </div> -->
+<!-- 						</div> -->
+<!-- 						<div class="row"> -->
+<!-- 						<space/> -->
+<!-- 						<div class="d-flex align-items-end justify-content-between mt-6"> -->
+<!-- 							<div> -->
+							
+<!-- 							</div> -->
+<!-- 					    </div> -->
+<!-- 					    </div> -->
+<!-- 					</div>end card body -->
+<!-- 				</div>end card -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+	
+</zk>

@@ -1,0 +1,20 @@
+{
+  "uid" : "32948",
+  "nameScreen" : "Grupos",
+  "nameEntidad" : "RRHHGRUPO",
+  "pageName" : "Grupos",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "popup",
+  "descripcion" : "popup Grupos",
+  "title" : "Grupos",
+  "fecha" : 1681897470918,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : true
+}

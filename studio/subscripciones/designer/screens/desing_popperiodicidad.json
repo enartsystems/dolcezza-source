@@ -1,0 +1,20 @@
+{
+  "uid" : "40107",
+  "nameScreen" : "popperiodicidad",
+  "nameEntidad" : "PERIODICIDAD",
+  "pageName" : "popperiodicidad",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "popup",
+  "descripcion" : "Periodicidad",
+  "title" : "Periodicidad",
+  "fecha" : 1682369827931,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : true
+}

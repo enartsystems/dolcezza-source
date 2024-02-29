@@ -1,0 +1,20 @@
+{
+  "uid" : "78286",
+  "nameScreen" : "empleadoclte",
+  "nameEntidad" : "RRHEMPLEADO",
+  "pageName" : "empleadoclte",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "Empleados desde el portal del cliente",
+  "title" : "Empleados",
+  "fecha" : 1693921229451,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

@@ -1,0 +1,20 @@
+{
+  "uid" : "84878",
+  "nameScreen" : "poptiposubscripcion",
+  "nameEntidad" : "TIPOSUBSCRIP",
+  "pageName" : "poptiposubscripcion",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "popup",
+  "descripcion" : "Tipo Subscripción",
+  "title" : "Tipo Subscripción",
+  "fecha" : 1682369522583,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : true
+}

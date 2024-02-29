@@ -1,0 +1,20 @@
+{
+  "uid" : "1023",
+  "nameScreen" : "contratosclte",
+  "nameEntidad" : "CRTMCONTRATO",
+  "pageName" : "contratosclte",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "Contratos portal de clientes",
+  "title" : "Mis Contratos",
+  "fecha" : 1693827176221,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

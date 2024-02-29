@@ -1,0 +1,20 @@
+{
+  "uid" : "33571",
+  "nameScreen" : "altacltecto",
+  "nameEntidad" : "CRTMCONTRATO",
+  "pageName" : "altacltecto",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "bpmn",
+  "descripcion" : "BPM Nuevo contrato",
+  "title" : "Nuevo Contrato",
+  "fecha" : 1675450173657,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

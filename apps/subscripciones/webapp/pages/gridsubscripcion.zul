@@ -1,0 +1,57 @@
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+	  						 
+<div class="table">					 
+					
+				 <grid  width="100%" height="500px"	model="@load(vm.beans)" sclass="table align-middle mb-0" >  
+							<columns sizable="true" menupopup="auto">
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('SUBSCRIPCION.label', 'Subscripción'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['SUBSCRIPCIONAsc'])" sortDescending="@load(vm.comparators['SUBSCRIPCIONDesc'])"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('CLIENTE.label', 'Empresa / Persona'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['CLIENTEAsc'])" sortDescending="@load(vm.comparators['CLIENTEDesc'])"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('INICIO.label', 'Fec. Inicio'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['INICIOAsc'])" sortDescending="@load(vm.comparators['INICIODesc'])"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('FIN.label', 'Fec. Fin'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['FINAsc'])" sortDescending="@load(vm.comparators['FINDesc'])"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('IMPORTE.label', 'Total'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['IMPORTEAsc'])" sortDescending="@load(vm.comparators['IMPORTEDesc'])"/>
+							      <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('Estado.label', 'Estado'))" align="center"/>
+ 							      <column style="font-size:14px;" hflex="1" label="Acciones" align="center" />
+							</columns >
+							<template name="model" var="item">
+						       <row style="text-align:right;cursor:pointer;"  onClick="@command('editData',item=item,page='mastersubscripcion.zul')">
+							          <label  value="@load(item.subscripcion) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.cliente) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.inicio) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.fin) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.importe) @converter(vm.fieldConverter)"></label>
+                                   
+                                   <cell align="center">
+                                          <label  value="@load(item.iderpmestado.estado) @converter(vm.fieldConverter)"></label>
+                                        
+                                      
+                                    <space></space>
+                                   </cell> 
+							
+                  			
+                  		<cell align="center">
+						  
+						<button
+						onClick="@command('editData',item=item,page='mastersubscripcion.zul')"
+						iconSclass="s-icon s-icon-lapizplus" sclass="btn"/>
+						<space></space>
+						<button
+						onClick="@command('removeData',item=item)"
+						iconSclass="s-icon s-icon-trash"
+						sclass="btn" />
+						
+					    </cell>
+					   </row>
+                  		</template>
+							<foot>
+						     <footer span="4" align="right" label="@load(vm.labelTotal)" />
+						    </foot>
+						</grid>
+ </div>						
+</zk>						

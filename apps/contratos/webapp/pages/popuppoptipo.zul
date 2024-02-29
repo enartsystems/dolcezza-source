@@ -1,0 +1,159 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="poptipo" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='poptipo')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="poptipo" />
+	  <custom-attributes clase="org.suinsit.apps.contratos.Crtmtipo" />
+	   <custom-attributes namespace="contratos" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+
+<div id="BvHVNqdrzf"   visible="true"  class="col-lg-12 col-xlg-12 col-md-12">
+  <div id="BvHVNqdrzf-card" class="card  shadow-lg" style="overflow:auto;" >
+       <div id="BvHVNqdrzf-body" class="card-body ">
+        <div id="BvHVNqdrzf-row" class="form-group row ">
+
+
+
+
+
+   
+    <h:div class="col-md-6 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('TIPOCONTRATO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('TIPOCONTRATO.label', 'Tipo de contrato'))"  />
+	   </hbox>
+	   <textbox   tabindex="1" id="yNjQMdAJeM" 
+	   placeholder="@load(vm.lang.getProperty('TIPOCONTRATO.label', 'Introduzca el tipo de contrato'))" 
+	   value="@bind(vm.beanData.tipocontrato) @save(vm.beanData.tipocontrato, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('TIPOCONTRATO'))" disabled="@load(vm.isEditable('TIPOCONTRATO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['yNjQMdAJeM'])"/>
+    </h:div>   
+
+
+
+
+
+<h:div class="col-md-4 border-field">
+   <hbox spacing="3px" sclass="margin-field">
+    <label sclass="fs-6 text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('idmperidicidad.label', 'Periodicidad'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_vBmhrBHaVF" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idmperidicidad" placeholder="@load(vm.lang.getProperty('idmperidicidad').label,'Periodicidad')" model="@bind(vm.foreings['idmperidicidad'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idmperidicidad',item=self.selectedItem.value)"  		selectedItem="@load(vm.beanData.idmperidicidad)"  onCreate="@command('onCreateCombo',component=self,alias='idmperidicidad')" value="@bind(vm.beanData.idmperidicidad .peridicidad)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.peridicidad)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idmperidicidad'])"/>
+   <popup id="pop_vBmhrBHaVF" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idmperidicidad.helptext', 'idmperidicidad'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+
+
+ <h:div class="col-md-2 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('ACTIVO'))" sclass="margin-field" >
+	    <label sclass="form-check-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('ACTIVO.label', 'Contrato Activo'))"/>
+	   </hbox>
+ <checkbox mold="default" id="nwuqBzXhuP" value="@bind(vm.beanData.activo) @save(vm.beanData.activo, before=('grabar'))" sclass="margin-field form-check-input" visible="@load(vm.isVisible('ACTIVO'))" disabled="@load(vm.isEditable('ACTIVO')?false:true)" checked="@bind(vm.beanData.activo) @save(vm.beanData.activo, before=('grabar'))"/>
+</h:div>
+
+
+
+
+   <h:div class="col-md-12">
+     <hbox spacing="3px">
+	    <label sclass="form-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('DESCRIPCION.label', 'Descripción ampliada'))"/>
+	   </hbox>
+	      <textbox rows="4" cols="80" id="WyhAAeNOlW" multiline="true" placeholder="@load(vm.lang.getProperty('DESCRIPCION.label', 'descripcion'))" value="@bind(vm.beanData.descripcion) @save(vm.beanData.descripcion, before=('grabar')) "  sclass="form-control  form-control border" visible="@load(vm.isVisible('DESCRIPCION'))" disabled="@load(vm.isEditable('DESCRIPCION')?false:true)"/>
+           <label sclass="text-danger" value="@load(vmsgs['WyhAAeNOlW'])"/>
+	     
+</h:div>
+
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+                   </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['poptipo.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+
+
+
+                  
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$poptipo');
+  binder.command('doLoad');
+});
+function loadpoptipo(){
+  var binder = zkbind.$('$poptipo');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

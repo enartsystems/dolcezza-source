@@ -1,0 +1,20 @@
+{
+  "uid" : "66009",
+  "nameScreen" : "TipoContrato",
+  "nameEntidad" : "RRHMTIPOCONTA",
+  "pageName" : "TipoContrato",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "popup",
+  "descripcion" : "Popup para los tipos de contrato",
+  "title" : "Tipo Contrato",
+  "fecha" : 1693659012359,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : true
+}

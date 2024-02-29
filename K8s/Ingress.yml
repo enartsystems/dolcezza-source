@@ -1,0 +1,120 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: suinsit-discovery
+  namespace: suin-dolcezza
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    external-dns.alpha.kubernetes.io/hostname: dolcezza.suinsit.cloud
+    external-dns.alpha.kubernetes.io/ttl: "10"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+  
+spec:
+  ingressClassName: nginx-web-04
+  tls:
+  - hosts:
+    - dolcezza.suinsit.cloud
+    secretName: dolcezza.suinsit.cloud-tls1
+  rules:
+  - host: dolcezza.suinsit.cloud
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: discovery-apps
+            port: 
+             number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: suinsit-customers
+  namespace: suin-dolcezza
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    external-dns.alpha.kubernetes.io/hostname: clientes.dolcezza.suinsit.cloud
+    external-dns.alpha.kubernetes.io/ttl: "10"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+  
+spec:
+  ingressClassName: nginx-web-04
+  tls:
+  - hosts:
+    - clientes.dolcezza.suinsit.cloud
+    secretName: clientes.dolcezza.suinsit.cloud-tls1
+  rules:
+  - host: clientes.dolcezza.suinsit.cloud
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: customers-apps
+            port: 
+             number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: suinsit-titan
+  labels:
+   kcert.dev/ingress: "managed"
+  namespace: suin-dolcezza
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    external-dns.alpha.kubernetes.io/hostname: empleados.dolcezza.suinsit.cloud
+    external-dns.alpha.kubernetes.io/ttl: "10"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    cert-manager.io/duration: 8760h
+    cert-manager.io/renew-before: 4368h
+spec:
+  ingressClassName: nginx-web-04
+  tls:
+  - hosts:
+    - empleados.dolcezza.suinsit.cloud
+    secretName: empleados.dolcezza.suinsit.cloud-tls
+  rules:
+  - host: empleados.dolcezza.suinsit.cloud
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: titan-apps
+            port: 
+             number: 80                
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: suinsit-discovery-api
+  namespace: suin-dolcezza
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    external-dns.alpha.kubernetes.io/hostname: api.dolcezza.suinsit.cloud
+    external-dns.alpha.kubernetes.io/ttl: "10"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+  
+spec:
+  ingressClassName: nginx-api-01
+  tls:
+  - hosts:
+    - api.dolcezza.suinsit.cloud
+    secretName: api.dolcezza.suinsit.cloud-tls
+  rules:
+  - host: api.dolcezza.suinsit.cloud
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: suinsit-crm-api
+            port: 
+             number: 80

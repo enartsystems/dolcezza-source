@@ -1,0 +1,319 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="ssologs" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',env='preview',pagina='ssologs')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="ssologs" />
+<custom-attributes clase="org.suinsit.apps.admin.Ssologaccess" />
+	   <custom-attributes namespace="admin" />
+	   <custom-attributes enviroment="preview" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+<div id="QpdcyrSOxb"   visible="true"  class="col-lg-12 col-xlg-12 col-md-12">
+  <div id="QpdcyrSOxb-card" class="card  shadow-xl" style="overflow:auto;" >
+       <div id="QpdcyrSOxb-body" class="card-body ">
+        <div id="QpdcyrSOxb-row" class="form-group row ">
+
+
+
+
+
+
+<h:div class="col-md-3">
+       <hbox spacing="3px" visible="@load(vm.isVisible('LOGIN'))">
+	    <label sclass="form-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('LOGIN.label', 'Login'))"  />
+	   </hbox>
+	   <timebox sclass="col-md-3" format="HH:mm:ss" tabindex="1" id="LOGIN" value="@bind(vm.beanData.login) @save(vm.beanData.login, before=('grabar')) " visible="@load(vm.isVisible('LOGIN'))" disabled="@load(vm.isEditable('LOGIN')?false:true)"/>
+	   <label sclass="text-danger" value="@load(vmsgs['LOGIN'])"/>
+  </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-3 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('USERNAME'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('USERNAME.label', 'User name'))"  />
+	   </hbox>
+	   <textbox  readonly="true"  tabindex="2" id="155366" 
+	   placeholder="@load(vm.lang.getProperty('USERNAME.label', 'User name'))" 
+	   value="@bind(vm.beanData.username) @save(vm.beanData.username, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('USERNAME'))" disabled="@load(vm.isEditable('USERNAME')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['155366'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-3 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('DIRIP'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('DIRIP.label', 'IP'))"  />
+	   </hbox>
+	   <textbox  readonly="true"  tabindex="3" id="qWlBLdGZaq" 
+	   placeholder="@load(vm.lang.getProperty('DIRIP.label', 'IP'))" 
+	   value="@bind(vm.beanData.dirip) @save(vm.beanData.dirip, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('DIRIP'))" disabled="@load(vm.isEditable('DIRIP')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['qWlBLdGZaq'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-3 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('DISPOSITIVO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('DISPOSITIVO.label', 'Dispositivo'))"  />
+	   </hbox>
+	   <textbox  readonly="true"  tabindex="4" id="139006" 
+	   placeholder="@load(vm.lang.getProperty('DISPOSITIVO.label', 'Dispositivo'))" 
+	   value="@bind(vm.beanData.dispositivo) @save(vm.beanData.dispositivo, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('DISPOSITIVO'))" disabled="@load(vm.isEditable('DISPOSITIVO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['139006'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+
+
+
+
+<h:div class="col-md-3">
+       <hbox spacing="3px" visible="@load(vm.isVisible('LOGOUT'))">
+	    <label sclass="form-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('LOGOUT.label', 'Logout '))"  />
+	   </hbox>
+	   <timebox sclass="col-md-3" format="HH:mm:ss" tabindex="5" id="LOGOUT" value="@bind(vm.beanData.logout) @save(vm.beanData.logout, before=('grabar')) " visible="@load(vm.isVisible('LOGOUT'))" disabled="@load(vm.isEditable('LOGOUT')?false:true)"/>
+	   <label sclass="text-danger" value="@load(vmsgs['LOGOUT'])"/>
+  </h:div>   
+
+
+
+
+
+
+ <h:div class="col-md-3 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('ERROR'))" sclass="margin-field" >
+	    <label sclass="form-check-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('ERROR.label', 'Error'))"/>
+	   </hbox>
+ <checkbox mold="default" id="906147" value="@bind(vm.beanData.error) @save(vm.beanData.error, before=('grabar'))" sclass="margin-field form-check-input" visible="@load(vm.isVisible('ERROR'))" disabled="@load(vm.isEditable('ERROR')?false:true)" checked="@bind(vm.beanData.error) @save(vm.beanData.error, before=('grabar'))"/>
+</h:div>
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-3 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('TIPOERROR'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('TIPOERROR.label', 'Tipo Error'))"  />
+	   </hbox>
+	   <textbox  readonly="true"  tabindex="7" id="731082" 
+	   placeholder="@load(vm.lang.getProperty('TIPOERROR.label', 'Tipo Error'))" 
+	   value="@bind(vm.beanData.tipoerror) @save(vm.beanData.tipoerror, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('TIPOERROR'))" disabled="@load(vm.isEditable('TIPOERROR')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['731082'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-3 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('MENSAJE'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('MENSAJE.label', 'Mensaje'))"  />
+	   </hbox>
+	   <textbox  readonly="true"  tabindex="8" id="816728" 
+	   placeholder="@load(vm.lang.getProperty('MENSAJE.label', 'Mensaje'))" 
+	   value="@bind(vm.beanData.mensaje) @save(vm.beanData.mensaje, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('MENSAJE'))" disabled="@load(vm.isEditable('MENSAJE')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['816728'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-3 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('APLICACION'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('APLICACION.label', 'Aplicación'))"  />
+	   </hbox>
+	   <textbox  readonly="true"  tabindex="9" id="MkhJSXxwuM" 
+	   placeholder="@load(vm.lang.getProperty('APLICACION.label', 'Aplicación'))" 
+	   value="@bind(vm.beanData.aplicacion) @save(vm.beanData.aplicacion, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('APLICACION'))" disabled="@load(vm.isEditable('APLICACION')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['MkhJSXxwuM'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-3 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('NAME'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('NAME.label', 'Nombre'))"  />
+	   </hbox>
+	   <textbox  readonly="true"  tabindex="10" id="hcrgvcpZUn" 
+	   placeholder="@load(vm.lang.getProperty('NAME.label', 'Nombre'))" 
+	   value="@bind(vm.beanData.name) @save(vm.beanData.name, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('NAME'))" disabled="@load(vm.isEditable('NAME')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['hcrgvcpZUn'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+   <h:div class="col-md-12">
+     <hbox spacing="3px">
+	    <label sclass="form-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('HEADERS.label', 'Headers'))"/>
+	   </hbox>
+	      <extHTML value="@bind(vm.beanData.headers)"></extHTML>
+	     
+</h:div>
+
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+
+<div id="vCEWQfdkZh" style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12"  visible="true" >
+<div id="vCEWQfdkZh-row" class="row">
+</div>
+</div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" disabled="true">
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " disabled="false">
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" disabled="true">
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['ssologs.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+                 
+
+                  
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$ssologs');
+  binder.command('doLoad');
+});
+function loadssologs(){
+  var binder = zkbind.$('$ssologs');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

@@ -1,0 +1,20 @@
+{
+  "uid" : "24462",
+  "nameScreen" : "Calendarios",
+  "nameEntidad" : "RRHHCALENDARIO",
+  "pageName" : "Calendarios",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "Gestión de calendarios",
+  "title" : "Calendarios",
+  "fecha" : 1693658701648,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

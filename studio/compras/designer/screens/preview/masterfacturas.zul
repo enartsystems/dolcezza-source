@@ -1,0 +1,584 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+
+<idspace  id="facturas" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='facturas')" validationMessages="@id('vmsgs')">
+	  <custom-attributes pagina="facturas" />
+	<custom-attributes clase="org.suinsit.apps.compras.Cmpfactura" />
+	   <custom-attributes namespace="compras" />
+	    <custom-attributes enviroment="preview" />
+	     <custom-attributes uid="30151" />
+	   <custom-attributes tipo="MASTER" />
+	  	<h:div id="notificacion"></h:div>
+			<div class="row">
+			<div class="col-12">
+				<div
+					class="page-title-box d-sm-flex align-items-center justify-content-between">
+					<vbox spacing="3px">
+					<fragment
+						exps="@load(vm.lang.getProperty('facturas.screen', 'Facturas'))">
+						<![CDATA[ <h4 class="mb-sm-0"
+						textContent='@load(exps)'></h4> ]]>
+					</fragment>
+					    
+					 </vbox>   
+					<h:div class="page-title-right">
+						<h:ol class="breadcrumb m-0">
+							<h:li class="breadcrumb-item">
+								<h:a href="javascript: void(0);">
+									${ds.menu} 
+								</h:a>
+							</h:li>
+							<h:li class="breadcrumb-item active">
+								Facturas
+							</h:li>
+						</h:ol>
+					</h:div>
+				</div>
+			</div>
+		</div>
+			<div class="row">
+					<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
+						<div
+							class="d-flex align-items-center flex-wrap gap-2">
+							<div class="flex-grow-1">
+							<button onClick="@command('toSearch')"
+										class="btn btn-light" >
+										Volver
+									</button>	
+							</div>
+							<div class="flex-shrink-0">
+							<div class="hstack text-nowrap gap-2">
+								
+								    <button class="btn btn-secondary"
+										iconSclass="s-icon s-icon-clear" onClick="@command('clear')">
+										Limpiar
+									</button>
+									<button class="btn btn-success"
+										iconSclass="s-icon s-icon-save me-1 align-bottom" onClick="@command('grabar',action='continuar')">
+										Guardar
+									</button>
+									<button
+										class="btn" iconSclass="s-icon s-icon-save me-1 align-bottom" onClick="@command('grabar',action='nuevo')">
+										Guardar y Nuevo
+									</button>
+								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--end col-->
+			<h:div class="col-lg-12">
+						<h:div >
+							<h:div >
+		     <div class="row">
+
+
+
+<div id="VrIUEhLtsH" style="overflow:auto;" class=" col-lg-4 col-xlg-4 col-md-4"  visible="true" >
+<div id="VrIUEhLtsH-row" class="row">
+
+
+				
+
+    <h:div class="col-md-6 ">
+    <!-- sclass="margin-field" -->
+       <hbox spacing="3px" visible="@load(vm.isVisible('FACTURA'))" >
+	    <label sclass="text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('FACTURA.label', 'Factura'))"  />
+	   </hbox>
+	    <textbox   tabindex="1" id="936764" 
+	   placeholder="@load(vm.lang.getProperty('FACTURA.label', 'factura'))" 
+	   value="@bind(vm.beanData.factura) @save(vm.beanData.factura, before=('grabar')) @validator(vm.validator,required=true ,oldValue=vm.beanDataCpy.factura)"  sclass="margin-field form-control  form-control border border-danger" 
+	   visible="@load(vm.isVisible('FACTURA'))" disabled="@load(vm.isEditable('FACTURA')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['936764'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+    <h:div class="col-md-6 ">
+    <!-- sclass="margin-field" -->
+       <hbox spacing="3px" visible="@load(vm.isVisible('REFFACTURA'))" >
+	    <label sclass="text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('REFFACTURA.label', 'Ref. Factura'))"  />
+	   </hbox>
+	    <textbox   tabindex="2" id="465040" 
+	   placeholder="@load(vm.lang.getProperty('REFFACTURA.label', 'reffactura'))" 
+	   value="@bind(vm.beanData.reffactura) @save(vm.beanData.reffactura, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('REFFACTURA'))" disabled="@load(vm.isEditable('REFFACTURA')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['465040'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+<h:div class="col-md-12 ">
+   <hbox spacing="3px" sclass="margin-field">
+   
+    <label sclass="text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('idcmpproveedor.label', 'Proveedor'))"/>
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idcmpproveedor" placeholder="@load(vm.lang.getProperty('idcmpproveedor').label,'Proveedor')" model="@bind(vm.foreings['idcmpproveedor'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idcmpproveedor',item=self.selectedItem.value,updatebean='true')"  		selectedItem="@load(vm.beanData.idcmpproveedor)"  onCreate="@command('onCreateCombo',component=self,alias='idcmpproveedor')" value="@bind(vm.beanData.idcmpproveedor .empresa)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.empresa)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idcmpproveedor'])"/>
+
+  
+</h:div>
+
+
+
+<h:div class="col-md-6 ">
+   <hbox spacing="3px" sclass="margin-field">
+   
+    <label sclass="text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('iderpempresa.label', 'Compañia'))"/>
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="iderpempresa" placeholder="@load(vm.lang.getProperty('iderpempresa').label,'Compañia')" model="@bind(vm.foreings['iderpempresa'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='iderpempresa',item=self.selectedItem.value,updatebean='true')"  		selectedItem="@load(vm.beanData.iderpempresa)"  onCreate="@command('onCreateCombo',component=self,alias='iderpempresa')" value="@bind(vm.beanData.iderpempresa .nombre)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.nombre)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['iderpempresa'])"/>
+
+  
+</h:div>
+
+
+</div>
+</div>  
+
+
+
+
+
+<div id="pseuDAaBqp" style="overflow:auto;" class=" col-lg-4 col-xlg-4 col-md-4"  visible="true" >
+<div id="pseuDAaBqp-row" class="row">
+
+
+				
+
+    <h:div class="col-md-6 ">
+       <hbox spacing="3px" visible="@load(vm.isVisible('FECFACTURA'))" sclass="margin-field">
+	    <label sclass="text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('FECFACTURA.label', 'Fec. Factura'))"/>
+	   </hbox>
+	      <datebox     id="196041"  placeholder="@load(vm.lang.getProperty('FECFACTURA.label', 'fecfactura'))" tabindex="1" value="@bind(vm.beanData.fecfactura) @save(vm.beanData.fecfactura, before=('grabar')) @validator(vm.validator,required=true ,oldValue=vm.beanDataCpy.fecfactura)"   format="dd/MM/yyyy"  
+    visible="@load(vm.isVisible('FECFACTURA'))" disabled="@load(vm.isEditable('FECFACTURA')?false:true)" sclass="margin-field"/>
+    <label sclass="text-danger" value="@load(vmsgs['196041'])"/>   
+    
+      </h:div>
+
+
+
+
+
+
+				
+
+    <h:div class="col-md-6 ">
+       <hbox spacing="3px" visible="@load(vm.isVisible('FECVTO'))" sclass="margin-field">
+	    <label sclass="text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('FECVTO.label', 'Fec. Vencimiento'))"/>
+	   </hbox>
+	      <datebox     id="okyxRYeHgN"  placeholder="@load(vm.lang.getProperty('FECVTO.label', 'fecvto'))" tabindex="2" value="@bind(vm.beanData.fecvto) @save(vm.beanData.fecvto, before=('grabar')) @validator(vm.validator,min=fx.FECFACTURA ,oldValue=vm.beanDataCpy.fecvto)"   format="dd/MM/yyyy"  
+    visible="@load(vm.isVisible('FECVTO'))" disabled="@load(vm.isEditable('FECVTO')?false:true)" sclass="margin-field"/>
+    <label sclass="text-danger" value="@load(vmsgs['okyxRYeHgN'])"/>   
+    
+      </h:div>
+
+
+
+
+
+
+				
+
+    <h:div class="col-md-6 ">
+       <hbox spacing="3px" visible="@load(vm.isVisible('FECCONTABLE'))" sclass="margin-field">
+	    <label sclass="text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('FECCONTABLE.label', 'Fec. Contable'))"/>
+	   </hbox>
+	      <datebox     id="714717"  placeholder="@load(vm.lang.getProperty('FECCONTABLE.label', 'feccontable'))" tabindex="3" value="@bind(vm.beanData.feccontable) @save(vm.beanData.feccontable, before=('grabar')) @validator(vm.validator,min=fx.FECFACTURA ,oldValue=vm.beanDataCpy.feccontable)"   format="dd/MM/yyyy"  
+    visible="@load(vm.isVisible('FECCONTABLE'))" disabled="@load(vm.isEditable('FECCONTABLE')?false:true)" sclass="margin-field"/>
+    <label sclass="text-danger" value="@load(vmsgs['714717'])"/>   
+    
+      </h:div>
+
+
+
+
+</div>
+</div>  
+
+
+
+
+<div id="ALWiYtpokG"   visible="true"  class="col-lg-4 col-xlg-4 col-md-4">
+  <div id="ALWiYtpokG-card" class="card  shadow-xl" style="overflow:auto;" >
+       <div id="ALWiYtpokG-body" class="card-body ">
+        <div id="ALWiYtpokG-row" class="form-group row ">
+
+<h:div class="col-md-6 ">
+   <hbox spacing="3px" sclass="margin-field">
+   
+    <label sclass="text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('idcmpestadofact.label', 'Estado'))"/>
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idcmpestadofact" placeholder="@load(vm.lang.getProperty('idcmpestadofact').label,'Estado')" model="@bind(vm.foreings['idcmpestadofact'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idcmpestadofact',item=self.selectedItem.value,updatebean='true')"  		selectedItem="@load(vm.beanData.idcmpestadofact)"  onCreate="@command('onCreateCombo',component=self,alias='idcmpestadofact')" value="@bind(vm.beanData.idcmpestadofact .estado)@save(vm.beanData.idcmpestadofact.estado, before=('grabar')) @validator(vm.validator,required=true)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.estado)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idcmpestadofact'])"/>
+
+  
+</h:div>
+
+
+
+<h:div class="col-md-6 ">
+   <hbox spacing="3px" sclass="margin-field">
+   
+    <label sclass="text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('iderpformapago.label', 'Forma de Pago'))"/>
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="iderpformapago" placeholder="@load(vm.lang.getProperty('iderpformapago').label,'Forma de Pago')" model="@bind(vm.foreings['iderpformapago'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='iderpformapago',item=self.selectedItem.value,updatebean='true')"  		selectedItem="@load(vm.beanData.iderpformapago)"  onCreate="@command('onCreateCombo',component=self,alias='iderpformapago')" value="@bind(vm.beanData.iderpformapago .formadepago)@save(vm.beanData.iderpformapago.formadepago, before=('grabar')) @validator(vm.validator,required=true)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.formadepago)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['iderpformapago'])"/>
+<a sclass="" tooltiptext="add" iconSclass="bx bx-link-external" d:data-bs-toggle="modal"  d:data-bs-target="#staticERPFORMAPAGO" onClick="@command('appendForeing',win=WIN_sFLTTYGNTS,alias='iderpformapago',body='body_sFLTTYGNTS',page='popuppopfpago.zul',close='btn_iderpformapago')"></a>
+
+<window id="WIN_sFLTTYGNTS" mode="modal" visible="false" position="center,center" action="show: slideDown;hide: slideUp" sclass="z-messagebox-window" border="none" width="80%">
+<div class="modal-content border-0">
+<div class="modal-header bg-soft-info p-3">
+<h:h5 class="modal-title"> Crear Forma de pago</h:h5>
+</div>
+<div class="modal-body" id="body_sFLTTYGNTS"></div>
+<div class="modal-footer"></div>
+</div>
+</window>
+
+
+  
+</h:div>
+
+
+
+
+				
+
+    <h:div class="col-md-6 ">
+    <!-- sclass="margin-field" -->
+       <hbox spacing="3px" visible="@load(vm.isVisible('REFPAGO'))" >
+	    <label sclass="text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('REFPAGO.label', 'Ref. Pago'))"  />
+	   </hbox>
+	    <textbox   tabindex="3" id="744289" 
+	   placeholder="@load(vm.lang.getProperty('REFPAGO.label', 'refpago'))" 
+	   value="@bind(vm.beanData.refpago) @save(vm.beanData.refpago, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('REFPAGO'))" disabled="@load(vm.isEditable('REFPAGO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['744289'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+<h:div class="col-md-6 ">
+   <hbox spacing="3px" sclass="margin-field">
+   
+    <label sclass="text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('iderpmabnco.label', 'Banco'))"/>
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="iderpmabnco" placeholder="@load(vm.lang.getProperty('iderpmabnco').label,'Banco')" model="@bind(vm.foreings['iderpmabnco'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='iderpmabnco',item=self.selectedItem.value,updatebean='true')"  		selectedItem="@load(vm.beanData.iderpmabnco)"  onCreate="@command('onCreateCombo',component=self,alias='iderpmabnco')" value="@bind(vm.beanData.iderpmabnco .banco)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.banco)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['iderpmabnco'])"/>
+<a sclass="" tooltiptext="add" iconSclass="bx bx-link-external" d:data-bs-toggle="modal"  d:data-bs-target="#staticERPMABNCO" onClick="@command('appendForeing',win=WIN_tENYetCUkT,alias='iderpmabnco',body='body_tENYetCUkT',page='popuppopbanco.zul',close='btn_iderpmabnco')"></a>
+
+<window id="WIN_tENYetCUkT" mode="modal" visible="false" position="center,center" action="show: slideDown;hide: slideUp" sclass="z-messagebox-window" border="none" width="80%">
+<div class="modal-content border-0">
+<div class="modal-header bg-soft-info p-3">
+<h:h5 class="modal-title"> Crear Bancos</h:h5>
+</div>
+<div class="modal-body" id="body_tENYetCUkT"></div>
+<div class="modal-footer"></div>
+</div>
+</window>
+
+
+  
+</h:div>
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+
+
+
+
+
+<div id="NOAsLHeJEQ"   visible="true"  class="col-lg-12 col-xlg-12 col-md-12">
+  <div id="NOAsLHeJEQ-card" class="card  shadow-xl" style="overflow:auto;" >
+       <div id="NOAsLHeJEQ-body" class="card-body ">
+        <div id="NOAsLHeJEQ-row" class="form-group row ">
+
+<tabbox orient="top" mold="default" >
+     <tabs>
+                                 <tab label="Linea Factura" onCreate="@command('loadSubtableOnDemand',alias='subcmprlineafact')" />
+                                <tab label="Documentos" />      
+     </tabs>
+     <tabpanels>
+      <tabpanel>
+        <div class="row">
+
+ <!--	if(comp.getPropBeans().get("loadOnDemand")!=null) {-->
+ <div class="col-lg-12">		
+  <grid id="ioCwiUHmlB" height="400px" width="100%" 
+   model="@bind(vm.grid['subcmprlineafact']) " 
+    onCreate="@command('onSubtableCreate',component=self,alias='subcmprlineafact',loadOnDemand='false' )" >
+ 	      
+  
+  
+  
+  
+  
+	  <columns sizable="true">
+   
+      
+	   
+        <column label="@load(vm.lang.getProperty('DESCRIPCION.label', 'DESCRIPCION'))" align="center" sclass="text-capitalize"/>
+	 </columns>
+
+  </grid>
+  </div>
+
+
+
+         </div>
+      </tabpanel>   
+      <tabpanel>
+        <div class="row">
+
+ <!--	if(comp.getPropBeans().get("loadOnDemand")!=null) {-->
+ <div class="col-lg-12">		
+  <grid id="DsoGmKdsBL" height="400px" width="100%" 
+   model="@bind(vm.grid['FreeMarker template error (DEBUG mode; use RETHROW in production!):
+The following has evaluated to null or missing:
+==> grid.manyToMany  [in template "nocode/viewmodel/preview/component/grid.ftl" at line 42, column 28]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${grid.manyToMany.descends.coname}  [in template "nocode/viewmodel/preview/component/grid.ftl" at line 42, column 26]
+	- Reached through: #include "grid.ftl"  [in template "nocode/viewmodel/preview/component/comps.ftl" at line 5, column 64]
+	- Reached through: #include "comps.ftl"  [in template "nocode/viewmodel/preview/component/tabbox.ftl" at line 80, column 13]
+	- Reached through: #include "tabbox.ftl"  [in template "nocode/viewmodel/preview/component/comps.ftl" at line 3, column 66]
+	- Reached through: #include "comps.ftl"  [in template "nocode/viewmodel/preview/component/div_card.ftl" at line 81, column 19]
+	- Reached through: #include "div_card.ftl"  [in template "nocode/viewmodel/preview/component/div.ftl" at line 5, column 5]
+	- Reached through: #include "div.ftl"  [in template "nocode/viewmodel/preview/component/comps.ftl" at line 8, column 19]
+	- Reached through: #include "component/comps.ftl"  [in template "nocode/viewmodel/preview/master.ftl" at line 103, column 22]
+----
+
+Java stack trace (for programmers):
+----
+freemarker.core.InvalidReferenceException: [... Exception message was already printed; see it above ...]
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.UnexpectedTypeException.newDescriptionBuilder(UnexpectedTypeException.java:85)
+	at freemarker.core.UnexpectedTypeException.<init>(UnexpectedTypeException.java:48)
+	at freemarker.core.NonHashException.<init>(NonHashException.java:49)
+	at freemarker.core.Dot._eval(Dot.java:48)
+	at freemarker.core.Expression.eval(Expression.java:101)
+	at freemarker.core.Dot._eval(Dot.java:41)
+	at freemarker.core.Expression.eval(Expression.java:101)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:100)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:63)
+	at freemarker.core.Environment.visit(Environment.java:334)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.include(Environment.java:2925)
+	at freemarker.core.Include.accept(Include.java:171)
+	at freemarker.core.Environment.visit(Environment.java:334)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.include(Environment.java:2925)
+	at freemarker.core.Include.accept(Include.java:171)
+	at freemarker.core.Environment.visit(Environment.java:370)
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:321)
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:271)
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:244)
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:644)
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:108)
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:94)
+	at freemarker.core.Environment.visit(Environment.java:370)
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:321)
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:271)
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:244)
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:644)
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:108)
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:94)
+	at freemarker.core.Environment.visit(Environment.java:334)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.include(Environment.java:2925)
+	at freemarker.core.Include.accept(Include.java:171)
+	at freemarker.core.Environment.visit(Environment.java:334)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.include(Environment.java:2925)
+	at freemarker.core.Include.accept(Include.java:171)
+	at freemarker.core.Environment.visit(Environment.java:370)
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:321)
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:271)
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:244)
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:644)
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:108)
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:94)
+	at freemarker.core.Environment.visit(Environment.java:334)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.include(Environment.java:2925)
+	at freemarker.core.Include.accept(Include.java:171)
+	at freemarker.core.Environment.visit(Environment.java:334)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.include(Environment.java:2925)
+	at freemarker.core.Include.accept(Include.java:171)
+	at freemarker.core.Environment.visit(Environment.java:334)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.include(Environment.java:2925)
+	at freemarker.core.Include.accept(Include.java:171)
+	at freemarker.core.Environment.visit(Environment.java:370)
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:321)
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:271)
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:244)
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:644)
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:108)
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:94)
+	at freemarker.core.Environment.visit(Environment.java:334)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.visit(Environment.java:340)
+	at freemarker.core.Environment.process(Environment.java:313)
+	at freemarker.template.Template.process(Template.java:383)
+	at org.enartframework.suinsit.runtime.ParserByFremarker.parser(ParserByFremarker.java:90)
+	at io.suinsit.architect.zknocode.generator.BuilderPageXspresso.generate(BuilderPageXspresso.java:124)
+	at com.enartsystems.designer.commons.GeneratorNoCode.generate(GeneratorNoCode.java:114)
+	at com.enartsystems.designer.commons.GeneratorNoCode.generatePagePreview(GeneratorNoCode.java:78)
+	at com.enartsystems.designer.ViewModelDesigner.generateSource(ViewModelDesigner.java:693)
+	at com.enartsystems.designer.ViewModelDesigner.onPreview(ViewModelDesigner.java:435)
+	at com.enartsystems.designer.UXDesigner.preview(UXDesigner.java:1523)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.zkoss.bind.impl.ParamCall.call(ParamCall.java:172)
+	at org.zkoss.bind.impl.BinderImpl.handleNotifyChange(BinderImpl.java:1911)
+	at org.zkoss.bind.impl.BinderImpl.doExecute(BinderImpl.java:2080)
+	at org.zkoss.bind.impl.BinderImpl.doCommand(BinderImpl.java:1806)
+	at org.zkoss.bind.impl.BinderImpl.access$1300(BinderImpl.java:137)
+	at org.zkoss.bind.impl.BinderImpl$CommandEventListener.onEvent0(BinderImpl.java:1647)
+	at org.zkoss.bind.impl.BinderImpl$CommandEventListener.onEvent(BinderImpl.java:1600)
+	at org.zkoss.zk.ui.AbstractComponent.onEvent(AbstractComponent.java:3184)
+	at org.zkoss.zk.ui.AbstractComponent.service(AbstractComponent.java:3154)
+	at org.zkoss.zk.ui.AbstractComponent.service(AbstractComponent.java:3096)
+	at org.zkoss.zk.ui.impl.EventProcessor.process(EventProcessor.java:138)
+	at org.zkoss.zk.ui.impl.UiEngineImpl.processEvent(UiEngineImpl.java:1890)
+	at org.zkoss.zk.ui.impl.UiEngineImpl.process(UiEngineImpl.java:1662)
+	at org.zkoss.zk.ui.impl.UiEngineImpl.execUpdate(UiEngineImpl.java:1329)
+	at org.zkoss.zk.au.http.DHtmlUpdateServlet.process(DHtmlUpdateServlet.java:570)
+	at org.zkoss.zk.au.http.DHtmlUpdateServlet.doGet(DHtmlUpdateServlet.java:450)
+	at org.zkoss.zk.au.http.DHtmlUpdateServlet.doPost(DHtmlUpdateServlet.java:458)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:517)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:584)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)
+	at org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1656)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:292)
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193)
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1626)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:552)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:505)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:516)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)
+	at java.base/java.lang.Thread.run(Thread.java:833)

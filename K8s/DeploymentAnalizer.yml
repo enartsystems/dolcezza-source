@@ -1,0 +1,158 @@
+---
+# secret azure-key
+apiVersion: v1
+kind: Secret
+metadata:
+  name: azure-key
+  namespace: suin-dolcezza
+type: Opaque
+stringData:
+  key: 569351efe7394f7e9d0377213cb0aa13
+---
+# suinsit aplicacion
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: mic-discovery-formanalizer
+  namespace: suin-dolcezza
+spec:
+  selector:
+    matchLabels:
+      app: mic-discovery-formanalizer
+  replicas: 1    
+  #strategy:
+  #  type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mic-discovery-formanalizer
+    spec:
+      containers:
+# image to suinsit-app
+      - image: 2w1x0a76.gra7.container-registry.ovh.net/suinsit-core/suinsit/mic-discovery-formanalizer:1.0.10
+        name: mic-discovery-formanalizer
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "50m"
+          limits:
+            memory: "2048Mi"
+            cpu: "750m"
+        env:
+          # Use secret in real usage
+        - name: JAVA_OPTIONS
+          value: -Duser.timezone="Europe/Madrid" -Djetty.http.port=9000 -server -Xms256m -Xmx2048m -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxMetaspaceSize=256m -XX:+ScavengeBeforeFullGC
+        - name: SUINSIT_BBDD
+          value: default
+        - name: SUINSIT_BBDD_DRIVER
+          value: org.postgresql.Driver
+        - name: SUINSIT_BBDD_PASSWORD
+          valueFrom:
+            secretKeyRef:
+               name: bbdd
+               key: password
+        - name: SUINSIT_BBDD_URL
+          value: jdbc:postgresql://postgres-tcp:5432/suinsit
+        - name: SUINSIT_BBDD_USERNAME
+          valueFrom:
+            secretKeyRef:
+               name: bbdd
+               key: username
+        - name: AMQ_USER
+          valueFrom:
+            secretKeyRef:
+               name: rabbit-user
+               key: username
+        - name: AMQ_PASSWORD
+          valueFrom:
+            secretKeyRef:
+               name: rabbit-user
+               key: password
+        - name: AZURE-KEY
+          valueFrom:
+            secretKeyRef:
+               name: azure-key
+               key: key       
+        
+        - name: AMQ_HOST
+          value: rabbitmq.suinsit-systems.svc.cluster.local      
+        - name: AMQ_PORT
+          value: "5672"            
+        - name: ROOT_LOG
+          value: INFO
+        - name: TECHNICAL_LOG
+          value: INFO   
+        - name: SUINSIT_LOGS
+          value: /opt/suinsit/logs      
+        - name: SUINSIT_CUSTOMER_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: suinsit-licence         
+              key: customer_name
+        - name: SUINSIT_CUSTOMER_LABEL
+          valueFrom:
+            configMapKeyRef:
+              name: suinsit-licence         
+              key: customer_label      
+        - name: SUINSIT_CUSTOMER_UID
+          valueFrom:
+            configMapKeyRef:
+              name: suinsit-licence         
+              key: customer_uid
+        - name: SUINSIT_VERSION
+          valueFrom:
+            configMapKeyRef:
+              name: suinsit-licence         
+              key: suinsit_branch  
+        - name: SUINSIT_ENVIROMENT
+          value: PRO
+        - name: SUINSIT_PRODUCT
+          valueFrom:
+            configMapKeyRef:
+              name: suinsit-licence         
+              key: suinsit_product  
+        - name: SUINSIT_APPLICATION
+          value: analizer  
+        - name: SUINSIT_EXECUTION
+          value: cloud
+        - name: SUINSIT_HOME
+          value: /opt/suinsit/application
+        - name: SUINSIT_MODE
+          value: PROFESIONAL
+        - name: SUINSIT_STUDIO
+          value: /opt/suinsit/application/studio   
+        - name: SUNSIT_DEPLOY
+          value: /opt/suinsit/application/apps
+        - name: SUINSIT_SERVER_HOST
+          value: portal.labory.suinsit.cloud
+        - name: DISCOVERY_FORMANALIZER_URL
+          value: http://mic-discovery-formanalizer-tcp.suinsit-systems.svc.cluster.local:8080
+        - name: SUINSIT_BPMN_SERVER
+          value: http://mic-suinsit-bpmn:8080/v1          
+        ports:
+        - containerPort: 9000
+          #hostPort: 8080
+          #name: labs-app
+        volumeMounts:
+        - name: suinsit-persistent-storage
+          mountPath: /opt/suinsit
+          subPath: suinsit
+        
+      imagePullSecrets:
+      - name: regcred
+      volumes:
+      - name: suinsit-persistent-storage
+        persistentVolumeClaim:
+          claimName: pvc-suinsit
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mic-discovery-formanalizer
+  namespace: suin-dolcezza
+spec:
+  ports:
+  - port: 80
+    targetPort: 9000
+  selector:
+    app: mic-discovery-formanalizer

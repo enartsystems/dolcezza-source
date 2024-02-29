@@ -1,0 +1,398 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="mens" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',env='preview',pagina='mens')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="mens" />
+<custom-attributes clase="org.suinsit.apps.admin.Ssomenu" />
+	   <custom-attributes namespace="admin" />
+	   <custom-attributes enviroment="preview" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+<div id="YQrlYEbSKd"   visible="true"  class="col-lg-12 col-xlg-12 col-md-12">
+  <div id="YQrlYEbSKd-card" class="card " style="overflow:auto;" >
+       <div id="YQrlYEbSKd-body" class="card-body ">
+        <div id="YQrlYEbSKd-row" class="form-group row ">
+
+
+				
+
+
+   
+    <h:div class="col-md-4 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('MENU'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('MENU.label', 'Menú'))"  />
+	   </hbox>
+	   <textbox   tabindex="1" id="umSCSesltK" 
+	   placeholder="@load(vm.lang.getProperty('MENU.label', 'Menú'))" 
+	   value="@bind(vm.beanData.menu) @save(vm.beanData.menu, before=('grabar')) @validator(vm.validator,required=true ,oldValue=vm.beanDataCpy.menu)"  sclass="margin-field form-control  form-control border border-danger" 
+	   visible="@load(vm.isVisible('MENU'))" disabled="@load(vm.isEditable('MENU')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['umSCSesltK'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-4 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('ICONO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('ICONO.label', 'Icono'))"  />
+	   </hbox>
+	   <textbox   tabindex="2" id="936366" 
+	   placeholder="@load(vm.lang.getProperty('ICONO.label', 'Icono'))" 
+	   value="@bind(vm.beanData.icono) @save(vm.beanData.icono, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('ICONO'))" disabled="@load(vm.isEditable('ICONO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['936366'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-4 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('DESCRIPCION'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('DESCRIPCION.label', 'Descripción'))"  />
+	   </hbox>
+	   <textbox   tabindex="3" id="fAxiDofsGn" 
+	   placeholder="@load(vm.lang.getProperty('DESCRIPCION.label', 'Descripción'))" 
+	   value="@bind(vm.beanData.descripcion) @save(vm.beanData.descripcion, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('DESCRIPCION'))" disabled="@load(vm.isEditable('DESCRIPCION')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['fAxiDofsGn'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+<h:div class="col-md-6 border-field">
+   <hbox spacing="3px" sclass="margin-field">
+    <label sclass="fs-6 text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('idssoaplicacion.label', 'Aplicación'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_EXjxWVRSTX" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idssoaplicacion" placeholder="@load(vm.lang.getProperty('idssoaplicacion').label,'Aplicación')" model="@bind(vm.foreings['idssoaplicacion'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idssoaplicacion',item=self.selectedItem.value,changefk='idparent')"  		selectedItem="@load(vm.beanData.idssoaplicacion)"  onCreate="@command('onCreateCombo',component=self,alias='idssoaplicacion')" value="@bind(vm.beanData.idssoaplicacion .aplicacion)@save(vm.beanData.idssoaplicacion.aplicacion, before=('grabar')) @validator(vm.validator,required=true)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(c:cat3(item.aplicacion,' ',item.namespace))" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idssoaplicacion'])"/>
+   <popup id="pop_EXjxWVRSTX" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idssoaplicacion.helptext', 'idssoaplicacion'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+
+<h:div class="col-md-6 border-field">
+   <hbox spacing="3px" sclass="margin-field">
+    <label sclass="fs-6 text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('idparent.label', 'Menú Parent'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_pNkksjZnPS" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idparent" placeholder="@load(vm.lang.getProperty('idparent').label,'Menú Parent')" model="@bind(vm.foreings['idparent'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idparent',item=self.selectedItem.value)"  		selectedItem="@load(vm.beanData.idparent)"  onCreate="@command('onCreateCombo',component=self,alias='idparent',loadFkFrom='idssoaplicacion')" value="@bind(vm.beanData.idparent .menu)" disabled="@bind(vm.beanData.idssoaplicacion.idxaplicacion eq null) " ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.menu)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idparent'])"/>
+   <popup id="pop_pNkksjZnPS" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idparent.helptext', 'idparent'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-4 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('DASHBOARDPAGE'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('DASHBOARDPAGE.label', 'Página Dashboard'))"  />
+	   </hbox>
+	   <textbox   tabindex="6" id="PIqdxqYMoU" 
+	   placeholder="@load(vm.lang.getProperty('DASHBOARDPAGE.label', 'Página Dashboard'))" 
+	   value="@bind(vm.beanData.dashboardpage) @save(vm.beanData.dashboardpage, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('DASHBOARDPAGE'))" disabled="@load(vm.isEditable('DASHBOARDPAGE')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['PIqdxqYMoU'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-4 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('TITLE'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('TITLE.label', 'Titulo'))"  />
+	   </hbox>
+	   <textbox   tabindex="7" id="wdktlSpHlB" 
+	   placeholder="@load(vm.lang.getProperty('TITLE.label', 'Titulo'))" 
+	   value="@bind(vm.beanData.title) @save(vm.beanData.title, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('TITLE'))" disabled="@load(vm.isEditable('TITLE')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['wdktlSpHlB'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-4 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('NAMESPACE'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('NAMESPACE.label', 'Namespace'))"  />
+	   </hbox>
+	   <textbox   tabindex="8" id="535080" 
+	   placeholder="@load(vm.lang.getProperty('NAMESPACE.label', 'Namespace'))" 
+	   value="@bind(vm.beanData.namespace) @save(vm.beanData.namespace, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('NAMESPACE'))" disabled="@load(vm.isEditable('NAMESPACE')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['535080'])"/>
+	   
+    </h:div>   
+
+
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+<div id="pWKDWZkKJn"   visible="true"  class="col-lg-12 col-xlg-12 col-md-12">
+  <div id="pWKDWZkKJn-card" class="card " style="overflow:auto;" >
+       <div id="pWKDWZkKJn-body" class="card-body ">
+        <div id="pWKDWZkKJn-row" class="form-group row ">
+
+<tabbox orient="top" mold="default" >
+     <tabs>
+                                 <tab label="SubMenús" onCreate="@command('loadSubtableOnDemand',alias='subssomenuitem')" />
+     </tabs>
+     <tabpanels>
+      <tabpanel>
+        <div class="row">
+
+
+<div class="col-lg-2">
+ <div class="col-lg-1">
+ <!--d:data-bs-toggle="modal" d:data-bs-target="#staticNsoqdwsSPS"-->
+ <button label="Nuevo Submenú" tooltiptext="añadir nuevo registro" iconSclass="s-icon s-icon-lapiz" 
+		onClick="@command('appendSubtable',alias='subssomenuitem',body='body_NsoqdwsSPS',page='popuppopmenuitems.zul',close='btn_NsoqdwsSPS',win=WIN_NsoqdwsSPS)" 
+		disabled="@load(!vm.appendSubtable)" class="btn"/>
+ </div>
+  	<space></space>
+ </div>		
+ 
+ <div class="table-responsive "
+    onCreate="@command('onSubtableCreate',component=self,alias='subssomenuitem',body='body_NsoqdwsSPS',page='popuppopmenuitems.zul',win=WIN_NsoqdwsSPS)" >
+  
+   <h:table class="table align-middle table-bordered table-hover table-nowrap">
+      <h:thead class="table-light">
+        <h:tr>
+       <h:th scope="col" class="text-center" ><label value="@load(vm.lang.getProperty('ITEM.label', ''))" sclass="text-capitalize font-weight-bold"/></h:th>
+       <h:th scope="col" class="text-center" ><label value="@load(vm.lang.getProperty('PAGE.label', 'PAGE'))" sclass="text-capitalize font-weight-bold"/></h:th>
+       <h:th scope="col" class="text-center" ><label value="@load(vm.lang.getProperty('NAMESPACE.label', 'NAMESPACE'))" sclass="text-capitalize font-weight-bold"/></h:th>
+       <h:th scope="col" class="text-center" ><label value="@load(vm.lang.getProperty('DASHBOARD.label', 'DASHBOARD'))" sclass="text-capitalize font-weight-bold"/></h:th>
+       <h:th scope="col" class="text-center" ><label value="@load(vm.lang.getProperty('URL.label', 'URL'))" sclass="text-capitalize font-weight-bold"/></h:th>
+    <h:th></h:th>
+        </h:tr>
+      </h:thead>
+      <h:tbody>
+       <forEach items="@bind(vm.grid['subssomenuitem'])" var="item">
+         <h:tr>
+            <h:td class="text-center">
+				     <label sclass="" value="@load(item.item) @converter(vm.fieldConverter)"></label>
+              </h:td>
+            <h:td class="text-center">
+				     <label sclass="" value="@load(item.page) @converter(vm.fieldConverter)"></label>
+              </h:td>
+            <h:td class="text-center">
+				     <label sclass="" value="@load(item.namespace) @converter(vm.fieldConverter)"></label>
+              </h:td>
+            <h:td class="text-center">
+				        <label sclass="" value="@load(item.dashboard) @converter(vm.fieldConverter)"></label>
+              </h:td>
+            <h:td class="text-center">
+				     <label sclass="" value="@load(item.url) @converter(vm.fieldConverter)"></label>
+              </h:td>
+        <h:td>
+            
+                   <a d:data-bs-toggle="modal" d:data-bs-target="#staticNsoqdwsSPS" 
+						onClick="@command('editSubtable',alias='subssomenuitem',body='body_NsoqdwsSPS',page='popuppopmenuitems.zul',close='btn_NsoqdwsSPS',item=item,win=WIN_NsoqdwsSPS)"
+						 iconSclass="s-icon s-icon-lapiz" sclass="btn" />
+		                 <space></space>
+						<a
+						onClick="@command('removeSubtable',alias='subssomenuitem',item=item)"
+						iconSclass="s-icon s-icon-trash"
+						 />
+           </h:td> 
+            
+           
+         </h:tr>
+       </forEach>
+      </h:tbody>
+   </h:table> 
+ </div>
+
+
+
+         </div>
+      </tabpanel>   
+     </tabpanels>
+</tabbox> 
+
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+                   </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" disabled="true">
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " disabled="false">
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" disabled="true">
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['Menús.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+
+
+
+
+
+
+
+                  
+                 
+
+
+
+  
+  <window id="WIN_NsoqdwsSPS" mode="modal" visible="false" position="center,center" 
+    action="show: slideDown;hide: slideUp" sclass="z-messagebox-window" border="none"  >
+			<div class="modal-content border-0">
+				<div class="modal-header bg-soft-info p-3">
+					<h:h5 class="modal-title"
+						id="exampleNsoqdwsSPS">
+						Sub Menús
+					</h:h5>
+
+				</div>
+				<div class="modal-body" id="body_NsoqdwsSPS"></div>
+				<div class="modal-footer"></div>
+			</div>
+		</window>
+  
+  
+ <!-- 
+  <h:div class="modal fade" id="staticNsoqdwsSPS" tabindex="-1" aria-labelledby="exampleNsoqdwsSPS" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content border-0">
+                            <div class="modal-header bg-soft-info p-3">
+                                <h:h5 class="modal-title" id="exampleNsoqdwsSPS">Sub Menús</h:h5>
+                                <h:button id="btn_NsoqdwsSPS" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></h:button>
+                            </div>
+                            <div class="modal-body" id="body_NsoqdwsSPS"></div>
+                        </div>
+                    </div>
+                  </h:div> 
+  -->                
+                  
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$mens');
+  binder.command('doLoad');
+});
+function loadmens(){
+  var binder = zkbind.$('$mens');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

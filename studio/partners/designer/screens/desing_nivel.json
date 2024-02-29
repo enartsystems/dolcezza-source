@@ -1,0 +1,20 @@
+{
+  "uid" : "27145",
+  "nameScreen" : "nivel",
+  "nameEntidad" : "NIVEL",
+  "pageName" : "nivel",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "nivel de partner",
+  "title" : "nivel",
+  "fecha" : 1684605354953,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

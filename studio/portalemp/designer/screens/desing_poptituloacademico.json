@@ -1,0 +1,20 @@
+{
+  "uid" : "90757",
+  "nameScreen" : "poptituloacademico",
+  "nameEntidad" : "RRHHMACADEMIC",
+  "pageName" : "poptituloacademico",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "popup",
+  "descripcion" : "popup emergente de nivel academico",
+  "title" : "Nivel academico",
+  "fecha" : 1693658944777,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : true
+}

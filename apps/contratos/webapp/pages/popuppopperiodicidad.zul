@@ -1,0 +1,119 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="popperiodicidad" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='popperiodicidad')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="popperiodicidad" />
+	  <custom-attributes enviroment="preview" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+<h:div style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12">
+<h:div class="row">
+
+
+
+
+   
+    <h:div class="col-md-8">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('PERIODICIDAD'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('PERIODICIDAD.label', 'Periodicidad'))"  />
+	   </hbox>
+	   <textbox  tabindex="1" id="PERIODICIDAD" placeholder="@load(vm.lang.getProperty('PERIODICIDAD.label', 'Periodicidad'))" value="@bind(vm.beanData.periodicidad) @save(vm.beanData.periodicidad, before=('store')) @validator(vm.unique, field='PERIODICIDAD',required=true ,oldValue=vm.beanDataCpy.periodicidad)"  sclass="form-control  form-control border border-danger" visible="@load(vm.isVisible('PERIODICIDAD'))" disabled="@load(vm.isEditable('PERIODICIDAD')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['PERIODICIDAD'])"/>
+    </h:div>   
+
+
+
+
+
+
+
+
+    <h:div class="col-md-4">
+       <hbox spacing="3px" visible="@load(vm.isVisible('DIASRENOVACION'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('DIASRENOVACION.label', 'Días renovación'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_DIASRENOVACION" />
+	   </hbox>
+    <decimalbox tabindex="2" id="DIASRENOVACION"  placeholder="@load(vm.lang.getProperty('DIASRENOVACION.label', 'Introduzca dias de renovación'))"  value="@bind(vm.beanData.diasrenovacion) @save(vm.beanData.diasrenovacion, before=('store')) "  format="###,###,##0.00" sclass="form-control  form-control border" visible="@load(vm.isVisible('DIASRENOVACION'))" disabled="@load(vm.isEditable('DIASRENOVACION')?false:true)" onChange="@command('onChangeInput',field='DIASRENOVACION',evento=event,componente=self,calculate=true)" />
+    <label sclass="text-danger" value="@load(vmsgs['DIASRENOVACION'])"/>
+    </h:div>
+   <popup id="pop_DIASRENOVACION" width="200px">
+          <groupbox sclass="z-demo-config" closable="false">
+            <caption>Help</caption>
+            <fragment exps="@load(vm.lang.getProperty('DIASRENOVACION.helptext', vm.form.getFieldByAtribute('DIASRENOVACION').getFieldPropsBeanByID('Helptext').value))" >
+	    	   <![CDATA[
+                <span textContent='@load(exps)'></span>
+	    	   ]]>        
+	        </fragment>
+        </groupbox>
+ </popup>
+
+
+
+
+</h:div>
+</h:div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('store')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('storeNew')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['popperiodicidad.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$popperiodicidad');
+  binder.command('doLoad');
+});
+function loadpopperiodicidad(){
+  var binder = zkbind.$('$popperiodicidad');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

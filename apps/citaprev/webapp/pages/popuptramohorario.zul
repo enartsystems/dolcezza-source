@@ -1,0 +1,279 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="tramohorario" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='tramohorario')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="tramohorario" />
+<custom-attributes clase="org.suinsit.apps.citaprev.Citrusuhorario" />
+	   <custom-attributes namespace="citaprev" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+<div id="jKibJusLyv"   visible="true"  class="col-lg-9 col-xlg-9 col-md-9">
+  <div id="jKibJusLyv-card" class="card  shadow-lg" style="overflow:auto;" >
+       <div id="jKibJusLyv-body" class="card-body ">
+        <div id="jKibJusLyv-row" class="form-group row ">
+
+
+				
+
+
+    <h:div class="col-md-4 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('DESDE'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style=" Font-Size:16px;" value="@load(vm.lang.getProperty('DESDE.label', 'Desde Fecha'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_DESDE" />
+	   </hbox>
+	      <datebox     id="QXxOXuPgCb"  placeholder="@load(vm.lang.getProperty('DESDE.label', 'Desde Fecha'))" tabindex="1" value="@bind(vm.beanData.desde) @save(vm.beanData.desde, before=('grabar')) "   format="dd/MM/yyyy"  
+    visible="@load(vm.isVisible('DESDE'))" disabled="@load(vm.isEditable('DESDE')?false:true)" sclass="margin-field"/>
+    <label sclass="text-danger" value="@load(vmsgs['QXxOXuPgCb'])"/>   
+    
+      </h:div>
+
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-4 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('HASTA'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style=" Font-Size:16px;" value="@load(vm.lang.getProperty('HASTA.label', 'Hasta Fecha'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_HASTA" />
+	   </hbox>
+	      <datebox     id="IQlyXVaOQS"  placeholder="@load(vm.lang.getProperty('HASTA.label', 'Hasta Fecha'))" tabindex="2" value="@bind(vm.beanData.hasta) @save(vm.beanData.hasta, before=('grabar')) "   format="dd/MM/yyyy"  
+    visible="@load(vm.isVisible('HASTA'))" disabled="@load(vm.isEditable('HASTA')?false:true)" sclass="margin-field"/>
+    <label sclass="text-danger" value="@load(vmsgs['IQlyXVaOQS'])"/>   
+    
+      </h:div>
+
+
+
+
+
+
+
+
+
+
+<h:div class="col-md-4">
+       <hbox spacing="3px" visible="@load(vm.isVisible('DESDEHORA'))">
+	    <label sclass="form-label font-weight-normal align-text-middle" style=" Font-Size:16px;" value="@load(vm.lang.getProperty('DESDEHORA.label', 'Desde Hora'))"  />
+	   </hbox>
+	   <timebox sclass="col-md-4" format="HH:mm:ss" tabindex="3" id="DESDEHORA" value="@bind(vm.beanData.desdehora) @save(vm.beanData.desdehora, before=('grabar')) " visible="@load(vm.isVisible('DESDEHORA'))" disabled="@load(vm.isEditable('DESDEHORA')?false:true)"/>
+	   <label sclass="text-danger" value="@load(vmsgs['DESDEHORA'])"/>
+  </h:div>   
+
+
+
+
+
+
+
+
+
+
+<h:div class="col-md-4">
+       <hbox spacing="3px" visible="@load(vm.isVisible('HASTAHORA'))">
+	    <label sclass="form-label font-weight-normal align-text-middle" style=" Font-Size:16px;" value="@load(vm.lang.getProperty('HASTAHORA.label', 'Hasta Hora'))"  />
+	   </hbox>
+	   <timebox sclass="col-md-4" format="HH:mm:ss" tabindex="4" id="HASTAHORA" value="@bind(vm.beanData.hastahora) @save(vm.beanData.hastahora, before=('grabar')) " visible="@load(vm.isVisible('HASTAHORA'))" disabled="@load(vm.isEditable('HASTAHORA')?false:true)"/>
+	   <label sclass="text-danger" value="@load(vmsgs['HASTAHORA'])"/>
+  </h:div>   
+
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-4 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('MAXCITAPARALELL'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style=" Font-Size:16px;" value="@load(vm.lang.getProperty('MAXCITAPARALELL.label', 'Núm. Máximo Citas paralelo'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_MAXCITAPARALELL" />
+	   </hbox>
+	      <intbox   tabindex="5" id="TbBGxghaAD"  placeholder="@load(vm.lang.getProperty('MAXCITAPARALELL.label', 'Núm. Máximo Citas paralelo'))" sclass="margin-field form-control  form-control form-control-sm border border-primary bg-light text-dark"  value="@bind(vm.beanData.maxcitaparalell) @save(vm.beanData.maxcitaparalell, before=('grabar')) " visible="@load(vm.isVisible('MAXCITAPARALELL'))" disabled="@load(vm.isEditable('MAXCITAPARALELL')?false:true)" onChange="@command('onChangeInput',field='MAXCITAPARALELL',evento=event,componente=self,calculate=true)" />
+    <label sclass="text-danger" value="@load(vmsgs['TbBGxghaAD'])"/>   
+    
+    </h:div>
+
+
+
+
+
+
+
+<h:div class="col-md-4 border-field">
+
+   <hbox spacing="3px">
+     <label sclass="fs-6 text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('DIAS.label', 'Días'))"/>
+ </hbox>
+
+ <combobox mold="rounded" sclass="" id="DIAS" model="@load(vm.getEnums('DIAS'))" 
+selectedItem="@load(vm.beanData.dias)"  value="@load(vm.beanData.dias) @save(vm.beanData.dias, before=('grabar')) ">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-danger" value="@load(vmsgs['DIAS'])"/>
+</h:div>
+
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+<div id="CojbTmMgWI"   visible="true"  class="col-lg-3 col-xlg-3 col-md-3">
+  <div id="CojbTmMgWI-card" class="card  shadow-lg" style="overflow:auto;" >
+       <div id="CojbTmMgWI-body" class="card-body ">
+        <div id="CojbTmMgWI-row" class="form-group row ">
+
+<h:div class="col-md-12 border-field">
+   <hbox spacing="3px" sclass="margin-field">
+    <label sclass="fs-6 text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('idssousuario.label', 'Usuario'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_SMkulpJJwd" />
+   </hbox>
+<h:div class="col-md-12">
+<div >
+<button  iconSclass="ri-search-line search-icon" sclass="btn btn-icon"  d:data-bs-toggle="modal" d:data-bs-target="#searchSMkulpJJwd"></button><button  iconSclass="s-icon s-icon-clear" sclass="btn btn-icon" onClick="@command('clearForeing',alias='idssousuario')">	</button>
+</div>
+</h:div>
+<h:div class="mb-2">
+<textbox id="tboxSMkulpJJwd"  placeholder="" value="@bind(vm.beanData.idssousuario.usuario) @save(vm.beanData.idssousuario.usuario, before=('grabar'))  " 
+ onChange="@command('onChangeFindTextForeing',alias='idssousuario',att='usuario',event=event,idcp='cbSMkulpJJwd')"  sclass="form-control  bg-light border-0" />
+<combobox id="cbSMkulpJJwd" mold="rounded" autodrop="true" visible="false" model="@load(vm.foreings['idssousuario'])" onSelect="@command('onSelectTextForeing',item=self.selectedItem.value,alias='idssousuario',hidde=self)" width="85%">
+<template name="model" var="item"><comboitem value="${item}" label="${item.usuario}"></comboitem>
+</template></combobox>
+<label sclass="text-danger" value="@load(vmsgs['tboxSMkulpJJwd'])"/></h:div>
+<h:div class="modal fade" id="searchSMkulpJJwd"  aria-labelledby="exampleSMkulpJJwd" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content border-0">
+<div class="modal-header bg-soft-info p-3">
+<h:h5 class="modal-title" id="examplesSMkulpJJwd">Usuario</h:h5>
+<h:button id="btn_SSMkulpJJwd" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></h:button>
+</div><div class="modal-body">
+<div sclass="mb-2">
+<textbox sclass="form-control  bg-light border-0" placeholder="introduzca criterios..." onOK="@command('onChangeFindForeing',alias='idssousuario',att='usuario,',input=self)" onChange="@command('onChangeFindForeing',alias='idssousuario',att='usuario,',event=event)"/>
+</div><div sclass="mb-2">
+<listbox height="400px" mold="paging" pageSize="20" pagingPosition="bottom" model="@bind(vm.foreings['idssousuario'])" onSelect="@command('onSelectForeingPopup', alias='idssousuario',item=self.selectedItem.value,close='btn_SSMkulpJJwd' )">
+<listhead>
+<listheader label="@load(vm.lang.getProperty('USUARIO.label','usuario'))"  />
+</listhead>
+<template name="model" var="item">
+<listitem value="@load(item)">
+<listcell label="@load(item.usuario)" />
+</listitem></template></listbox>
+</div></div></div></div></h:div>
+
+   <popup id="pop_SMkulpJJwd" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idssousuario.helptext', 'idssousuario'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+
+<div id="HeQzipihEj" style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12"  visible="true" >
+<div id="HeQzipihEj-row" class="row">
+</div>
+</div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['TramoHorario.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+
+
+
+
+
+                  
+                 
+
+
+                  
+                 
+
+                  
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$tramohorario');
+  binder.command('doLoad');
+});
+function loadtramohorario(){
+  var binder = zkbind.$('$tramohorario');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

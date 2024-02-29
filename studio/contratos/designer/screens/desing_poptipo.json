@@ -1,0 +1,20 @@
+{
+  "uid" : "11402",
+  "nameScreen" : "poptipo",
+  "nameEntidad" : "CRTMTIPO",
+  "pageName" : "poptipo",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "popup",
+  "descripcion" : "Popup tipo de contrato",
+  "title" : "Tipo de contrato",
+  "fecha" : 1674993751774,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : true
+}

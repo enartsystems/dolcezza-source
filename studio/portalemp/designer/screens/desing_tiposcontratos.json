@@ -1,0 +1,20 @@
+{
+  "uid" : "16484",
+  "nameScreen" : "tiposcontratos",
+  "nameEntidad" : "RRHMTIPOCONTA",
+  "pageName" : "tiposcontratos",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "Gestiona los diferentes tipos de contratos",
+  "title" : "Tipos de contratos",
+  "fecha" : 1693659035426,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

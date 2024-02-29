@@ -1,0 +1,177 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="fichaje" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='fichaje')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="fichaje" />
+	  <custom-attributes enviroment="preview" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+<h:div style="overflow:auto;" class=" col-lg-4 col-xlg-4 col-md-4">
+<h:div class="row">
+
+
+
+
+
+<h:div class="col-md-12">
+       <hbox spacing="3px" visible="@load(vm.isVisible('TMINICIO'))">
+	    <label sclass="form-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('TMINICIO.label', 'Inicio'))"  />
+	   </hbox>
+	   <timebox sclass="col-md-12" format="HH:mm:ss" tabindex="1" id="TMINICIO" value="@bind(vm.beanData.tminicio) @save(vm.beanData.tminicio, before=('store')) " visible="@load(vm.isVisible('TMINICIO'))" disabled="@load(vm.isEditable('TMINICIO')?false:true)"/>
+	   <label sclass="text-danger" value="@load(vmsgs['TMINICIO'])"/>
+  </h:div>   
+
+
+
+
+
+<h:div class="col-md-12">
+
+   <hbox spacing="3px">
+     <label sclass="form-label font-weight-normal text-danger" style="" value="@load(vm.lang.getProperty('TIPO.label', 'Tipo'))"/>
+ </hbox>
+
+ <combobox mold="rounded" sclass="border-warning" id="TIPO" model="@load(vm.form.getFieldByAtribute('TIPO').getFieldPropsBeanByID('txValues').enums)" 
+selectedItem="@load(vm.beanData.tipo)"  value="@load(vm.beanData.tipo) @save(vm.beanData.tipo, before=('store')) @validator(vm.validator,required=true ,oldValue=vm.bean.getFieldByAtribute('TIPO').value )">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-danger" value="@load(vmsgs['TIPO'])"/>
+</h:div>
+
+
+
+</h:div>
+</h:div>  <h:div style="overflow:auto;" class=" col-lg-4 col-xlg-4 col-md-4">
+<h:div class="row">
+
+
+
+
+
+<h:div class="col-md-12">
+       <hbox spacing="3px" visible="@load(vm.isVisible('TMFIN'))">
+	    <label sclass="form-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('TMFIN.label', 'Fin'))"  />
+	   </hbox>
+	   <timebox sclass="col-md-12" format="HH:mm:ss" tabindex="1" id="TMFIN" value="@bind(vm.beanData.tmfin) @save(vm.beanData.tmfin, before=('store')) " visible="@load(vm.isVisible('TMFIN'))" disabled="@load(vm.isEditable('TMFIN')?false:true)"/>
+	   <label sclass="text-danger" value="@load(vmsgs['TMFIN'])"/>
+  </h:div>   
+
+
+
+
+
+
+
+
+    <h:div class="col-md-12">
+       <hbox spacing="3px" visible="@load(vm.isVisible('TOTAL'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('TOTAL.label', 'Total'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_TOTAL" />
+	   </hbox>
+    <decimalbox tabindex="2" id="TOTAL"  placeholder="@load(vm.lang.getProperty('TOTAL.label', 'Total'))"  value="@bind(vm.beanData.total) @save(vm.beanData.total, before=('store')) "  format="###,###,##0.00" sclass="form-control  form-control border" visible="@load(vm.isVisible('TOTAL'))" disabled="@load(vm.isEditable('TOTAL')?false:true)" onChange="@command('onChangeInput',field='TOTAL',evento=event,componente=self,calculate=true)" />
+    <label sclass="text-danger" value="@load(vmsgs['TOTAL'])"/>
+    </h:div>
+
+
+
+
+</h:div>
+</h:div>  <h:div style="overflow:auto;" class=" col-lg-4 col-xlg-4 col-md-4">
+<h:div class="row">
+
+
+
+
+    <h:div class="col-md-12">
+       <hbox spacing="3px" visible="@load(vm.isVisible('FECHA'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('FECHA.label', 'Fecha'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_FECHA" />
+	   </hbox>
+    <datebox id="FECHA"  placeholder="@load(vm.lang.getProperty('FECHA.label', 'Fecha'))" tabindex="1" value="@bind(vm.beanData.fecha) @save(vm.beanData.fecha, before=('store')) "   format="dd/MM"  visible="@load(vm.isVisible('FECHA'))" disabled="@load(vm.isEditable('FECHA')?false:true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['FECHA'])"/>
+      </h:div>
+
+
+
+
+
+ <h:div class="col-md-12">
+       <hbox spacing="3px" visible="@load(vm.isVisible('APROBADA'))" >
+	    <label sclass="form-check-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('APROBADA.label', 'Aprobada'))"/>
+	   </hbox>
+ <checkbox mold="default" id="667242" value="@bind(vm.beanData.aprobada) @save(vm.beanData.aprobada, before=('store'))" sclass="form-check-input" visible="@load(vm.isVisible('APROBADA'))" disabled="@load(vm.isEditable('APROBADA')?false:true)" checked="@bind(vm.beanData.aprobada) @save(vm.beanData.aprobada, before=('store'))"/>
+</h:div>
+
+
+
+</h:div>
+</h:div>  <h:div style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12">
+<h:div class="row">
+</h:div>
+</h:div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('store')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('storeNew')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['fichaje.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$fichaje');
+  binder.command('doLoad');
+});
+function loadfichaje(){
+  var binder = zkbind.$('$fichaje');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

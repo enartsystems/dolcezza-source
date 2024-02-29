@@ -1,0 +1,208 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="help" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='help')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="help" />
+<custom-attributes clase="org.suinsit.apps.admin.Mhelpscreen" />
+	   <custom-attributes namespace="admin" />
+	   <custom-attributes uid="43300" />
+	   
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+<div id="DyrFQDUaLO"   visible="true"  class="col-lg-12 col-xlg-12 col-md-12">
+  <div id="DyrFQDUaLO-card" class="card  shadow-xl" style="overflow:auto;" >
+       <div id="DyrFQDUaLO-body" class="card-body ">
+        <div id="DyrFQDUaLO-row" class="form-group row ">
+
+
+				
+
+
+   
+    <h:div class="col-md-3 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('SCREENUID'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('SCREENUID.label', 'ID pantalla'))"  />
+	   </hbox>
+	   <textbox   tabindex="1" id="EqhQNxMElj" 
+	   placeholder="@load(vm.lang.getProperty('SCREENUID.label', 'ID pantalla'))" 
+	   value="@bind(vm.beanData.screenuid) @save(vm.beanData.screenuid, before=('grabar')) @validator(vm.validator,required=true ,oldValue=vm.beanDataCpy.screenuid)"  sclass="margin-field form-control  form-control border border-danger" 
+	   visible="@load(vm.isVisible('SCREENUID'))" disabled="@load(vm.isEditable('SCREENUID')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['EqhQNxMElj'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+
+<h:div class="col-md-3 border-field">
+
+   <hbox spacing="3px">
+     <label sclass="fs-6 text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('TIPOPAGINA.label', 'Tipo de pagina'))"/>
+ </hbox>
+
+ <combobox mold="rounded" sclass="" id="TIPOPAGINA" model="@load(vm.getEnums('TIPOPAGINA'))" 
+selectedItem="@load(vm.beanData.tipopagina)"  value="@load(vm.beanData.tipopagina) @save(vm.beanData.tipopagina, before=('grabar')) ">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-danger" value="@load(vmsgs['TIPOPAGINA'])"/>
+</h:div>
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-4 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('PAGINA'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('PAGINA.label', 'Nombre de pantalla'))"  />
+	   </hbox>
+	   <textbox   tabindex="3" id="NLLZOREoTk" 
+	   placeholder="@load(vm.lang.getProperty('PAGINA.label', 'Nombre de pantalla'))" 
+	   value="@bind(vm.beanData.pagina) @save(vm.beanData.pagina, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('PAGINA'))" disabled="@load(vm.isEditable('PAGINA')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['NLLZOREoTk'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-2 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('LANGUAJE'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('LANGUAJE.label', 'Idioma'))"  />
+	   </hbox>
+	   <textbox   tabindex="4" id="CGfMLdYhgi" 
+	   placeholder="@load(vm.lang.getProperty('LANGUAJE.label', 'Es_es , Cat_cat, EN_en ...'))" 
+	   value="@bind(vm.beanData.languaje) @save(vm.beanData.languaje, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('LANGUAJE'))" disabled="@load(vm.isEditable('LANGUAJE')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['CGfMLdYhgi'])"/>
+	   
+    </h:div>   
+
+
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+<div id="gBrIxNoWCx"   visible="true"  class="col-lg-12 col-xlg-12 col-md-12">
+  <div id="gBrIxNoWCx-card" class="card  shadow-xl" style="overflow:auto;" >
+       <div id="gBrIxNoWCx-body" class="card-body ">
+        <div id="gBrIxNoWCx-row" class="form-group row ">
+
+   <h:div class="col-md-12">
+     <hbox spacing="3px">
+	    <label sclass="form-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('TEXTO.label', 'Texto de ayuda'))"/>
+	   </hbox>
+	  <ckeditor id="RzvrvNLLvA" value="@bind(vm.beanData.texto) @save(vm.beanData.texto, before=('grabar')) "/>       
+</h:div>
+
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+                   </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['HELP.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+
+
+
+                  
+                 
+
+
+                  
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$help');
+  binder.command('doLoad');
+});
+function loadhelp(){
+  var binder = zkbind.$('$help');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

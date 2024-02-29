@@ -1,0 +1,20 @@
+{
+  "uid" : "59035",
+  "nameScreen" : "findemplasisclte",
+  "nameEntidad" : "RRHEMPLEADO",
+  "pageName" : "findemplasisclte",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "Consulta de asistencia",
+  "title" : "Consulta Asistencia ",
+  "fecha" : 1664784974514,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

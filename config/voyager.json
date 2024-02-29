@@ -1,0 +1,65 @@
+[ {
+  "name" : "CLOUDPROF",
+  "gitlab" : {
+    "url" : "http://192.168.1.71/",
+    "user" : "voyager",
+    "password" : "Z95J9kbSMPRnkvN",
+    "key" : "sf94ygk7QurD2qreZdNT"
+  }
+}, {
+  "name" : "DEV",
+  "gitlab" : {
+    "url" : "http://192.168.1.71/",
+    "user" : "voyager",
+    "password" : "Z95J9kbSMPRnkvN",
+    "key" : "sf94ygk7QurD2qreZdNT"
+  }
+}, {
+  "name" : "LOC",
+  "gitlab" : {
+    "url" : "http://192.168.1.71/",
+    "user" : "voyager",
+    "password" : "Z95J9kbSMPRnkvN",
+    "key" : "sf94ygk7QurD2qreZdNT"
+  }
+}, {
+  "name" : "PREPRO",
+  "gitlab" : {
+    "url" : "http://192.168.1.71/",
+    "user" : "voyager",
+    "password" : "Z95J9kbSMPRnkvN",
+    "key" : "sf94ygk7QurD2qreZdNT"
+  }
+}, {
+  "name" : "PRO",
+  "gitlab" : {
+    "url" : "http://192.168.1.71/",
+    "user" : "voyager",
+    "password" : "Z95J9kbSMPRnkvN",
+    "key" : "sf94ygk7QurD2qreZdNT"
+  }
+}, {
+  "name" : "QUA",
+  "gitlab" : {
+    "url" : "http://192.168.1.71/",
+    "user" : "voyager",
+    "password" : "Z95J9kbSMPRnkvN",
+    "key" : "sf94ygk7QurD2qreZdNT"
+  }
+}, {
+  "name" : "TRIAL",
+  "gitlab" : {
+    "url" : "http://192.168.1.71/",
+    "user" : "voyager",
+    "password" : "Z95J9kbSMPRnkvN",
+    "key" : "sf94ygk7QurD2qreZdNT"
+  }
+}, {
+  "name" : "UAT",
+  "gitlab" : {
+    "url" : "http://192.168.1.71/",
+    "user" : "voyager",
+    "password" : "Z95J9kbSMPRnkvN",
+    "key" : "sf94ygk7QurD2qreZdNT"
+  }
+} ]

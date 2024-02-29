@@ -1,0 +1,23 @@
+[ {
+  "props" : null,
+  "idxarchitect" : 1,
+  "delete" : false,
+  "active" : true,
+  "clxmlconfig" : null,
+  "imagen" : "iconos/svg/033-browsers.svg",
+  "icono" : null,
+  "txhandlerclass" : "org.enartframework.suinsit.factorys.SimpleFactoryArchitectImpl",
+  "txbasepackage" : "io.suinsit.architecture.webzkee",
+  "fxalta" : null,
+  "dsdescription" : "Aplicación No Code, con tecnología java y frameworks zkoss y spring framewok",
+  "btactive" : false,
+  "txname" : "Suinsit No Code",
+  "path" : null,
+  "cocode" : null,
+  "licence" : "FREE|PERSONAL|PROFESIONAL|TEAM|NEXUM",
+  "factory" : null,
+  "cloneOther" : [ 71 ],
+  "importData" : [ 71, 72 ],
+  "useData" : [ 71, 72 ],
+  "useJson" : [ 72 ]
+}]

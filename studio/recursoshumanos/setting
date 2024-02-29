@@ -1,0 +1,13 @@
+#create with version org.enart [RELEASE]1.1.12 [Date]30-08-2022 19:45
+#Mon Sep 19 18:29:29 CEST 2022
+workspace.project.owner=manuel
+workspace.project.id=0
+workspace.project.comment=Gesti\u00F3n de recursos humanos
+workspace.project.versionar=true
+tech.artfacto.version=1.1.12
+workspace.project.create=lunes, 19 de septiembre de 2022
+workspace.project.version=1.0.0.SNAPSHOT
+workspace.project.name=Recursos Humanos
+workspace.project.namespace=recursoshumanos
+workspace.architec.name=Suinsit No Code
+workspace.architec.id=1

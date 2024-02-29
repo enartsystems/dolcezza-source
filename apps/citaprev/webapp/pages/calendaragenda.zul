@@ -1,0 +1,34 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+	<idspace viewModel="@id('vm')@init('org.suinsit.nocode.web.CalendarUI')" validationMessages="@id('vmsgs')">
+	    <custom-attributes pagina="agenda" />
+	    <custom-attributes clase="org.suinsit.apps.citaprev.Citmagenda" />
+	   <custom-attributes namespace="citaprev" />
+        <custom-attributes templateView="cardcalendaragenda.zul" />
+          <custom-attributes fieldTitle="asunto" />
+          <custom-attributes fieldContent="asunto" />
+          <custom-attributes showtitle="true" />
+          <custom-attributes showcontent="true" />
+          <custom-attributes create="true" />
+          <custom-attributes edit="true" />
+          <custom-attributes remove="true" />
+        <h:div id="notificacion"></h:div>
+      <toolbar align="end">
+      
+          <toolbarbutton 
+				iconSclass="mdi su-2x mdi-file-pdf" onClick="@command('report',type='pdf')" tooltiptext="View Pdf"/>
+		<toolbarbutton 
+				iconSclass="mdi su-2x mdi-file-excel" onClick="@command('report',type='excel')" tooltiptext="View Excel"/>
+  	 
+           
+  	</toolbar>
+		<div sclass="row">
+			   <div id="divTemplate" sclass="col-lg-12" hflex="1"></div>
+
+		</div>
+	</idspace>
+</zk>

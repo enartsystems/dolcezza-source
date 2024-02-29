@@ -1,0 +1,20 @@
+{
+  "uid" : "87846",
+  "nameScreen" : "items",
+  "nameEntidad" : "SSOMENUITEM",
+  "pageName" : "items",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "sub Menus",
+  "title" : "Sub Menus",
+  "fecha" : 1693770948102,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

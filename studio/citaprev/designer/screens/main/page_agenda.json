@@ -1,0 +1,21 @@
+{
+  "id" : "MZNxpblDJA",
+  "idscreen" : "agenda",
+  "nameScreen" : "agenda",
+  "desktop" : false,
+  "aplication" : null,
+  "prefix" : "calendar",
+  "name" : "agenda",
+  "iconClass" : "fa fa-2x s-icon s-icon-menu-item",
+  "image" : null,
+  "tooltip" : null,
+  "pageHelp" : null,
+  "orient" : null,
+  "pageUrl" : null,
+  "style" : null,
+  "page" : null,
+  "traslates" : { },
+  "roles" : [ ],
+  "items" : [ ],
+  "lastmodif" : null
+}

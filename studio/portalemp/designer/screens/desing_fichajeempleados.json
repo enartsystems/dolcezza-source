@@ -1,0 +1,20 @@
+{
+  "uid" : "4243",
+  "nameScreen" : "fichajeempleados",
+  "nameEntidad" : "RRHEMPLEADO",
+  "pageName" : "fichajeempleados",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "control del asesor para fichaje de empleados",
+  "title" : "Fichaje de empleados",
+  "fecha" : 1678749399194,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

@@ -1,0 +1,20 @@
+{
+  "uid" : "58496",
+  "nameScreen" : "portales",
+  "nameEntidad" : "SSOPORTAL",
+  "pageName" : "portales",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "gestión de portales",
+  "title" : "Portales",
+  "fecha" : 1693385950269,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

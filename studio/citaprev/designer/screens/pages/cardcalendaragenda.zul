@@ -1,0 +1,153 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+
+		 <toolbar align="start">
+       <toolbarbutton label="Hoy"	onClick="@command('onChangeCalendar',action='today')" tooltiptext="View Hoy"/>
+       <toolbarbutton label="Dia"	onClick="@command('onChangeCalendar',action='day')" tooltiptext="View Dia"/>
+       <toolbarbutton label="Semana"	onClick="@command('onChangeCalendar',action='week')" tooltiptext="View Semana"/>
+       <toolbarbutton label="Mes"	onClick="@command('onChangeCalendar',action='month')" tooltiptext="View Mes"/>
+       <toolbarbutton label="Siguiente"	onClick="@command('onChangeCalendar',action='next')" tooltiptext="View next"/>
+       <toolbarbutton label="Anterior"	onClick="@command('onChangeCalendar',action='previus')" tooltiptext="View previus"/>
+       Filter :
+       <textbox id="filter"/>
+       <toolbarbutton label="Apply" onClick="@command('onFilterCalendar',action='filter',textbox=filter)" tooltiptext="Filter"/>
+       <toolbarbutton label="Reset" onClick="@command('onFilterCalendar',action='reset',textbox=filter)" tooltiptext="Reset"/>
+       ir a :
+		
+			<datebox format="MMMM-yyyy"
+				onChange="@command('onCurrentDate',date=self.value)">
+			</datebox>
+			<fragment exps="@load(vm.month)">
+				<![CDATA[ <h4 class="modal-title"
+				textContent='@load(exps)'></h4> ]]>
+	        </fragment>
+  	</toolbar>
+
+	<calendars id="calendars" height="900px"
+		onItemCreate="@command('onCreateEvent',event=event,popup=modalDialog)"
+		onItemEdit="@command('onEditEvent',event=event,popup=modalDialog)"
+		onItemUpdate="@command('onUpdateEvent',event=event,popup=modalDialog)"
+		 weekOfYear="true" days="7" beginTime="8" endTime="20" mold="month" firstDayOfWeek="monday" />
+
+		
+		
+		<window id="modalDialog"    
+    position="center,center" closable="true" action="show: slideDown;hide: slideUp" sclass="modal-dialog modal-xl" width="85%"  visible="false">
+<h:div id="newtask" class="col-lg-12 col-xlg-12 col-md-12" tabindex="-1">
+			<div class="modal-dialog modal-xl">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h:h4 class="modal-title" id="newtaskLabel">
+							New agenda
+						</h:h4>
+						<button type="button" class="btn-close"
+							 onClick="modalDialog.setVisible(false)" >
+						</button>
+					</div>
+					<div class="modal-body">
+						<div sclass="row">
+						   <h:div style="overflow:auto;"
+								class=" col-lg-12 col-xlg-12 col-md-12">
+								<h:div class="row">
+									<h:div class="col-md-4">
+									<hbox spacing="3px">
+											<label sclass="form-label"
+												value="@load(vm.lang.getProperty('BeginDate.label', 'BeginDate'))" />
+										</hbox>		
+										<datebox  
+											
+											format="@load(allDay ? 'long' : 'long+medium')"
+											value="@bind(vm.beanData.begindate)"
+											errorMessage="@load(vmsgs.begindate)"  width="80%" disabled="@load(vm.beanData.locked)"/>
+
+										<label sclass="text-danger"
+											value="@load(vmsgs['ASUNTO'])" />
+                                     </h:div>
+ 									<h:div class="col-md-4">
+ 									    <hbox spacing="3px">
+										<label sclass="form-label" value="@load(vm.lang.getProperty('EndDate.label', 'EndDate'))" />
+										</hbox>
+										<datebox  
+											
+											format="@load(allDay ? 'long' : 'long+medium')"
+											value="@bind(vm.beanData.enddate)"
+											errorMessage="@load(vmsgs.enddate)"  width="80%" disabled="@load(vm.beanData.locked)"/>
+										<label sclass="text-danger"
+											value="@load(vmsgs['ASUNTO'])" />
+									</h:div>
+                                    <h:div class="col-md-4">
+                                       <hbox spacing="3px">
+										<label sclass="form-label" value="@load(vm.lang.getProperty('locked.label', 'Locked'))" />
+									   </hbox>
+                                       <checkbox checked="@bind(vm.beanData.locked)" value="@bind(vm.beanData.locked)"></checkbox>
+                                    </h:div>
+                                    <h:div class="col-md-4">
+                                       <hbox spacing="3px">
+										<label sclass="form-label" value="@load(vm.lang.getProperty('headercolor.label', 'Header Color'))" />
+									   </hbox>
+                                       <colorbox  value="@bind(vm.beanData.headercolor)"/>
+                                    </h:div>
+                                    <h:div class="col-md-4">
+                                       <hbox spacing="3px">
+										<label sclass="form-label" value="@load(vm.lang.getProperty('contentcolor.label', 'Content Color'))" />
+									   </hbox>
+                                       <colorbox  value="@bind(vm.beanData.contentcolor)"/>
+                                    </h:div>
+						         </h:div>   
+						</h:div> 
+						
+						
+
+
+<h:div style="overflow:auto;" class=" col-lg-6 col-xlg-6 col-md-6">
+<h:div class="row">
+
+    <h:div class="col-md-12">
+       <hbox spacing="3px" visible="@load(vm.isVisible('ASUNTO'))">
+	    <label sclass="form-label Font-Size:16px; font-weight-normal" value="@load(vm.lang.getProperty('ASUNTO.label', ''))"  />
+	    <a iconSclass="su-icon su-icon-question" popup="pop_ASUNTO" />
+	   </hbox>
+       <textbox  tabindex="1" id="ASUNTO" placeholder="@load(vm.lang.getProperty('ASUNTO.label', ''))" value="@bind(vm.beanData.asunto) @save(vm.beanData.asunto, before=('store')) "  sclass="form-control " visible="@load(vm.isVisible('ASUNTO'))" disabled="@load(vm.isEditable('ASUNTO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['ASUNTO'])"/>
+    </h:div>   
+   <popup id="pop_ASUNTO" width="200px">
+          <groupbox sclass="z-demo-config" closable="false">
+            <caption>Help</caption>
+            <fragment exps="@load(vm.lang.getProperty('ASUNTO.helptext', vm.form.getFieldByAtribute('ASUNTO').getFieldPropsBeanByID('Helptext').value))" >
+	    	   <![CDATA[
+                <span textContent='@load(exps)'></span>
+	    	   ]]>        
+	        </fragment>
+        </groupbox>
+ </popup>
+
+
+
+
+</h:div>
+</h:div>  
+
+
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button"
+							sclass="btn btn-info waves-effect text-white"
+							d:data-bs-dismiss="modal" label="Save"
+							onClick="@command('store')">
+						</button>
+						<button id="bdelete" type="button"
+							class="btn btn-light waves-effect text-black"
+							onClick="@command('onRemove')" disabled="true" label="Delete" />
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</h:div>
+	</window>	
+</zk>       

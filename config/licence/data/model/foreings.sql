@@ -1,0 +1,5 @@
+
+ ALTER TABLE ROL ADD CONSTRAINT sys_8o9hagsd7v_fk FOREIGN KEY(idrolparent0) REFERENCES rol (idxrol);
+ ALTER TABLE RUSERROL ADD CONSTRAINT sys_jcxtkf2ca1_fk FOREIGN KEY(idrol0) REFERENCES rol (idxrol);
+ ALTER TABLE RUSERROL ADD CONSTRAINT sys_hsx74rvvlp_fk FOREIGN KEY(idusuario0) REFERENCES usuario (idxusuario);
+

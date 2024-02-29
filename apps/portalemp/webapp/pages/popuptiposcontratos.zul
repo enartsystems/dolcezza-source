@@ -1,0 +1,451 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="tiposcontratos" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='tiposcontratos')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="tiposcontratos" />
+<custom-attributes clase="org.suinsit.apps.portalemp.Rrhmtipoconta" />
+	   <custom-attributes namespace="portalemp" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+<div id="PGrUroCKwg"   visible="true"  class="col-lg-8 col-xlg-8 col-md-8">
+  <div id="PGrUroCKwg-card" class="card  shadow-lg" style="overflow:auto;" >
+       <div id="PGrUroCKwg-body" class="card-body ">
+        <div id="PGrUroCKwg-row" class="form-group row ">
+
+
+				
+
+
+   
+    <h:div class="col-md-6 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('TIPOCONTRATO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('TIPOCONTRATO.label', 'Tipo de contrato'))"  />
+	   </hbox>
+	   <textbox   tabindex="1" id="JEeABFNqoM" 
+	   placeholder="@load(vm.lang.getProperty('TIPOCONTRATO.label', 'Tipo de contrato'))" 
+	   value="@bind(vm.beanData.tipocontrato) @save(vm.beanData.tipocontrato, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('TIPOCONTRATO'))" disabled="@load(vm.isEditable('TIPOCONTRATO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['JEeABFNqoM'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-6 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('REFGOBIERNO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('REFGOBIERNO.label', 'Nombre Oficial / Referencia'))"  />
+	   </hbox>
+	   <textbox   tabindex="2" id="GMtiTxTRTz" 
+	   placeholder="@load(vm.lang.getProperty('REFGOBIERNO.label', 'Nombre Oficial / Referencia'))" 
+	   value="@bind(vm.beanData.refgobierno) @save(vm.beanData.refgobierno, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('REFGOBIERNO'))" disabled="@load(vm.isEditable('REFGOBIERNO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['GMtiTxTRTz'])"/>
+	   
+    </h:div>   
+
+
+
+
+
+
+ <h:div class="col-md-4 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('BONIFICADO'))" sclass="margin-field" >
+	    <label sclass="form-check-label font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('BONIFICADO.label', 'Bonificado'))"/>
+	   </hbox>
+ <checkbox mold="default" id="113430" value="@bind(vm.beanData.bonificado) @save(vm.beanData.bonificado, before=('grabar'))" sclass="margin-field form-check-input" visible="@load(vm.isVisible('BONIFICADO'))" disabled="@load(vm.isEditable('BONIFICADO')?false:true)" checked="@bind(vm.beanData.bonificado) @save(vm.beanData.bonificado, before=('grabar'))"/>
+</h:div>
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-4 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('PERCENTBONIF'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('PERCENTBONIF.label', '% Bonificación'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_PERCENTBONIF" />
+	   </hbox>
+	      <decimalbox   tabindex="4" id="kxYVdIxSLb"  placeholder="@load(vm.lang.getProperty('PERCENTBONIF.label', '% Bonificación'))"  value="@bind(vm.beanData.percentbonif) @save(vm.beanData.percentbonif, before=('grabar')) "  format="###,###,##0.00" sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('PERCENTBONIF'))" disabled="@load(vm.isEditable('PERCENTBONIF')?false:true)" onChange="@command('onChangeInput',field='PERCENTBONIF',evento=event,componente=self,calculate=true)" />
+           <label sclass="text-danger" value="@load(vmsgs['kxYVdIxSLb'])"/>   
+    </h:div>
+
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-4 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('DIASVACACIONES'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('DIASVACACIONES.label', 'Vacaciones Anuales /Días'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_DIASVACACIONES" />
+	   </hbox>
+	      <intbox   tabindex="5" id="cTjkMvyrfA"  placeholder="@load(vm.lang.getProperty('DIASVACACIONES.label', 'Vacaciones Anuales /Días'))" sclass="margin-field form-control  form-control border "  value="@bind(vm.beanData.diasvacaciones) @save(vm.beanData.diasvacaciones, before=('grabar')) " visible="@load(vm.isVisible('DIASVACACIONES'))" disabled="@load(vm.isEditable('DIASVACACIONES')?false:true)" onChange="@command('onChangeInput',field='DIASVACACIONES',evento=event,componente=self,calculate=true)" />
+    <label sclass="text-danger" value="@load(vmsgs['cTjkMvyrfA'])"/>   
+    
+    </h:div>
+
+
+
+
+
+
+				
+
+
+   
+    <h:div class="col-md-12 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('DESCRIPCION'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('DESCRIPCION.label', ''))"  />
+	   </hbox>
+	   <textbox   tabindex="6" id="rkZniGtboC" 
+	   placeholder="@load(vm.lang.getProperty('DESCRIPCION.label', ''))" 
+	   value="@bind(vm.beanData.descripcion) @save(vm.beanData.descripcion, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('DESCRIPCION'))" disabled="@load(vm.isEditable('DESCRIPCION')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['rkZniGtboC'])"/>
+	   
+    </h:div>   
+
+
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+<div id="rxduwVfQMV"   visible="true"  class="col-lg-4 col-xlg-4 col-md-4">
+  <div id="rxduwVfQMV-card" class="card " style="overflow:auto;" >
+          <div id="rxduwVfQMV-head" class="panel-heading ">
+            <h:h6 class="panel-title " >
+               Horas Semanales</h:h6>
+          </div>
+       <div id="rxduwVfQMV-body" class="card-body ">
+        <div id="rxduwVfQMV-row" class="form-group row ">
+
+
+				
+
+
+    <h:div class="col-md-6 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('LUNESHORA'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('LUNESHORA.label', 'Lunes'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_LUNESHORA" />
+	   </hbox>
+	      <decimalbox   tabindex="1" id="QuOhbBOXsa"  placeholder="@load(vm.lang.getProperty('LUNESHORA.label', 'Lunes'))"  value="@bind(vm.beanData.luneshora) @save(vm.beanData.luneshora, before=('grabar')) "  format="###,###,##0.00" sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('LUNESHORA'))" disabled="@load(vm.isEditable('LUNESHORA')?false:true)" onChange="@command('onChangeInput',field='LUNESHORA',evento=event,componente=self,calculate=true)" />
+           <label sclass="text-danger" value="@load(vmsgs['QuOhbBOXsa'])"/>   
+    </h:div>
+
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-6 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('MARTESHORA'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('MARTESHORA.label', 'Martes'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_MARTESHORA" />
+	   </hbox>
+	      <decimalbox   tabindex="2" id="GkjmoNJgri"  placeholder="@load(vm.lang.getProperty('MARTESHORA.label', 'Martes'))"  value="@bind(vm.beanData.marteshora) @save(vm.beanData.marteshora, before=('grabar')) "  format="###,###,##0.00" sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('MARTESHORA'))" disabled="@load(vm.isEditable('MARTESHORA')?false:true)" onChange="@command('onChangeInput',field='MARTESHORA',evento=event,componente=self,calculate=true)" />
+           <label sclass="text-danger" value="@load(vmsgs['GkjmoNJgri'])"/>   
+    </h:div>
+
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-6 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('MIERCOLESHORA'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('MIERCOLESHORA.label', 'Miércoles'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_MIERCOLESHORA" />
+	   </hbox>
+	      <decimalbox   tabindex="3" id="icAavcShJC"  placeholder="@load(vm.lang.getProperty('MIERCOLESHORA.label', 'Miércoles'))"  value="@bind(vm.beanData.miercoleshora) @save(vm.beanData.miercoleshora, before=('grabar')) "  format="###,###,##0.00" sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('MIERCOLESHORA'))" disabled="@load(vm.isEditable('MIERCOLESHORA')?false:true)" onChange="@command('onChangeInput',field='MIERCOLESHORA',evento=event,componente=self,calculate=true)" />
+           <label sclass="text-danger" value="@load(vmsgs['icAavcShJC'])"/>   
+    </h:div>
+
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-6 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('JUEVESHORA'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('JUEVESHORA.label', 'Jueves'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_JUEVESHORA" />
+	   </hbox>
+	      <decimalbox   tabindex="4" id="baRUnTTDTZ"  placeholder="@load(vm.lang.getProperty('JUEVESHORA.label', 'Jueves'))"  value="@bind(vm.beanData.jueveshora) @save(vm.beanData.jueveshora, before=('grabar')) "  format="###,###,##0.00" sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('JUEVESHORA'))" disabled="@load(vm.isEditable('JUEVESHORA')?false:true)" onChange="@command('onChangeInput',field='JUEVESHORA',evento=event,componente=self,calculate=true)" />
+           <label sclass="text-danger" value="@load(vmsgs['baRUnTTDTZ'])"/>   
+    </h:div>
+
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-6 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('VIERNESHORA'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('VIERNESHORA.label', 'Viernes'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_VIERNESHORA" />
+	   </hbox>
+	      <decimalbox   tabindex="5" id="nlrSNbGOft"  placeholder="@load(vm.lang.getProperty('VIERNESHORA.label', 'Viernes'))"  value="@bind(vm.beanData.vierneshora) @save(vm.beanData.vierneshora, before=('grabar')) "  format="###,###,##0.00" sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('VIERNESHORA'))" disabled="@load(vm.isEditable('VIERNESHORA')?false:true)" onChange="@command('onChangeInput',field='VIERNESHORA',evento=event,componente=self,calculate=true)" />
+           <label sclass="text-danger" value="@load(vmsgs['nlrSNbGOft'])"/>   
+    </h:div>
+
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-6 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('SABADOHORA'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('SABADOHORA.label', 'Sabado'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_SABADOHORA" />
+	   </hbox>
+	      <decimalbox   tabindex="6" id="gwOfzOUTpT"  placeholder="@load(vm.lang.getProperty('SABADOHORA.label', 'Sabado'))"  value="@bind(vm.beanData.sabadohora) @save(vm.beanData.sabadohora, before=('grabar')) "  format="###,###,##0.00" sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('SABADOHORA'))" disabled="@load(vm.isEditable('SABADOHORA')?false:true)" onChange="@command('onChangeInput',field='SABADOHORA',evento=event,componente=self,calculate=true)" />
+           <label sclass="text-danger" value="@load(vmsgs['gwOfzOUTpT'])"/>   
+    </h:div>
+
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-6 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('DOMINGOHORA'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('DOMINGOHORA.label', 'Domingo'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_DOMINGOHORA" />
+	   </hbox>
+	      <decimalbox   tabindex="7" id="lFTyiDDajE"  placeholder="@load(vm.lang.getProperty('DOMINGOHORA.label', 'Domingo'))"  value="@bind(vm.beanData.domingohora) @save(vm.beanData.domingohora, before=('grabar')) "  format="###,###,##0.00" sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('DOMINGOHORA'))" disabled="@load(vm.isEditable('DOMINGOHORA')?false:true)" onChange="@command('onChangeInput',field='DOMINGOHORA',evento=event,componente=self,calculate=true)" />
+           <label sclass="text-danger" value="@load(vmsgs['lFTyiDDajE'])"/>   
+    </h:div>
+
+
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+<div id="WoevMVTcli"   visible="true"  class="col-lg-12 col-xlg-12 col-md-12">
+  <div id="WoevMVTcli-card" class="card  shadow-sm" style="overflow:auto;" >
+       <div id="WoevMVTcli-body" class="card-body ">
+        <div id="WoevMVTcli-row" class="form-group row ">
+
+
+ <!--	if(comp.getPropBeans().get("loadOnDemand")!=null) {-->
+ <div class="col-lg-12">		
+  <grid id="ADNlbFByPh" height="300px" width="100%" 
+   model="@bind(vm.grid['subrrhhctescontrato']) " 
+    onCreate="@command('onSubtableCreate',component=self,alias='subrrhhctescontrato',loadOnDemand='true' )" >
+      <auxhead  sclass="bg-soft-light" >
+             <auxheader  colspan="1" rowspan="1" >
+				     <textbox width="90%" value="@bind(vm.beans['subrrhhctescontrato'].concepto)" ></textbox>
+                
+                
+                
+             </auxheader>
+             <auxheader  colspan="1" rowspan="1" >
+				        <decimalbox width="90%" value="@bind(vm.beans['subrrhhctescontrato'].porcentaje)"></decimalbox>
+                
+                
+                
+             </auxheader>
+             <auxheader  colspan="1" rowspan="1" >
+				         <checkbox value="@bind(vm.beans['subrrhhctescontrato'].cteempresa)" checked="@bind(vm.beans['subrrhhctescontrato'].cteempresa)"/> 
+                
+                
+                
+             </auxheader>
+             <auxheader  colspan="1" rowspan="1" >
+				         <checkbox value="@bind(vm.beans['subrrhhctescontrato'].cteempleado)" checked="@bind(vm.beans['subrrhhctescontrato'].cteempleado)"/> 
+                
+                
+                
+             </auxheader>
+        <auxheader  colspan="1" rowspan="1" >
+<button label="añadir" onClick="@command('appendRowForm',alias='subrrhhctescontrato')" />
+</auxheader>    
+     </auxhead>
+      
+           
+ 
+  
+  
+  
+  
+  
+	  <columns sizable="true">
+   
+      
+	   
+        <column label="@load(vm.lang.getProperty('CONCEPTO.label', 'CONCEPTO'))" align="center" sclass="text-capitalize"/>
+   
+      
+	   
+        <column label="@load(vm.lang.getProperty('PORCENTAJE.label', 'PORCENTAJE'))" align="center" sclass="text-capitalize"/>
+   
+      
+	   
+        <column label="@load(vm.lang.getProperty('CTEEMPRESA.label', 'CTEEMPRESA'))" align="center" sclass="text-capitalize"/>
+   
+      
+	   
+        <column label="@load(vm.lang.getProperty('CTEEMPLEADO.label', 'CTEEMPLEADO'))" align="center" sclass="text-capitalize"/>
+        <column align="center" />
+	 </columns>
+      <template name="model" var="item">
+      	<row style="text-align:right;">
+    	  				     <label  value="@load(item.concepto) @converter(vm.fieldConverter)"></label>
+				     <label  value="@load(item.porcentaje) @converter(vm.fieldConverter)"></label>
+				     <label  value="@load(item.cteempresa) @converter(vm.fieldConverter)"></label>
+				     <label  value="@load(item.cteempleado) @converter(vm.fieldConverter)"></label>
+               <cell align="center">
+						<button
+						onClick="@command('removeSubtable',alias='subrrhhctescontrato',item=item)"
+						iconSclass="s-icon s-icon-trash"
+						sclass="btn" />
+		                </cell> 
+       </row>
+   	</template>
+  </grid>
+  </div>
+
+
+
+         </div> 
+       </div>
+  </div>
+ </div>  
+          
+                              
+          
+        
+                   </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['tiposcontratos.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+
+
+
+
+
+                  
+                 
+
+
+
+
+
+
+
+
+                  
+                 
+
+
+                  
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$tiposcontratos');
+  binder.command('doLoad');
+});
+function loadtiposcontratos(){
+  var binder = zkbind.$('$tiposcontratos');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

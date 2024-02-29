@@ -1,0 +1,62 @@
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+		
+						 
+<div class="table-responsive table-card">					 
+					
+				 <grid  	model="@load(vm.beans)" sizedByContent="true" span="true" sclass="table align-middle mb-0" >  
+							<columns sizable="true" menupopup="auto">
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('PEDIDO.label', 'Pedido'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['PEDIDOAsc'])" sortDescending="@load(vm.comparators['PEDIDODesc'])"/>
+							      <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('Compañia.label', 'Compañia'))" align="center"/>
+							      <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('Proveedor.label', 'Proveedor'))" align="center"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('FECENTREGA.label', 'Fec. Entrega'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['FECENTREGAAsc'])" sortDescending="@load(vm.comparators['FECENTREGADesc'])"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('FECRECEPCION.label', 'Fec. Recepción'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['FECRECEPCIONAsc'])" sortDescending="@load(vm.comparators['FECRECEPCIONDesc'])"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('TOTAL.label', 'TOTAL'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['TOTALAsc'])" sortDescending="@load(vm.comparators['TOTALDesc'])"/>
+ 							      <column style="font-size:14px;" hflex="1" label="Acciones" align="center" />
+							</columns >
+							<template name="model" var="item">
+						       <row style="text-align:right;cursor:pointer;"  onClick="@command('editData',item=item,page='masterpedido.zul')">
+							          <label  value="@load(item.pedido) @converter(vm.fieldConverter)"></label>
+                                   
+                                   <cell align="center">
+                                          <label  value="@load(item.iderpempresa.nombre) @converter(vm.fieldConverter)"></label>
+                                        
+                                      
+                                    <space></space>
+                                   </cell> 
+                                   <cell align="center">
+                                          <label  value="@load(item.idcmpproveedor.empresa) @converter(vm.fieldConverter)"></label>
+                                        
+                                      
+                                    <space></space>
+                                   </cell> 
+							          <label  value="@load(item.fecentrega) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.fecrecepcion) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.total) @converter(vm.fieldConverter)"></label>
+                                   
+							
+                  			
+                  		<cell align="center">
+						  
+						<button
+						onClick="@command('editData',item=item,page='masterpedido.zul')"
+						iconSclass="s-icon s-icon-lapizplus" sclass="btn"    />
+						<space></space>
+						<button
+						onClick="@command('removeData',item=item)"
+						iconSclass="s-icon s-icon-trash"
+						sclass="btn"   />
+						
+					    </cell>
+					   </row>
+                  		</template>
+							<foot>
+						     <footer span="4" align="right" label="@load(vm.labelTotal)" />
+						    </foot>
+						</grid>
+ </div>						
+</zk>						

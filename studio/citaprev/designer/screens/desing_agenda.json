@@ -1,0 +1,20 @@
+{
+  "uid" : "39716",
+  "nameScreen" : "agenda",
+  "nameEntidad" : "CITMAGENDA",
+  "pageName" : "agenda",
+  "icon16" : "img/calendar.png",
+  "icon32" : "img/calendar.png",
+  "templateName" : "calendar",
+  "descripcion" : "agenda",
+  "title" : "agenda",
+  "fecha" : 1693517204289,
+  "typeEntidad" : null,
+  "scope" : "CALENDAR",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

@@ -1,0 +1,570 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+
+<idspace id="nuevoempleado" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='nuevoempleado')" validationMessages="@id('vmsgs')">
+	  <custom-attributes pagina="nuevoempleado" />
+	  <custom-attributes msgform="Solicitud Enviada" />
+	  	<h:div id="notificacion"></h:div>
+			<div class="row">
+			<div class="col-12">
+				<div
+					class="page-title-box d-sm-flex align-items-center justify-content-between">
+					<vbox spacing="3px">
+					<fragment
+						exps="@load(vm.lang.getProperty('Nuevo Empleado.screen', 'Nuevo Empleado'))">
+						<![CDATA[ <h4 class="mb-sm-0"
+						textContent='@load(exps)'></h4> ]]>
+					</fragment>
+					    
+					 </vbox>   
+					<h:div class="page-title-right">
+						<h:ol class="breadcrumb m-0">
+							<h:li class="breadcrumb-item">
+								<h:a href="javascript: void(0);">
+									${ds.menu} 
+								</h:a>
+							</h:li>
+							<h:li class="breadcrumb-item active">
+								Nuevo Empleado
+							</h:li>
+						</h:ol>
+					</h:div>
+				</div>
+			</div>
+		</div>
+			<div class="row">
+					<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
+						<div
+							class="d-flex align-items-center flex-wrap gap-2">
+							
+							<div class="flex-shrink-0">
+								<div class="hstack text-nowrap gap-2">
+								    <button class="btn btn-secondary"
+										iconSclass="s-icon s-icon-clear" onClick="@command('clear')">
+										Limpiar
+									</button>
+									<button class="btn btn-success"
+										iconSclass="s-icon s-icon-save me-1 align-bottom" onClick="@command('store')">
+										Guardar
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--end col-->
+			<h:div class="col-lg-12">
+						<h:div class="card">
+							<h:div class="card-body">
+		     <div class="row">
+
+<h:div style="overflow:auto;" class=" col-lg-4 col-xlg-4 col-md-4">
+<h:div class="row">
+
+
+
+
+    <h:div class="col-md-6">
+       <hbox spacing="3px" visible="@load(vm.isVisible('FECPREVISTAALTA'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('FECPREVISTAALTA.label', 'Fecha Prevista'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_FECPREVISTAALTA" />
+	   </hbox>
+    <datebox id="FECPREVISTAALTA"  placeholder="@load(vm.lang.getProperty('FECPREVISTAALTA.label', 'Fecha Prevista Alta'))" tabindex="1" value="@bind(vm.beanData.fecprevistaalta) @save(vm.beanData.fecprevistaalta, before=('store')) "   format="dd/MM/yyyy"  visible="@load(vm.isVisible('FECPREVISTAALTA'))" disabled="@load(vm.isEditable('FECPREVISTAALTA')?false:true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['FECPREVISTAALTA'])"/>
+      </h:div>
+
+
+
+
+<h:div class="col-md-6">
+   <hbox spacing="3px">
+    <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('idrrhhmotalta.label', 'Motivo de Alta'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_cOEgOmaciq" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idrrhhmotalta" placeholder="@load(vm.lang.getProperty('idrrhhmotalta').label,'Motivo de Alta')" model="@bind(vm.foreings['idrrhhmotalta'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idrrhhmotalta',item=self.selectedItem.value)"  		selectedItem="@load(vm.beanData.idrrhhmotalta)"  onCreate="@command('onCreateCombo',component=self,alias='idrrhhmotalta')" value="@bind(vm.beanData.idrrhhmotalta .motivoalta)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.motivoalta)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idrrhhmotalta'])"/>
+   <popup id="pop_cOEgOmaciq" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idrrhhmotalta.helptext', 'idrrhhmotalta'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+
+
+
+
+   
+    <h:div class="col-md-6">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('NOMBRE'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="   " value="@load(vm.lang.getProperty('NOMBRE.label', 'Nombre'))"  />
+	   </hbox>
+	   <textbox  tabindex="3" id="NOMBRE" placeholder="@load(vm.lang.getProperty('NOMBRE.label', 'Nombre'))" value="@bind(vm.beanData.nombre) @save(vm.beanData.nombre, before=('store')) @validator(vm.validator,required=true ,oldValue=vm.beanDataCpy.nombre)"  sclass="form-control  form-control form-control-sm       border-danger" visible="@load(vm.isVisible('NOMBRE'))" disabled="@load(vm.isEditable('NOMBRE')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['NOMBRE'])"/>
+    </h:div>   
+
+
+
+
+
+
+
+
+   
+    <h:div class="col-md-6">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('APELLIDOS'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="   " value="@load(vm.lang.getProperty('APELLIDOS.label', 'Apellidos'))"  />
+	   </hbox>
+	   <textbox  tabindex="4" id="APELLIDOS" placeholder="@load(vm.lang.getProperty('APELLIDOS.label', 'Apellidos'))" value="@bind(vm.beanData.apellidos) @save(vm.beanData.apellidos, before=('store')) @validator(vm.validator,required=true ,oldValue=vm.beanDataCpy.apellidos)"  sclass="form-control  form-control form-control-sm       border-danger" visible="@load(vm.isVisible('APELLIDOS'))" disabled="@load(vm.isEditable('APELLIDOS')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['APELLIDOS'])"/>
+    </h:div>   
+
+
+
+
+
+
+
+
+   
+    <h:div class="col-md-6">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('IDENTIFICADOR'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="   " value="@load(vm.lang.getProperty('IDENTIFICADOR.label', 'DNI / NIF / NIE'))"  />
+	   </hbox>
+	   <textbox  tabindex="5" id="IDENTIFICADOR" placeholder="@load(vm.lang.getProperty('IDENTIFICADOR.label', 'DNI / NIF / NIE'))" value="@bind(vm.beanData.identificador) @save(vm.beanData.identificador, before=('store')) @validator(vm.unique, field='IDENTIFICADOR',required=true ,oldValue=vm.beanDataCpy.identificador)"  sclass="form-control  form-control form-control-sm border border-primary    border-danger" visible="@load(vm.isVisible('IDENTIFICADOR'))" disabled="@load(vm.isEditable('IDENTIFICADOR')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['IDENTIFICADOR'])"/>
+    </h:div>   
+
+
+
+
+
+
+
+
+   
+    <h:div class="col-md-6">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('SEGURIDADSOCIAL'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="   " value="@load(vm.lang.getProperty('SEGURIDADSOCIAL.label', 'Seguridad Social'))"  />
+	   </hbox>
+	   <textbox  tabindex="6" id="SEGURIDADSOCIAL" placeholder="@load(vm.lang.getProperty('SEGURIDADSOCIAL.label', 'Seguridad Social'))" value="@bind(vm.beanData.seguridadsocial) @save(vm.beanData.seguridadsocial, before=('store')) @validator(vm.unique, field='SEGURIDADSOCIAL')"  sclass="form-control  form-control form-control-sm      " visible="@load(vm.isVisible('SEGURIDADSOCIAL'))" disabled="@load(vm.isEditable('SEGURIDADSOCIAL')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['SEGURIDADSOCIAL'])"/>
+    </h:div>   
+
+
+
+
+
+<h:div class="col-md-6">
+
+   <hbox spacing="3px">
+     <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('SEXO.label', 'sexo'))"/>
+ </hbox>
+
+ <combobox mold="rounded" sclass="" id="SEXO" model="@load(vm.getEnums('SEXO'))" 
+selectedItem="@load(vm.beanData.sexo)"  value="@load(vm.beanData.sexo) @save(vm.beanData.sexo, before=('store')) ">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-danger" value="@load(vmsgs['SEXO'])"/>
+</h:div>
+
+
+
+
+
+
+
+   
+    <h:div class="col-md-6">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('TELEFONO'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('TELEFONO.label', 'Teléfonos'))"  />
+	   </hbox>
+	   <textbox  tabindex="8" id="TELEFONO" placeholder="@load(vm.lang.getProperty('TELEFONO.label', 'telefono'))" value="@bind(vm.beanData.telefono) @save(vm.beanData.telefono, before=('store')) "  sclass="form-control  form-control border" visible="@load(vm.isVisible('TELEFONO'))" disabled="@load(vm.isEditable('TELEFONO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['TELEFONO'])"/>
+    </h:div>   
+
+
+
+
+
+
+
+
+   
+    <h:div class="col-md-12">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('DIRECCION'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('DIRECCION.label', 'Dirección'))"  />
+	   </hbox>
+	   <textbox  tabindex="9" id="DIRECCION" placeholder="@load(vm.lang.getProperty('DIRECCION.label', 'Dirección..'))" value="@bind(vm.beanData.direccion) @save(vm.beanData.direccion, before=('store')) "  sclass="form-control  form-control border" visible="@load(vm.isVisible('DIRECCION'))" disabled="@load(vm.isEditable('DIRECCION')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['DIRECCION'])"/>
+    </h:div>   
+
+
+
+
+
+
+
+
+   
+    <h:div class="col-md-6">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('CIUDAD'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('CIUDAD.label', 'Ciudad /  Población'))"  />
+	   </hbox>
+	   <textbox  tabindex="10" id="CIUDAD" placeholder="@load(vm.lang.getProperty('CIUDAD.label', 'Ciudad /  Población'))" value="@bind(vm.beanData.ciudad) @save(vm.beanData.ciudad, before=('store')) "  sclass="form-control  form-control border" visible="@load(vm.isVisible('CIUDAD'))" disabled="@load(vm.isEditable('CIUDAD')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['CIUDAD'])"/>
+    </h:div>   
+
+
+
+
+
+
+
+
+   
+    <h:div class="col-md-4">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('CODPOSTAL'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('CODPOSTAL.label', 'Cod Postal'))"  />
+	   </hbox>
+	   <textbox  tabindex="11" id="CODPOSTAL" placeholder="@load(vm.lang.getProperty('CODPOSTAL.label', 'codpostal'))" value="@bind(vm.beanData.codpostal) @save(vm.beanData.codpostal, before=('store')) "  sclass="form-control  form-control border" visible="@load(vm.isVisible('CODPOSTAL'))" disabled="@load(vm.isEditable('CODPOSTAL')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['CODPOSTAL'])"/>
+    </h:div>   
+
+
+
+
+<h:div class="col-md-6">
+   <hbox spacing="3px">
+    <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('idmpais.label', 'País'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_WBtRJyjpBK" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idmpais" placeholder="@load(vm.lang.getProperty('idmpais').label,'País')" model="@bind(vm.foreings['idmpais'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idmpais',item=self.selectedItem.value,changefk='idmprovincia')"  		selectedItem="@load(vm.beanData.idmpais)"  onCreate="@command('onCreateCombo',component=self,alias='idmpais')" value="@bind(vm.beanData.idmpais .nombre)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.nombre)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idmpais'])"/>
+   <popup id="pop_WBtRJyjpBK" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idmpais.helptext', 'idmpais'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+<h:div class="col-md-6">
+   <hbox spacing="3px">
+    <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('idmprovincia.label', 'Provincia'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_WnLGTdOLaC" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idmprovincia" placeholder="@load(vm.lang.getProperty('idmprovincia').label,'Provincia')" model="@bind(vm.foreings['idmprovincia'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idmprovincia',item=self.selectedItem.value)"  		selectedItem="@load(vm.beanData.idmprovincia)"  onCreate="@command('onCreateCombo',component=self,alias='idmprovincia',loadFkFrom='idmpais')" value="@bind(vm.beanData.idmprovincia .provincia)" disabled="@bind(vm.beanData.idmpais.idx eq null) " ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.provincia)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idmprovincia'])"/>
+   <popup id="pop_WnLGTdOLaC" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idmprovincia.helptext', 'idmprovincia'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+</h:div>
+</h:div>  
+
+
+
+<h:div class="col-lg-4 col-xlg-4 col-md-4">
+  <h:div class="card  shadow-xl" style="overflow:auto;" >
+       <h:div class="card-body ">
+        <h:div class="form-group row ">
+
+<h:div class="col-md-12">
+<label sclass="form-label font-weight-bold text-end" value="Información Laboral" style=" Font-Size:16px;"/>
+</h:div>
+
+
+
+
+
+
+
+    <h:div class="col-md-4">
+       <hbox spacing="3px" visible="@load(vm.isVisible('HIJOS'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('HIJOS.label', 'Hijos'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_HIJOS" />
+	   </hbox>
+    <decimalbox tabindex="2" id="HIJOS"  placeholder="@load(vm.lang.getProperty('HIJOS.label', 'hijos'))"  value="@bind(vm.beanData.hijos) @save(vm.beanData.hijos, before=('store')) "  format="###,###,##0.00" sclass="form-control  form-control border" visible="@load(vm.isVisible('HIJOS'))" disabled="@load(vm.isEditable('HIJOS')?false:true)" onChange="@command('onChangeInput',field='HIJOS',evento=event,componente=self,calculate=true)" />
+    <label sclass="text-danger" value="@load(vmsgs['HIJOS'])"/>
+    </h:div>
+
+
+
+
+
+<h:div class="col-md-4">
+
+   <hbox spacing="3px">
+     <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('ESTADOCIVIL.label', 'estadocivil'))"/>
+ </hbox>
+
+ <combobox mold="rounded" sclass="" id="ESTADOCIVIL" model="@load(vm.getEnums('ESTADOCIVIL'))" 
+selectedItem="@load(vm.beanData.estadocivil)"  value="@load(vm.beanData.estadocivil) @save(vm.beanData.estadocivil, before=('store')) ">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-danger" value="@load(vmsgs['ESTADOCIVIL'])"/>
+</h:div>
+
+
+
+
+
+
+
+    <h:div class="col-md-4">
+       <hbox spacing="3px" visible="@load(vm.isVisible('NACIMIENTO'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="   " value="@load(vm.lang.getProperty('NACIMIENTO.label', 'Fec. Nacimiento'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_NACIMIENTO" />
+	   </hbox>
+    <datebox id="NACIMIENTO"  placeholder="@load(vm.lang.getProperty('NACIMIENTO.label', 'Fec. Nacimiento'))" tabindex="4" value="@bind(vm.beanData.nacimiento) @save(vm.beanData.nacimiento, before=('store')) "   format="dd/MM/yyyy"  visible="@load(vm.isVisible('NACIMIENTO'))" disabled="@load(vm.isEditable('NACIMIENTO')?false:true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['NACIMIENTO'])"/>
+      </h:div>
+
+
+
+
+<h:div class="col-md-4">
+   <hbox spacing="3px">
+    <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('idrrhhmacademic.label', 'Nivel Académico'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_BbCHWDRSBE" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idrrhhmacademic" placeholder="@load(vm.lang.getProperty('idrrhhmacademic').label,'Nivel Académico')" model="@bind(vm.foreings['idrrhhmacademic'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idrrhhmacademic',item=self.selectedItem.value)"  		selectedItem="@load(vm.beanData.idrrhhmacademic)"  onCreate="@command('onCreateCombo',component=self,alias='idrrhhmacademic')" value="@bind(vm.beanData.idrrhhmacademic .nivelacademico)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.nivelacademico)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idrrhhmacademic'])"/>
+   <popup id="pop_BbCHWDRSBE" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idrrhhmacademic.helptext', 'idrrhhmacademic'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+<h:div class="col-md-4">
+   <hbox spacing="3px">
+    <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('idrrhhmcatlab.label', 'Categoría'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_AAvOlnQlsS" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idrrhhmcatlab" placeholder="@load(vm.lang.getProperty('idrrhhmcatlab').label,'Categoría')" model="@bind(vm.foreings['idrrhhmcatlab'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idrrhhmcatlab',item=self.selectedItem.value)"  		selectedItem="@load(vm.beanData.idrrhhmcatlab)"  onCreate="@command('onCreateCombo',component=self,alias='idrrhhmcatlab')" value="@bind(vm.beanData.idrrhhmcatlab .categoria)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.categoria)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idrrhhmcatlab'])"/>
+   <popup id="pop_AAvOlnQlsS" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idrrhhmcatlab.helptext', 'idrrhhmcatlab'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+<h:div class="col-md-4">
+   <hbox spacing="3px">
+    <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('idrrhhcargolab.label', 'Cargo'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_LPMXVYPVsA" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idrrhhcargolab" placeholder="@load(vm.lang.getProperty('idrrhhcargolab').label,'Cargo')" model="@bind(vm.foreings['idrrhhcargolab'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idrrhhcargolab',item=self.selectedItem.value)"  		selectedItem="@load(vm.beanData.idrrhhcargolab)"  onCreate="@command('onCreateCombo',component=self,alias='idrrhhcargolab')" value="@bind(vm.beanData.idrrhhcargolab .cargo)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.cargo)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idrrhhcargolab'])"/>
+   <popup id="pop_LPMXVYPVsA" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idrrhhcargolab.helptext', 'idrrhhcargolab'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+
+<h:div class="col-md-12">
+<label sclass="form-label font-italic font-weight-bold text-end" value="Nivel Salarial" style=" Font-Size:14px;"/>
+</h:div>
+
+
+
+
+
+
+
+  <h:div class="col-md-4">
+       <hbox spacing="3px" visible="@load(vm.isVisible('SALARIOANUAL'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('SALARIOANUAL.label', 'Anual'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_SALARIOANUAL" />
+	   </hbox>
+    <decimalbox tabindex="9" id="SALARIOANUAL" onCreate="" placeholder="@load(vm.lang.getProperty('SALARIOANUAL.label', '20000'))"   value="@bind(vm.beanData.salarioanual) @save(vm.beanData.salarioanual, before=('store')) "   sclass="form-control  form-control border" visible="@load(vm.isVisible('SALARIOANUAL'))" disabled="@load(vm.isEditable('SALARIOANUAL')?false:true)" onChange="@command('onChangeInput',field='SALARIOANUAL',evento=event,componente=self,calculate=true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['SALARIOANUAL'])"/>
+    </h:div>
+
+
+
+
+
+
+
+
+  <h:div class="col-md-4">
+       <hbox spacing="3px" visible="@load(vm.isVisible('SALARIOMES'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('SALARIOMES.label', 'Mensual'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_SALARIOMES" />
+	   </hbox>
+    <decimalbox tabindex="10" id="SALARIOMES" onCreate="" placeholder="@load(vm.lang.getProperty('SALARIOMES.label', '2000'))"   value="@bind(vm.beanData.salariomes) @save(vm.beanData.salariomes, before=('store')) "   sclass="form-control  form-control border" visible="@load(vm.isVisible('SALARIOMES'))" disabled="@load(vm.isEditable('SALARIOMES')?false:true)" onChange="@command('onChangeInput',field='SALARIOMES',evento=event,componente=self,calculate=true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['SALARIOMES'])"/>
+    </h:div>
+
+
+
+
+
+
+
+
+  <h:div class="col-md-4">
+       <hbox spacing="3px" visible="@load(vm.isVisible('SALARIODIA'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('SALARIODIA.label', 'Diario'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_SALARIODIA" />
+	   </hbox>
+    <decimalbox tabindex="11" id="SALARIODIA" onCreate="" placeholder="@load(vm.lang.getProperty('SALARIODIA.label', '100'))"   value="@bind(vm.beanData.salariodia) @save(vm.beanData.salariodia, before=('store')) "   sclass="form-control  form-control border" visible="@load(vm.isVisible('SALARIODIA'))" disabled="@load(vm.isEditable('SALARIODIA')?false:true)" onChange="@command('onChangeInput',field='SALARIODIA',evento=event,componente=self,calculate=true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['SALARIODIA'])"/>
+    </h:div>
+
+
+
+
+         </h:div> 
+       </h:div>
+  </h:div>
+ </h:div>  
+          
+                              
+          
+        
+
+
+
+
+<h:div style="overflow:auto;" class=" col-lg-4 col-xlg-4 col-md-4">
+<h:div class="row">
+</h:div>
+</h:div>  
+
+
+
+<h:div style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12">
+<h:div class="row">
+</h:div>
+</h:div>  
+
+
+             </div>      
+            </h:div>
+            
+           </h:div>
+          </h:div>
+         </div>   
+            <fragment exps="@load(vm.lang['Nuevo Empleado.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+                 
+
+                  
+                 
+
+                  
+
+ </idspace>
+<script type="text/javascript" >
+zk.afterMount(function() {
+ var binder = zkbind.$('$nuevoempleado');
+  binder.command('doLoad');
+});
+</script>
+</zk>

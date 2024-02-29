@@ -1,0 +1,20 @@
+{
+  "uid" : "17813",
+  "nameScreen" : "Contratos",
+  "nameEntidad" : "CRTMCONTRATO",
+  "pageName" : "Contratos",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "gestion de contratos",
+  "title" : "Contratos",
+  "fecha" : 1694621436784,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

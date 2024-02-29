@@ -1,0 +1,20 @@
+{
+  "uid" : "23668",
+  "nameScreen" : "contacto",
+  "nameEntidad" : "FORMCONTACTO",
+  "pageName" : "contacto",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "form",
+  "descripcion" : "formulario de contacto desde la web",
+  "title" : "Contacto Web",
+  "fecha" : 1693523214700,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

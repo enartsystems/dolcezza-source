@@ -1,0 +1,222 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="popctrolineaservicio" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='popctrolineaservicio')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="popctrolineaservicio" />
+	  <custom-attributes clase="org.suinsit.apps.contratos.Crtlineacontr" />
+	   <custom-attributes namespace="contratos" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+
+<div id="wAxyOrYmXM" style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12"  visible="true" >
+<div id="wAxyOrYmXM-row" class="row">
+
+<h:div class="col-md-3 border-field">
+   <hbox spacing="3px" sclass="margin-field">
+    <label sclass="fs-6 text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('idpromproducto.label', 'Producto'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_PDDQIsrsdy" />
+   </hbox>
+<h:div class="col-md-12">
+<div >
+<button  iconSclass="ri-search-line search-icon" sclass="btn btn-icon"   onClick="searchPDDQIsrsdy.visible=true"></button>
+<a sclass="" tooltiptext="add" iconSclass="bx bx-link-external"  onClick="@command('appendForeingPopup',alias='idpromproducto',win=WIN_PDDQIsrsdy,body='body_PDDQIsrsdy',page='popuppopproducto.zul')"></a>
+
+<window id="WIN_PDDQIsrsdy" mode="modal" visible="false" position="center,center" action="show: slideDown;hide: slideUp" sclass="z-messagebox-window" border="none" width="80%">
+<div class="modal-content border-0">
+<div class="modal-header bg-soft-info p-3">
+<h:h5 class="modal-title"> Crear Producto</h:h5>
+</div>
+<div class="modal-body" id="body_PDDQIsrsdy"></div>
+<div class="modal-footer"></div>
+</div>
+</window>
+</div>
+</h:div>
+<h:div class="mb-2">
+<textbox id="tboxPDDQIsrsdy"  placeholder="" value="@bind(vm.beanData.idpromproducto.producto) @save(vm.beanData.idpromproducto.producto, before=('grabar'))  " 
+ onChange="@command('onChangeFindTextForeing',alias='idpromproducto',att='producto',event=event,idcp='cbPDDQIsrsdy')"  sclass="form-control  bg-light border-0" />
+<combobox id="cbPDDQIsrsdy" mold="rounded" autodrop="true" visible="false" model="@load(vm.foreings['idpromproducto'])" onSelect="@command('onSelectTextForeing',item=self.selectedItem.value,updatebean='true',alias='idpromproducto',hidde=self)" width="85%">
+<template name="model" var="item"><comboitem value="${item}" label="${item.producto}"></comboitem>
+</template></combobox>
+<label sclass="text-danger" value="@load(vmsgs['tboxPDDQIsrsdy'])"/></h:div>
+<window id="searchPDDQIsrsdy" mode="modal" visible="false">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content border-0">
+<div class="modal-header bg-soft-info p-3">
+<h:h5 class="modal-title" id="examplesPDDQIsrsdy">Producto</h:h5>
+<button id="btn_SPDDQIsrsdy" class="btn-close"  onClick="searchPDDQIsrsdy.visible=false" ></button>
+</div><div class="modal-body">
+<div sclass="mb-2">
+<textbox sclass="form-control  bg-light border-0" placeholder="introduzca criterios..." onOK="@command('onChangeFindForeing',alias='idpromproducto',att='producto,',input=self)" onChange="@command('onChangeFindForeing',alias='idpromproducto',att='producto,',event=event)"/>
+</div><div sclass="mb-2">
+<listbox height="400px" mold="paging" pageSize="20" pagingPosition="bottom" model="@bind(vm.foreings['idpromproducto'])" onSelect="@command('onSelectForeingPopup', alias='idpromproducto',item=self.selectedItem.value,hidde=searchPDDQIsrsdy,updatebean='true' )">
+<listhead>
+<listheader label="@load(vm.lang.getProperty('PRODUCTO.label','PRODUCTO'))"  />
+</listhead>
+<template name="model" var="item">
+<listitem value="@load(item)">
+<listcell label="@load(item.producto)" />
+</listitem></template></listbox>
+</div></div></div></div></window>
+
+   <popup id="pop_PDDQIsrsdy" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idpromproducto.helptext', 'idpromproducto'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+
+
+
+
+
+   
+    <h:div class="col-md-3 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('DESCRIPCION'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('DESCRIPCION.label', 'Descripción'))"  />
+	   </hbox>
+	   <textbox   tabindex="2" id="vSqdqjxzAU" 
+	   placeholder="@load(vm.lang.getProperty('DESCRIPCION.label', 'Descripción'))" 
+	   value="@bind(vm.beanData.descripcion) @save(vm.beanData.descripcion, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('DESCRIPCION'))" disabled="@load(vm.isEditable('DESCRIPCION')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['vSqdqjxzAU'])"/>
+    </h:div>   
+
+
+
+
+
+
+
+
+
+    <h:div class="col-md-2 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('UNIDADES'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('UNIDADES.label', 'Unidades'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_UNIDADES" />
+	   </hbox>
+    <intbox   tabindex="3" id="180306"  placeholder="@load(vm.lang.getProperty('UNIDADES.label', 'Unidades'))" sclass="margin-field form-control  form-control border "  value="@bind(vm.beanData.unidades) @save(vm.beanData.unidades, before=('grabar')) " visible="@load(vm.isVisible('UNIDADES'))" disabled="@load(vm.isEditable('UNIDADES')?false:true)" onChange="@command('onChangeInput',field='UNIDADES',evento=event,componente=self,calculate=true)" />
+    <label sclass="text-danger" value="@load(vmsgs['180306'])"/>
+    </h:div>
+
+
+
+
+
+
+
+
+
+  <h:div class="col-md-2 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('PRECIO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('PRECIO.label', 'Precio'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_PRECIO" />
+	   </hbox>
+    <decimalbox   tabindex="4" id="828678" onCreate="" placeholder="@load(vm.lang.getProperty('PRECIO.label', 'Precio'))"   
+    value="@bind(vm.beanData.precio) @save(vm.beanData.precio, before=('grabar')) "  format="###,###,###,###,##0.00€"  sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('PRECIO'))" disabled="@load(vm.isEditable('PRECIO')?false:true)" onChange="@command('onChangeInput',field='PRECIO',evento=event,componente=self,calculate=true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['828678'])"/>
+    </h:div>
+
+
+
+
+
+
+
+
+
+  <h:div class="col-md-2 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('SUBTOTAL'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('SUBTOTAL.label', 'Subtotal'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_SUBTOTAL" />
+	   </hbox>
+    <decimalbox   tabindex="5" id="387248" onCreate="" placeholder="@load(vm.lang.getProperty('SUBTOTAL.label', 'Subtotal'))"   
+    value="@bind(vm.beanData.subtotal) @save(vm.beanData.subtotal, before=('grabar')) "  format="###,###,###,###,##0.00€"  sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('SUBTOTAL'))" disabled="@load(vm.isEditable('SUBTOTAL')?false:true)" onChange="@command('onChangeInput',field='SUBTOTAL',evento=event,componente=self,calculate=true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['387248'])"/>
+    </h:div>
+
+
+
+
+</div>
+</div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['popctrolineaservicio.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+
+
+
+
+                  
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$popctrolineaservicio');
+  binder.command('doLoad');
+});
+function loadpopctrolineaservicio(){
+  var binder = zkbind.$('$popctrolineaservicio');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

@@ -1,0 +1,321 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+
+<idspace id="fichaje" viewModel="@id('vm') @init('com.suinsit.office.rrhh.FichajeUI',pagina='fichaje')" validationMessages="@id('vmsgs')">
+<custom-attributes ambito="validarclte"/>
+	   <space></space>
+	  <custom-attributes pagina="fichaje" />
+			<h:div id="notificacion"></h:div>
+			<div class="row">
+			<div class="col-12">
+				<div
+					class="page-title-box d-sm-flex align-items-center justify-content-between">
+					<vbox spacing="3px">
+					<fragment
+						exps="@load(vm.lang.getProperty('fichaje.screen', 'Control de Asistencia'))">
+						<![CDATA[ <h4 class="mb-sm-0"
+						textContent='@load(exps)'></h4> ]]>
+					</fragment>
+					    
+					 </vbox>   
+					<h:div class="page-title-right">
+						<h:ol class="breadcrumb m-0">
+							<h:li class="breadcrumb-item">
+								<h:a href="javascript: void(0);">
+									${ds.menu} 
+								</h:a>
+							</h:li>
+							<h:li class="breadcrumb-item active">
+								Control de asistencia
+							</h:li>
+						</h:ol>
+					</h:div>
+				</div>
+			</div>
+		</div>
+			<div class="row">
+					<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
+					
+						<div class="d-flex align-items-center flex-wrap gap-2">
+						<div class="flex-grow-1">
+							<button onClick="@command('toSearch')"
+										class="btn btn-light" >
+										Volver
+									</button>	
+							</div>
+							<div class="flex-grow-1">
+							  Mes : <combobox model="@bind(vm.meses)" selectedItem="@bind(vm.month)" onSelect="@command('onSelectMonth',event=event)"> 
+			            <template name="item">
+			              <comboitem label="${item}" value="${item}"/>
+			            </template>
+			           </combobox>
+			           Año: <combobox model="@bind(vm.anios)" selectedItem="@bind(vm.anio)" onSelect="@command('onSelectAnio',event=event)"> 
+			            <template name="item">
+			              <comboitem label="${item}" value="${item}"/>
+			            </template>
+			           </combobox>
+							</div>
+							<div class="flex-grow-1">
+							 Horas Estimadas : <label value="@bind(vm.horasEstimadas)"></label>
+							</div>
+							<div class="flex-grow-1">
+							<label value="@bind(vm.employ.nombre)"></label> <label value="@bind(vm.employ.apellidos)"></label>
+							</div>
+							<div class="flex-shrink-0">
+								<div class="hstack text-nowrap gap-2">
+								   <button class="btn btn-info"
+										iconSclass="s-icon s-icon-save me-1 align-bottom" onClick="@command('confirmFichaje',action='confirm')">
+										Aprobar Todas
+									</button>
+									<button class="btn btn-warning"
+										iconSclass="s-icon s-icon-save me-1 align-bottom" onClick="@command('confirmFichaje',action='rechazar')">
+										Rechazar Todas
+									</button>
+									<button class="btn btn-success"
+										iconSclass="s-icon s-icon-save me-1 align-bottom" onClick="@command('store')">
+										Guardar
+									</button>
+									
+												
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!--end col-->
+			<h:div class="col-lg-12">
+						<h:div class="card">
+							<h:div class="card-body">
+			 <div class="row">
+			   <div class="col-lg-2">
+			     
+			   </div>
+			 </div>				
+		     <div class="row">
+<div class="col-lg-8">
+ <h:ul class="nav nav-tabs nav-border-top nav-border-top-primary mb-3" d:role="tablist">
+     <forEach items="@bind(vm.weeks.keySet())" var="item" varStatus="status">
+        <h:li class="nav-item">
+         <h:a class="nav-link ${status.index==0?'active':''}" data-bs-toggle="tab" href="#Week${item}"  aria-selected="${status.index==0?true:false}" role="tab" >Semana ${item}</h:a>
+       </h:li>
+	</forEach>
+</h:ul>
+<h:div class="tab-content text-muted">
+    	<forEach items="@load(vm.weeks.keySet())" var="key" varStatus="status">
+		<h:div id="Week${key}" class="tab-pane  ${status.index==0?'active':''} " role="tabpanel">
+		<div class="table-responsive">
+   <h:table class="table align-middle table-bordered table-hover table-nowrap">
+      <h:thead class="table-light">
+        <h:tr>
+       <h:th scope="col" class="text-center" ><label value="Día" sclass="text-capitalize font-weight-bold"/></h:th>
+       <h:th scope="col" class="text-center" ><label value="Fichaje" sclass="text-capitalize font-weight-bold"/></h:th>
+       <h:th scope="col" class="text-center" ><label value="Dedicación" sclass="text-capitalize font-weight-bold"/></h:th>
+       <h:th scope="col" class="text-center" ><label value="Tiempo" sclass="text-capitalize font-weight-bold"/></h:th>
+       <h:th scope="col" class="text-center" ><label value="Turnos" sclass="text-capitalize font-weight-bold"/></h:th>
+       <h:th scope="col" class="text-center" ><label value="Aprobada" sclass="text-capitalize font-weight-bold"/></h:th>
+    <h:th></h:th>
+        </h:tr>
+      </h:thead>
+      <h:tbody>
+      
+       <forEach items="@bind(vm.weeks[key])" var="item" varStatus="status">
+       
+       <choose>
+           <when test="${item.festivo}">
+             <h:tr class="table-warning">
+               <h:td class="text-center">
+				<label sclass="text-secondary fw-bolder"  value="@load(vm.getDayOfWeek(item.fecha))"></label> 
+				<label sclass="" value="@load(item.fecha) @converter(vm.fieldConverter)"></label>
+				
+              </h:td>
+            <h:td class="text-center">
+                  <choose>
+                  	<when test="${item.aprobada=='false'}">
+                  	  <if test="${vm.workHoliday=='true' }">
+                  	    <timebox format="HH:mm" value="@bind(item.tminicio)" onChange="@command('onChange',field='tminicio',item=item)" />
+                  a
+                  <timebox format="HH:mm" value="@bind(item.tmfin)" onChange="@command('onChange',field='tmfin',item=item)"  />
+                  <button iconSclass=" bx bxs-calendar-plus " sclass="btn" onClick="@command('addPeriodo',index=status.index,item=item)" ></button>
+                  <button iconSclass=" bx bx-trash" sclass="btn" onClick="@command('removePeriodo',index=status.index,item=item)" ></button>
+                  	  </if>
+                  	</when>
+                  	<otherwise>
+                  	 <label sclass="fw-bolder"  value="@load(item.tminicio) @converter(vm.converter,type='TIME')"></label>
+                  a
+                  <label sclass="fw-bolder"  value="@load(item.tmfin) @converter(vm.converter,type='TIME')"></label>
+                  	</otherwise>
+                  </choose>
+                  <if test="${vm.workHoliday=='false' }">
+                    <label sclass="fw-bolder"  value="Festivo"></label>
+                  </if>
+	          </h:td>
+            <h:td class="text-center">
+            <choose>
+<when test="${item.aprobada=='false'}">
+  <if test="${vm.workHoliday=='true' }">
+    				<combobox mold="rounded" model="@bind(vm.getEnums('TIPO'))" 
+selectedItem="@bind(item.tipo)"  
+value="@load(item.tipo) @save(item.tipo, before=('store2')) @validator(vm.validator,required=true)" readonly="@bind(tem.aprobada)">
+<template name="model" var="item1">
+<comboitem value="${item1.stValue ne null ? item1.stValue:item.stValue}" label="${item1.stValue ne null?item1.stValue:item1.inValue}"/>
+</template>
+</combobox>
+  </if>
+</when>
+<otherwise>
+<label sclass="text-secondary fw-bolder"  if="${item.aprobada=='true'} or ${vm.workHoliday=='false' }" value="@load(item.tipo)"></label>
+</otherwise>
+</choose>
+            
+
+  
+              </h:td>
+            <h:td class="text-center">
+				      <label sclass="text-secondary fw-bolder" value="@bind(vm.getFormatHours(item)) "    />
+              </h:td>
+              <h:td></h:td>
+        <h:td>
+              <checkbox checked="@bind(item.aprobada)"  value="@bind(item.aprobada)" mold=""/>      
+           </h:td> 
+             <h:td></h:td>
+             </h:tr>
+           </when>
+           <otherwise>
+            <h:tr >
+            <h:td class="text-center">
+				<label sclass="text-secondary fw-bolder"  value="@load(vm.getDayOfWeek(item.fecha))"></label> 
+				<label sclass="" value="@load(item.fecha) @converter(vm.fieldConverter)"></label>
+              </h:td>
+            <h:td class="text-center">
+                 <if test="${item.aprobada=='false'}">
+                   <timebox format="HH:mm" value="@bind(item.tminicio)" onChange="@command('onChange',field='tminicio',item=item)" />
+                  a
+                  <timebox format="HH:mm" value="@bind(item.tmfin)" onChange="@command('onChange',field='tmfin',item=item)"  />
+                  <button iconSclass=" bx bxs-calendar-plus " sclass="btn" onClick="@command('addPeriodo',index=status.index,item=item)" ></button>
+                  <button iconSclass=" bx bx-trash" sclass="btn" onClick="@command('removePeriodo',index=status.index,item=item)" ></button>
+                 </if>
+                  <if test="${item.aprobada=='true'}">
+                  <label sclass="fw-bolder"  value="@load(item.tminicio) @converter(vm.converter,type='TIME')"></label>
+                  a
+                  <label sclass="fw-bolder"  value="@load(item.tmfin) @converter(vm.converter,type='TIME')"></label>
+                  </if>
+	          </h:td>
+            <h:td class="text-center">
+				<combobox mold="rounded" model="@load(vm.getEnums('TIPO'))" 
+selectedItem="@load(item.tipo)" if="${item.aprobada=='false'}"  value="@load(item.tipo) @save(item.tipo, before=('store2')) @validator(vm.validator,required=true)" readonly="@bind(tem.aprobada)">
+<template name="model" var="item1">
+<comboitem value="${item1.stValue ne null ? item1.stValue:item.stValue}" label="${item1.stValue ne null?item1.stValue:item1.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-secondary fw-bolder"  if="${item.aprobada=='true'}" value="@load(item.tipo)"></label> 
+              </h:td>
+            <h:td class="text-center">
+				      <label sclass="text-secondary fw-bolder" value="@bind(vm.getFormatHours(item)) "    />
+              </h:td>
+              <h:td></h:td>
+        <h:td>
+              <checkbox checked="@bind(item.aprobada)"  value="@bind(item.aprobada)" mold=""/>
+           </h:td> 
+             <h:td></h:td>
+            
+            </h:tr>
+           </otherwise>
+      </choose>
+        
+        
+            
+           
+        
+       </forEach>
+      </h:tbody>
+   </h:table> 
+ </div>
+		
+		</h:div>
+	</forEach>
+	</h:div>
+</div>
+<div class="col-lg-1">
+
+</div>
+<div class="col-lg-2">
+  <div class="table-responsive">
+   <h:table class="table align-middle table-bordered table-hover table-nowrap">
+      <h:thead class="table-light">
+       <h:tr>
+       <h:th scope="col" class="text-center" ><label value="Dedicación" sclass="text-capitalize font-weight-bold"/></h:th>
+       <h:th scope="col" class="text-center" ><label value="Tiempo" sclass="text-capitalize font-weight-bold"/></h:th>
+        </h:tr>
+        </h:thead>
+         <h:tbody>
+           <forEach items="@bind(vm.dedicacion)" var="item" varStatus="status">
+           <h:tr>
+           <h:td class="text-center">
+             <label sclass="fw-bolder"  value="@load(item[0])"></label>
+           </h:td>
+           <h:td class="text-center">
+             <label sclass="fw-bolder"  value="@load(item[1])"></label>
+           </h:td>
+           </h:tr>
+           </forEach>
+         </h:tbody>
+     </h:table>   
+   </div>
+</div>
+
+           </div>      
+            </h:div>
+            
+           </h:div>
+          </h:div>
+         </div>   
+            <fragment exps="@load(vm.lang['fichaje.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+
+                 
+
+
+
+                  
+                 
+
+
+
+                  
+                 
+
+
+
+                  
+                 
+
+                  
+
+ </idspace>
+
+</zk>

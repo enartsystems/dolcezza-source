@@ -1,0 +1,20 @@
+{
+  "uid" : "95422",
+  "nameScreen" : "aplicacionesadmin",
+  "nameEntidad" : "SSOAPLICACION",
+  "pageName" : "aplicacionesadmin",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "aplicaciones o modulos ",
+  "title" : "Aplicaciones o Modulos",
+  "fecha" : 1693686442472,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

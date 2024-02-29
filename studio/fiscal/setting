@@ -1,0 +1,13 @@
+#create with version org.enart [RELEASE]1.1.12 [Date]30-08-2022 19:45
+#Sun Oct 23 13:05:39 CEST 2022
+workspace.project.owner=almudena
+workspace.project.id=0
+workspace.project.comment=Gesti\u00F3n fiscal de clientes
+workspace.project.versionar=true
+tech.artfacto.version=1.1.12
+workspace.project.create=domingo, 23 de octubre de 2022
+workspace.project.version=1.0.0.SNAPSHOT
+workspace.project.name=Fiscal
+workspace.project.namespace=fiscal
+workspace.architec.name=Suinsit No Code
+workspace.architec.id=1

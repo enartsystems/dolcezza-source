@@ -1,0 +1,59 @@
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+	  						 
+<div class="table">					 
+					
+				 <grid  width="100%" height="500px"	model="@load(vm.beans)" sclass="table align-middle mb-0" >  
+							<columns sizable="true" menupopup="auto">
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('PARTNER.label', 'Partner'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['PARTNERAsc'])" sortDescending="@load(vm.comparators['PARTNERDesc'])"/>
+							      <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('Nivel.label', 'Nivel'))" align="center"/>
+							      <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('Tipo.label', 'Tipo'))" align="center"/>
+							      <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('Comercial.label', 'Comercial'))" align="center"/>
+ 							      <column style="font-size:14px;" hflex="1" label="Acciones" align="center" />
+							</columns >
+							<template name="model" var="item">
+						       <row style="text-align:right;cursor:pointer;"  onClick="@command('editData',item=item,page='masterpartner.zul')">
+							          <label  value="@load(item.partner) @converter(vm.fieldConverter)"></label>
+                                   
+                                   <cell align="center">
+                                          <label  value="@load(item.idnivel.nivel) @converter(vm.fieldConverter)"></label>
+                                        
+                                      
+                                    <space></space>
+                                   </cell> 
+                                   <cell align="center">
+                                          <label  value="@load(item.idtipopartner.tipopartner) @converter(vm.fieldConverter)"></label>
+                                        
+                                      
+                                    <space></space>
+                                   </cell> 
+                                   <cell align="center">
+                                          <label  value="@load(item.iderpcomercial.nombre) @converter(vm.fieldConverter)"></label>
+                                        
+                                      
+                                    <space></space>
+                                   </cell> 
+							
+                  			
+                  		<cell align="center">
+						  
+						<button
+						onClick="@command('editData',item=item,page='masterpartner.zul')"
+						iconSclass="s-icon s-icon-lapizplus" sclass="btn"/>
+						<space></space>
+						<button
+						onClick="@command('removeData',item=item)"
+						iconSclass="s-icon s-icon-trash"
+						sclass="btn" />
+						
+					    </cell>
+					   </row>
+                  		</template>
+							<foot>
+						     <footer span="4" align="right" label="@load(vm.labelTotal)" />
+						    </foot>
+						</grid>
+ </div>						
+</zk>						

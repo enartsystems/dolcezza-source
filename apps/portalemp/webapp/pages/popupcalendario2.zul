@@ -1,0 +1,315 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="calendario" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='calendario')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="calendario" />
+	  <custom-attributes enviroment="preview" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+<h:div style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12">
+<h:div class="row">
+
+
+
+
+   
+    <h:div class="col-md-12">
+       <hbox spacing="3px" visible="@load(vm.isVisible('NOMBRE'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('NOMBRE.label', 'nombre'))"  />
+	   </hbox>
+	   <textbox  tabindex="1" id="NOMBRE" placeholder="@load(vm.lang.getProperty('NOMBRE.label', 'nombre'))" value="@bind(vm.beanData.nombre) @save(vm.beanData.nombre, before=('store')) @validator(vm.validator,maxl='100' ,oldValue=vm.beanDataCpy.nombre)"  sclass="form-control  form-control border" visible="@load(vm.isVisible('NOMBRE'))" disabled="@load(vm.isEditable('NOMBRE')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['NOMBRE'])"/>
+    </h:div>   
+
+
+
+
+
+
+
+
+   
+    <h:div class="col-md-12">
+       <hbox spacing="3px" visible="@load(vm.isVisible('DESCRIPCION'))">
+	    <label sclass="form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('DESCRIPCION.label', 'descripcion'))"  />
+	   </hbox>
+	   <textbox  tabindex="2" id="DESCRIPCION" placeholder="@load(vm.lang.getProperty('DESCRIPCION.label', 'descripcion'))" value="@bind(vm.beanData.descripcion) @save(vm.beanData.descripcion, before=('store')) @validator(vm.validator,maxl='100' ,oldValue=vm.beanDataCpy.descripcion)"  sclass="form-control  form-control border" visible="@load(vm.isVisible('DESCRIPCION'))" disabled="@load(vm.isEditable('DESCRIPCION')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['DESCRIPCION'])"/>
+    </h:div>   
+
+
+
+
+
+<h:div class="col-md-12">
+<label sclass="form-label font-weight-bolder text-capitalize text-end" value="Días de la semana" style=" Font-Size:16px;"/>
+</h:div>
+
+
+
+
+<h:div style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12">
+<h:div class="row">
+
+<h:div class="col-md-2">
+
+   <hbox spacing="3px">
+     <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('LUNES.label', 'lunes'))"/>
+ </hbox>
+
+ <combobox mold="rounded" sclass="" id="LUNES" model="@load(vm.form.getFieldByAtribute('LUNES').getFieldPropsBeanByID('txValues').enums)" 
+selectedItem="@load(vm.beanData.lunes)"  value="@load(vm.beanData.lunes) @save(vm.beanData.lunes, before=('store')) ">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-danger" value="@load(vmsgs['LUNES'])"/>
+</h:div>
+
+
+
+
+<h:div class="col-md-2">
+
+   <hbox spacing="3px">
+     <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('MARTES.label', 'martes'))"/>
+ </hbox>
+
+ <combobox mold="rounded" sclass="" id="MARTES" model="@load(vm.form.getFieldByAtribute('MARTES').getFieldPropsBeanByID('txValues').enums)" 
+selectedItem="@load(vm.beanData.martes)"  value="@load(vm.beanData.martes) @save(vm.beanData.martes, before=('store')) ">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-danger" value="@load(vmsgs['MARTES'])"/>
+</h:div>
+
+
+
+
+<h:div class="col-md-2">
+
+   <hbox spacing="3px">
+     <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('MIERCOLES.label', 'miercoles'))"/>
+ </hbox>
+
+ <combobox mold="rounded" sclass="" id="MIERCOLES" model="@load(vm.form.getFieldByAtribute('MIERCOLES').getFieldPropsBeanByID('txValues').enums)" 
+selectedItem="@load(vm.beanData.miercoles)"  value="@load(vm.beanData.miercoles) @save(vm.beanData.miercoles, before=('store')) ">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-danger" value="@load(vmsgs['MIERCOLES'])"/>
+</h:div>
+
+
+
+
+<h:div class="col-md-2">
+
+   <hbox spacing="3px">
+     <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('JUEVES.label', 'jueves'))"/>
+ </hbox>
+
+ <combobox mold="rounded" sclass="" id="JUEVES" model="@load(vm.form.getFieldByAtribute('JUEVES').getFieldPropsBeanByID('txValues').enums)" 
+selectedItem="@load(vm.beanData.jueves)"  value="@load(vm.beanData.jueves) @save(vm.beanData.jueves, before=('store')) ">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-danger" value="@load(vmsgs['JUEVES'])"/>
+</h:div>
+
+
+
+
+<h:div class="col-md-2">
+
+   <hbox spacing="3px">
+     <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('VIERNES.label', 'viernes'))"/>
+ </hbox>
+
+ <combobox mold="rounded" sclass="" id="VIERNES" model="@load(vm.form.getFieldByAtribute('VIERNES').getFieldPropsBeanByID('txValues').enums)" 
+selectedItem="@load(vm.beanData.viernes)"  value="@load(vm.beanData.viernes) @save(vm.beanData.viernes, before=('store')) ">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-danger" value="@load(vmsgs['VIERNES'])"/>
+</h:div>
+
+
+
+
+<h:div class="col-md-2">
+
+   <hbox spacing="3px">
+     <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('SABADO.label', 'sabado'))"/>
+ </hbox>
+
+ <combobox mold="rounded" sclass="" id="SABADO" model="@load(vm.form.getFieldByAtribute('SABADO').getFieldPropsBeanByID('txValues').enums)" 
+selectedItem="@load(vm.beanData.sabado)"  value="@load(vm.beanData.sabado) @save(vm.beanData.sabado, before=('store')) ">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-danger" value="@load(vmsgs['SABADO'])"/>
+</h:div>
+
+
+
+
+<h:div class="col-md-2">
+
+   <hbox spacing="3px">
+     <label sclass="form-label font-weight-normal" style="" value="@load(vm.lang.getProperty('DOMINGO.label', 'domingo'))"/>
+ </hbox>
+
+ <combobox mold="rounded" sclass="" id="DOMINGO" model="@load(vm.form.getFieldByAtribute('DOMINGO').getFieldPropsBeanByID('txValues').enums)" 
+selectedItem="@load(vm.beanData.domingo)"  value="@load(vm.beanData.domingo) @save(vm.beanData.domingo, before=('store')) ">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+ <label sclass="text-danger" value="@load(vmsgs['DOMINGO'])"/>
+</h:div>
+
+
+
+</h:div>
+</h:div>  
+
+
+
+<h:div class="col-md-12">
+<label sclass="form-label font-weight-bold text-end" value="Días Festivos y especiales" style=" Font-Size:16px;"/>
+</h:div>
+
+
+
+ 
+ <div class="col-lg-12">		
+  <grid id="subrrhhfestivos" height="400px" width="100%" 
+   model="@bind(vm.grid['subrrhhfestivos']) " 
+    
+    onCreate="@command('onSubtableCreate',component=self,alias='subrrhhfestivos')">
+    <auxhead  sclass="bg-soft-light" >
+           <auxheader  colspan="1" rowspan="1" >
+           <combobox mold="rounded" sclass=""  model="@load(vm.entitys['subrrhhfestivos'].getFieldByAtribute('TIPO').getFieldPropsBeanByID('txValues').enums)" 
+selectedItem="@bind(vm.beans['subrrhhfestivos'].tipo)"  value="@bind(vm.beans['subrrhhfestivos'].tipo)  ">
+<template name="model" var="item">
+<comboitem value="${item.stValue ne null ? item.stValue:item.stValue}" label="${item.stValue ne null?item.stValue:item.inValue}"/>
+</template>
+</combobox>
+           </auxheader>
+           <auxheader  colspan="1" rowspan="1" >
+           <datebox value="@bind(vm.beans['subrrhhfestivos'].fecha)"/>
+           </auxheader>
+<auxheader  colspan="1" rowspan="1" >
+<textbox value="@bind(vm.beans['subrrhhfestivos'].descripcin)"/>
+</auxheader>
+<auxheader  colspan="1" rowspan="1" >
+<button label="añadir" onClick="@command('appendRowForm',alias='subrrhhfestivos')" />
+</auxheader>
+        </auxhead>
+	  <columns sizable="true">
+   
+      
+	   
+        <column label="@load(vm.lang.getProperty('TIPO.label', 'TIPO'))" align="center" sclass="text-capitalize"/>
+   
+      
+	   
+        <column label="@load(vm.lang.getProperty('FECHA.label', 'FECHA'))" align="center" sclass="text-capitalize"/>
+   
+      
+	   
+        <column label="@load(vm.lang.getProperty('DESCRIPCIN.label', 'DESCRIPCIN'))" align="center" sclass="text-capitalize"/>
+   
+      
+        <column align="center" />
+	 </columns>
+      <template name="model" var="item">
+      	<row style="text-align:right;">
+    	  				     <label  value="@load(item.tipo) @converter(vm.fieldConverter)"></label>
+				     <label  value="@load(item.fecha) @converter(vm.fieldConverter)"></label>
+				     <label  value="@load(item.descripcin) @converter(vm.fieldConverter)"></label>
+               <cell align="center">
+						<button
+						onClick="@command('cancelRowForm',alias='subrrhhfestivos',item=item)"
+						iconSclass="s-icon s-icon-trash"
+						sclass="btn" />
+		                </cell> 
+       </row>
+   	</template>
+  </grid>
+  </div>
+
+
+
+</h:div>
+</h:div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('store')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('storeNew')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['Calendario.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$calendario');
+  binder.command('doLoad');
+});
+function loadcalendario(){
+  var binder = zkbind.$('$calendario');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

@@ -1,0 +1,20 @@
+{
+  "uid" : "33792",
+  "nameScreen" : "Grupo",
+  "nameEntidad" : "RRHHGRUPO",
+  "pageName" : "Grupo",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "Mantenimiento de grupos",
+  "title" : "Grupo",
+  "fecha" : 1684612331754,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

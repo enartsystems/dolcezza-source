@@ -1,0 +1,162 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="aplicacionesadmin" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='aplicacionesadmin')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="aplicacionesadmin" />
+<custom-attributes clase="org.suinsit.apps.admin.Aplicacion" />
+	   <custom-attributes namespace="admin" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+
+<div id="gPPCmowdFh" style="overflow:auto;" class=" col-lg-4 col-xlg-4 col-md-4"  visible="true" >
+<div id="gPPCmowdFh-row" class="row">
+
+
+				
+
+
+   
+    <h:div class="col-md-12 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('TITULO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style=" Font-Size:16px;" value="@load(vm.lang.getProperty('TITULO.label', 'Aplicación Modulo'))"  />
+	   </hbox>
+	   <textbox   tabindex="1" id="tTjzUVfOPZ" 
+	   placeholder="@load(vm.lang.getProperty('TITULO.label', 'titulo'))" 
+	   value="@bind(vm.beanData.titulo) @save(vm.beanData.titulo, before=('grabar')) "  sclass="margin-field form-control  form-control form-control-sm border border-primary bg-light text-dark" 
+	   visible="@load(vm.isVisible('TITULO'))" disabled="@load(vm.isEditable('TITULO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['tTjzUVfOPZ'])"/>
+	   
+    </h:div>   
+
+
+
+
+</div>
+</div>  
+<div id="JcIEqaLqMu" style="overflow:auto;" class=" col-lg-4 col-xlg-4 col-md-4"  visible="true" >
+<div id="JcIEqaLqMu-row" class="row">
+
+   <h:div class="col-md-12">
+     <hbox spacing="3px">
+	    <label sclass="form-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('AYUDA.label', 'Ayuda'))"/>
+	   </hbox>
+	      <textbox rows="4" cols="80" id="iIxgunqqrM" multiline="true" placeholder="@load(vm.lang.getProperty('AYUDA.label', 'ayuda'))" value="@bind(vm.beanData.ayuda) @save(vm.beanData.ayuda, before=('grabar')) "  sclass="form-control  form-control border" visible="@load(vm.isVisible('AYUDA'))" disabled="@load(vm.isEditable('AYUDA')?false:true)"/>
+           <label sclass="text-danger" value="@load(vmsgs['iIxgunqqrM'])"/>
+	     
+</h:div>
+
+
+
+</div>
+</div>  
+<div id="cLvGVWmCdx" style="overflow:auto;" class=" col-lg-4 col-xlg-4 col-md-4"  visible="true" >
+<div id="cLvGVWmCdx-row" class="row">
+
+
+				
+
+
+   
+    <h:div class="col-md-12 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('APLICACION'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style=" Font-Size:16px;" value="@load(vm.lang.getProperty('APLICACION.label', 'Aplicación / Modulo'))"  />
+	   </hbox>
+	   <textbox   tabindex="1" id="yxhKPormYr" 
+	   placeholder="@load(vm.lang.getProperty('APLICACION.label', 'Nombre descriptivo de la aplicación'))" 
+	   value="@bind(vm.beanData.aplicacion) @save(vm.beanData.aplicacion, before=('grabar')) @validator(vm.unique, field='APLICACION',required=true ,oldValue=vm.beanDataCpy.aplicacion)"  sclass="margin-field form-control  form-control form-control-sm border border-primary bg-light text-dark border-danger" 
+	   visible="@load(vm.isVisible('APLICACION'))" disabled="@load(vm.isEditable('APLICACION')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['yxhKPormYr'])"/>
+	   
+    </h:div>   
+
+
+
+
+</div>
+</div>  
+<div id="vmjQkoqHdy" style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12"  visible="true" >
+<div id="vmjQkoqHdy-row" class="row">
+</div>
+</div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['aplicacionesadmin.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+                  
+                 
+
+
+                  
+                 
+
+
+                  
+                 
+
+                  
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$aplicacionesadmin');
+  binder.command('doLoad');
+});
+function loadaplicacionesadmin(){
+  var binder = zkbind.$('$aplicacionesadmin');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

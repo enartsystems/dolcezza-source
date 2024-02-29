@@ -1,0 +1,228 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+		<idspace
+		viewModel="@id('vm') @init('com.suinsit.office.rrhh.NominasImportUI')"
+		validationMessages="@id('vmsgs')">
+		 <custom-attributes pagina="bajaempleadoclte" />
+	  <custom-attributes paginaIndex="indexbajaempleadoclte.zul" />
+	   <custom-attributes templateView="gridbajaempleadoclte.zul" />
+		<space></space>
+
+
+		<h:div id="notificacion"></h:div>
+
+		<div class="row">
+			<div class="col-12">
+				<div
+					class="page-title-box d-sm-flex align-items-center justify-content-between">
+					<h:h4 class="mb-sm-0">Importar Nominas</h:h4>
+
+					<h:div class="page-title-right">
+						<h:ol class="breadcrumb m-0">
+							<h:li class="breadcrumb-item">
+								<h:a href="javascript: void(0);">
+									${ds.menu}
+								</h:a>
+							</h:li>
+							<h:li class="breadcrumb-item active">
+								Importar Nominas
+							</h:li>
+						</h:ol>
+					</h:div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="row g-2">
+									<h:div
+										class="col-md-3 border-field">
+										<vbox>
+											<button sclass="btn btn-success btn-label waves-effect waves-light"  iconSclass="label icon align-middle fd-16 me-2 ri-file-upload-line" label="Upload" 
+												upload="true,maxsize=100000"
+												onUpload="@command('onUploadFile', file=event.media,field='FILE')" />
+											
+										</vbox>
+										<progressmeter id="pm" value="0"  width="100%" />
+										<label sclass="fs-5 text-primary" id="msg"></label>
+										<timer id="timer" delay="1000" repeats="true" onTimer="@command('onTimer',pm=pm)"/>	
+									</h:div>
+									<h:div	class="col-md-2 border-field">
+									    <vbox spacing="5px">
+									      <hbox spacing="3px">
+									         <label sclass="fs-6 badge badge-soft-info"	value="Total Nominas :"></label>
+									         <label sclass="badge badge-soft-info" value="@load(vm.nominasAnalizar)"></label>
+									      </hbox>
+									      <hbox spacing="3px">
+									         <label sclass="fs-6 badge badge-soft-success"	value="Nominas Correctas :"></label>
+									         <label sclass="badge badge-soft-success"	value="@load(vm.correctas)"></label>
+									      </hbox>
+									      <hbox spacing="3px">
+									       <label 	sclass="fs-6 badge badge-soft-danger" value="Nominas Erróneas :"></label>
+									        <label sclass="badge badge-soft-danger"	value="@load(vm.erroneasKo)"></label>
+									      </hbox>
+									    </vbox>
+									</h:div>
+									<h:div
+										class="col-md-2 border-field">
+										<vbox spacing="5px">
+										    <checkbox label="Notificar Empleado por email" checked="true"/>
+											<checkbox label="Notificar Empresa por email" checked="true"/>
+										</vbox>
+									</h:div>
+								<div class="col-md-3 border-field" id="documento" viewModel="@id('vm1') @init('com.suinsit.office.documents.DocumentUI',pagina='documento',vm=vm)" validationMessages="@id('vmsgs')">
+								     <custom-attributes pagina="documento" />
+								     <custom-attributes module="RRHEMPLEADO" />
+								     <custom-attributes clase="org.suinsit.apps.document.Docfichero" />
+								     <custom-attributes namespace="document" />
+								    <h:div class="col-md-12 ">
+									<hbox spacing="3px">
+    <label sclass="form-label font-weight-normal" style="" value="Catalogo"/>
+ 	
+   </hbox>
+									<combobox mold="rounded" autodrop="true"  placeholder="Catalogo" 
+model="@bind(vm1.foreings['iddoccatalogo'])"  buttonVisible="true"	
+onSelect="@command('onSelectForeing', alias='iddoccatalogo',item=self.selectedItem.value,changefk='iddoctipodocum')"  		
+selectedItem="@bind(vm1.beanData.iddoccatalogo)"  disabled="@load(vm1.disabledCatalogo)" onCreate="@command('onCreateCombo',component=self,alias='iddoccatalogo')" 
+value="@bind(vm1.beanData.iddoccatalogo.catalogo) @save(vm1.beanData.iddoccatalogo.catalogo, before=('onProcess')) @validator(vm.validator,required=true )"   ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.catalogo)" /></template></combobox>
+									
+									
+									</h:div>
+									<h:div class="col-md-12">
+   <hbox spacing="3px">
+    <label sclass="form-label font-weight-normal" style="" value="@load(vm1.lang.getProperty('iddoctipodocum.label', 'Tipo Documento'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_fTgEfFnPIj" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  placeholder="@load(vm1.lang.getProperty('iddoctipodocum').label,'Tipo Documento')" 
+model="@bind(vm1.foreings['iddoctipodocum'])"  buttonVisible="true"	
+onSelect="@command('onSelectForeing', alias='iddoctipodocum',item=self.selectedItem.value)"  		
+selectedItem="@load(vm1.beanData.iddoctipodocum)"  
+onCreate="@command('onCreateCombo',component=self,alias='iddoctipodocum',loadFkFrom='iddoccatalogo')" 
+value="@bind(vm1.beanData.iddoctipodocum .tipodocumento)"  disabled="@bind(vm1.beanData.iddoccatalogo.idxdoccatalogo eq null) " >
+<template name="model" var="item"><comboitem value="@load(item)" label="@load(item.tipodocumento)" /></template></combobox>
+   <popup id="pop_fTgEfFnPIj" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm1.lang.getProperty('iddoctipodocum.helptext', 'iddoctipodocum'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+								</div>
+									
+									<h:div
+										class="col-md-2 border-field">
+										<button sclass="btn btn-success btn-label waves-effect waves-light"  iconSclass="label icon align-middle fd-16 me-2 ri-file-settings-line" label="Procesar" onClick="@command('onProcess')" />
+									</h:div>
+							
+						</div>
+					</div>
+				</div>
+			</div><!--end col-->
+			<div class="col-xxl-12">
+				<div class="card" id="companyList">
+					
+					<div class="card-body">
+						<div id="divTemplate" sclass="col-lg-12">
+						<tabbox>
+							<tabs>
+								<tab label="Confirmados" />
+								<tab label="Erroneos" />
+							</tabs>
+							<tabpanels>
+								<tabpanel>
+								<grid  width="100%" height="500px"	model="@load(vm.nominas)" sclass="table align-middle mb-0" >  
+							<columns sizable="true" menupopup="auto">
+							       <column sclass=" text-capitalize " hflex="1" label="empresa" align="center" sort="auto"  />
+							       <column sclass=" text-capitalize " hflex="1" label="cif" align="center" sort="auto"  />
+							       <column sclass=" text-capitalize " hflex="1" label="cuenta" align="center" sort="auto"  />
+							       <column sclass=" text-capitalize " hflex="1" label="trabajador" align="center" sort="auto" />
+							       <column sclass=" text-capitalize " hflex="1" label="nif"/>
+							       <column sclass=" text-capitalize " hflex="1" label="segSocial" align="center" sort="auto"  />
+
+							</columns >
+							<template name="model" var="item">
+                  			<row style="text-align:right;">
+							         <label  value="@load(item.nomina.empresa.empresa)"></label>
+ 							         <label  value="@load(item.nomina.empresa.cif)"></label>
+  							         <label  value="@load(item.nomina.empresa.cuenta)"></label>
+  							         <label  value="@load(item.nomina.empleado.trabajador)"></label>
+ 							         <label  value="@load(item.nomina.empleado.nif)"></label>
+                                     <label  value="@load(item.nomina.empleado.segSocial)"></label>
+					   </row>
+                  		</template>
+							<foot>
+						     <footer span="4" align="right" label="@load(vm.labelTotal)" />
+						    </foot>
+						</grid>
+								
+								
+								
+								</tabpanel>
+								<tabpanel>
+									<grid  width="100%" height="500px"	model="@load(vm.erroneas)" sclass="table align-middle mb-0" >  
+							<columns sizable="true" menupopup="auto">
+							       <column sclass=" text-capitalize " hflex="1" label="Error" align="center" sort="auto"  />
+							       <column sclass=" text-capitalize " hflex="1" label="empresa" align="center" sort="auto"  />
+							       <column sclass=" text-capitalize " hflex="1" label="cif" align="center" sort="auto"  />
+							       <column sclass=" text-capitalize " hflex="1" label="cuenta" align="center" sort="auto"  />
+							       <column sclass=" text-capitalize " hflex="1" label="trabajador" align="center" sort="auto"  />
+							       <column sclass=" text-capitalize " hflex="1" label="nif"/>
+							       <column sclass=" text-capitalize " hflex="1" label="segSocial" align="center" sort="auto"  />
+
+							</columns >
+							<template name="model" var="item">
+                  			<row style="text-align:right;">
+                  			         <label  value="@load(item.error)"></label>
+							         <label  value="@load(item.nomina.empresa.empresa)"></label>
+ 							         <label  value="@load(item.nomina.empresa.cif)"></label>
+  							         <label  value="@load(item.nomina.empresa.cuenta)"></label>
+  							         <label  value="@load(item.nomina.empleado.trabajador)"></label>
+ 							         <label  value="@load(item.nomina.empleado.nif)"></label>
+                                     <label  value="@load(item.nomina.empleado.segSocial)"></label>
+					   </row>
+                  		</template>
+							<foot>
+						     <footer span="4" align="right" label="@load(vm.labelTotal)" />
+						    </foot>
+						</grid>
+								
+								
+								</tabpanel>
+							</tabpanels>
+						</tabbox>
+
+						</div>
+					</div>
+					<div class="card-footer">
+						<div class="row">
+							<div class="col-lg-2">
+
+							</div>
+
+							<div class="col-lg-6 align-items-start">
+
+							</div>
+							<div class="col-lg-2 align-items-start">
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- row -->
+
+
+		<!--end add modal-->
+	</idspace>
+
+</zk>

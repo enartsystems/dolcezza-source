@@ -1,0 +1,20 @@
+{
+  "uid" : "23615",
+  "nameScreen" : "popnota",
+  "nameEntidad" : "CRMNOTA",
+  "pageName" : "popnota",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "popup",
+  "descripcion" : "Notas emergentes",
+  "title" : "Notas",
+  "fecha" : 1692567976505,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : true
+}

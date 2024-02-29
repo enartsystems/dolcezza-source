@@ -1,0 +1,20 @@
+{
+  "uid" : "18389",
+  "nameScreen" : "tipocontratos",
+  "nameEntidad" : "CRTMTIPO",
+  "pageName" : "tipocontratos",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "Tipo de contratos",
+  "title" : "Tipo de contratos",
+  "fecha" : 1674993598471,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

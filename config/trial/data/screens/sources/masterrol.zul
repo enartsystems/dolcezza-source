@@ -1,0 +1,156 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace  viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterEntityUI',pagina='Rol')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="Rol" />
+			<h:div id="notificacion"></h:div>
+			<panel id="root_panel">
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+						<h:div class="card">
+							<div class="card-header bg-primary-400 header-elements-inline">
+							 <fragment exps="@load(vm.lang['Rol.screen'])" >
+							   <![CDATA[
+							        <h2 class='card-title'>
+							        <span textContent='@load(exps)'></span>
+							        </h2>
+                               ]]>   
+                             </fragment>
+								<h:div class="header-elements">
+									<h:div class="list-icons">
+									<a sclass="list-icons-item"
+											tooltiptext="volver"
+											iconSclass="su-icon su-2x su-icon-returns"
+											onClick="@command('toSearch')">
+										</a>
+										<a sclass="list-icons-item"
+											tooltiptext="save pluggin"
+											iconSclass="su-icon su-2x su-icon-save"
+											onClick="@command('store')">
+										</a>
+										<a	iconSclass="su-icon su-3x su-icon-question-1"
+											tooltiptext="help pluggin" d:data-toggle="modal" d:data-target="#modal_iconified">
+										</a>
+									</h:div>
+								</h:div>
+							</div>
+							<h:div class="card-body">
+								
+									
+                   <div class="row">
+  <h:div class="col-lg-12" >
+     <h:div class="card shadow-0 border-0" >
+       <h:div class="card-body">
+        <h:div class="form-group row">
+    <h:div class="col-md-3">
+       <hbox spacing="3px">
+	    <label value="@load(vm.lang.getProperty('ALTA.label', 'Fec. Alta'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_dgelSbuYBv" />
+	   </hbox>
+    <datebox id="dgelSbuYBv" tabindex="1" value="@bind(vm.form.getFieldByAtribute('ALTA').value) @save(vm.form.getFieldByAtribute('ALTA').value, before=('store')) @validator(vm.validator,required=true )"    visible="@load(vm.isVisible('ALTA'))" disabled="@load(vm.isEditable('ALTA')?false:true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['dgelSbuYBv'])"/>
+      </h:div>
+   <popup id="pop_dgelSbuYBv" width="200px">
+	  <vbox>  
+	  <fragment exps="@load(vm.lang.getProperty('ALTA.helptext', 'ALTA'))" >
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+
+
+
+
+
+
+
+
+    <h:div class="col-md-3">
+       <hbox spacing="3px">
+	    <label value="@load(vm.lang.getProperty('ROL.label', 'ROL'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_KkmdhTkqsq" />
+	   </hbox>
+       <textbox id="KkmdhTkqsq" placeholder="@load(vm.lang.getProperty('ROL.label', 'ROL'))" value="@bind(vm.form.getFieldByAtribute('ROL').value) @save(vm.form.getFieldByAtribute('ROL').value, before=('store')) @validator(vm.validator,required=true )"  sclass="form-control border-warning" visible="@load(vm.isVisible('ROL'))" disabled="@load(vm.isEditable('ROL')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['KkmdhTkqsq'])"/>
+    </h:div>    
+   <popup id="pop_KkmdhTkqsq" width="200px">
+	  <vbox>  
+	  <fragment exps="@load(vm.lang.getProperty('ROL.helptext', 'ROL'))" >
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+
+
+
+
+<h:div class="col-md-3">
+   <hbox spacing="3px">
+	<label value="@load(vm.lang['idrolparent.label'])"/>
+  	 <a	iconSclass="su-icon su-icon-question" popup="pop_crUVwbeXkz" />
+   </hbox>
+<listbox model="@bind(vm.foreings['idrolparent'])"  onSelect="@command('onSelectForeing', alias='idrolparent',item=self.selectedItem.value)" mold="select"  selectedItem="@load(vm.form.getForeingByAlias('idrolparent').fkentity)" width="90%" >
+ <template name="model" var="item">
+ <listitem value="@load(item)"><listcell label="@load(item.getFieldByAtribute('rol').value)" />
+
+ </listitem></template></listbox>
+   <popup id="pop_crUVwbeXkz" width="200px">
+	  <vbox>  
+	  <fragment exps="@load(vm.lang['idrolparent.helptext'])" >
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+
+
+         </h:div> 
+       </h:div>
+     </h:div>
+  </h:div>
+   
+          
+                              
+          
+        
+                   </div>
+                              
+            </h:div>
+            <h:div class="card-footer d-flex justify-content-between bg-primary">
+            </h:div>
+           </h:div>
+          </h:div>
+         </div>   
+            <fragment exps="@load(vm.lang['Rol.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+		</panelchildren>
+		</panel>
+ </idspace>
+</zk>

@@ -1,0 +1,20 @@
+{
+  "uid" : "15455",
+  "nameScreen" : "popperiodicidad",
+  "nameEntidad" : "CRTMPERIODICIDAD",
+  "pageName" : "popperiodicidad",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "popup",
+  "descripcion" : "emergente de periodicidad",
+  "title" : "Periodicidad",
+  "fecha" : 1662916061718,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : true
+}

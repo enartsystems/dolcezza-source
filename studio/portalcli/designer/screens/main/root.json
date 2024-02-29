@@ -1,0 +1,21 @@
+{
+  "id" : "0",
+  "idscreen" : null,
+  "nameScreen" : null,
+  "desktop" : false,
+  "aplication" : null,
+  "prefix" : null,
+  "name" : "root",
+  "iconClass" : null,
+  "image" : null,
+  "tooltip" : null,
+  "pageHelp" : null,
+  "orient" : "horizontal",
+  "pageUrl" : null,
+  "style" : null,
+  "page" : null,
+  "traslates" : { },
+  "roles" : [ ],
+  "items" : [ ],
+  "lastmodif" : null
+}

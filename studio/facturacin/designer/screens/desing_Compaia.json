@@ -1,0 +1,20 @@
+{
+  "uid" : "12087",
+  "nameScreen" : "Compañia",
+  "nameEntidad" : "ERPEMPRESA",
+  "pageName" : "Compaia",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "Gestión de compañias",
+  "title" : "Compañia",
+  "fecha" : 1693982856442,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

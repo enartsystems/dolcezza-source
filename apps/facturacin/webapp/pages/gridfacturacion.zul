@@ -1,0 +1,116 @@
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+	
+	<div class="table-responsive table-card">					 
+<!-- <div class="table"> sclass="table align-middle mb-0" sizable="true" menupopup="auto"-->					 
+					
+				 <grid sclass="table table-nowrap table-striped-columns mb-0" 	model="@load(vm.beans)" sizedByContent="true" span="true">  
+							<columns >
+<!-- 							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('FACTURA.label', 'Factura'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['FACTURAAsc'])" sortDescending="@load(vm.comparators['FACTURADesc'])"/> -->
+<!-- 							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('FECHAFACT.label', 'Fecha Factura'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['FECHAFACTAsc'])" sortDescending="@load(vm.comparators['FECHAFACTDesc'])"/> -->
+<!-- 							      <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('Cliente.label', 'Cliente'))" align="center"/> -->
+<!-- 							      <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('Comercial.label', 'Comercial'))" align="center"/> -->
+<!-- 							      <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('Empresa.label', 'Empresa'))" align="center"/> -->
+<!-- 							      <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('Estado.label', 'Estado'))" align="center"/> -->
+<!-- 							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('IMPUESTOS.label', 'Impuestos'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['IMPUESTOSAsc'])" sortDescending="@load(vm.comparators['IMPUESTOSDesc'])"/> -->
+<!-- 							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('SUBTOTAL.label', 'Subtotal'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['SUBTOTALAsc'])" sortDescending="@load(vm.comparators['SUBTOTALDesc'])"/> -->
+<!-- 							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('TOTAL.label', 'Total'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['TOTALAsc'])" sortDescending="@load(vm.comparators['TOTALDesc'])"/> -->
+<!-- 							      <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('Estado Cobro.label', 'Estado Cobro'))" align="center"/> -->
+<!--  							      <column style="font-size:14px;"  label="Acciones" align="center" /> -->
+							
+							
+							<column    >${vm.lang.getProperty('FACTURA.label', 'Factura') }</column>
+							       <column  hflex="min" >${vm.lang.getProperty('FECHAFACT.label', 'Fecha Factura')}</column>
+							      <column   hflex="min" >${vm.lang.getProperty('Cliente.label', 'Cliente') }</column>
+							      <column   hflex="min" >${vm.lang.getProperty('Comercial.label', 'Comercial') }</column>
+							      <column   hflex="min" >${vm.lang.getProperty('Empresa.label', 'Empresa') }</column>
+							      <column   hflex="min" >${vm.lang.getProperty('Estado.label', 'Estado') }</column>
+							       <column hflex="min"   >${vm.lang.getProperty('IMPUESTOS.label', 'Impuestos') }</column>
+							       <column hflex="min"  >${vm.lang.getProperty('IMPUESTOS.label', 'Impuestos') }</column>
+							       <column hflex="min"   >${vm.lang.getProperty('TOTAL.label', 'Total') }</column>
+							      <column  hflex="min" >${vm.lang.getProperty('Estado Cobro.label', 'Estado Cobro') }</column>
+ 							      <column hflex="min" label="Acciones" align="center" />
+							
+							
+							
+							</columns >
+							<template name="model" var="item">
+						       <row style="text-align:right;cursor:pointer;"  onClick="@command('editData',item=item,page='facturacion.zul')">
+							          <label  value="@load(item.factura) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.fechafact) @converter(vm.fieldConverter)"></label>
+                                   
+                                   <cell align="center">
+                                          <label  value="@load(item.idcrmempresa.empresa) @converter(vm.fieldConverter)"></label>
+                                        
+                                      
+                                    <space></space>
+                                   </cell> 
+                                   <cell align="center">
+                                          <label  value="@load(item.iderpcomercial.nombre) @converter(vm.fieldConverter)"></label>
+                                        
+                                      
+                                    <space></space>
+                                   </cell> 
+                                   <cell align="center">
+                                          <label  value="@load(item.idcompany.nombre) @converter(vm.fieldConverter)"></label>
+                                        
+                                      
+                                    <space></space>
+                                          <label  value="@load(item.idcompany.retencion) @converter(vm.fieldConverter)"></label>
+                                        
+                                      
+                                    <space></space>
+                                          <label  value="@load(item.idcompany.cif) @converter(vm.fieldConverter)"></label>
+                                        
+                                      
+                                    <space></space>
+                                   </cell> 
+                                   <cell align="center">
+                                              <label style="font-size:12px;" sclass="@load(vm.concat('fw-bolder badge rounded-pill ',item.iderpmestado.bgcolor))" value="@load(item.iderpmestado.estado) @converter(vm.fieldConverter)"></label>   
+                                        
+                                      
+                                    <space></space>
+                                        
+                                      
+                                    <space></space>
+                                   </cell> 
+							          <label  value="@load(item.impuestos) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.subtotal) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.total) @converter(vm.fieldConverter)"></label>
+                                   
+                                   <cell align="center">
+                                              <label style="font-size:12px;" sclass="@load(vm.concat('fw-bolder badge rounded-pill ',item.iderpmestadocbo.bgcolor))" value="@load(item.iderpmestadocbo.estado) @converter(vm.fieldConverter)"></label>   
+                                        
+                                      
+                                    <space></space>
+                                        
+                                      
+                                    <space></space>
+                                   </cell> 
+							
+                  			
+                  		<cell align="center">
+						  
+						<button
+						onClick="@command('editData',item=item,page='facturacion.zul')"
+						iconSclass="s-icon s-icon-lapizplus" sclass="btn"    />
+						<space></space>
+						<button
+						onClick="@command('removeData',item=item)"
+						iconSclass="s-icon s-icon-trash"
+						sclass="btn"   />
+						
+					    </cell>
+					   </row>
+                  		</template>
+							<foot>
+						     <footer span="4" align="right" label="@load(vm.labelTotal)" />
+						    </foot>
+						</grid>
+ </div> 						
+</zk>						

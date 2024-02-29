@@ -1,0 +1,53 @@
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+		
+						 
+<div class="table-responsive table-card">					 
+					
+				 <grid  	model="@load(vm.beans)" sizedByContent="true" span="true" sclass="table align-middle mb-0" >  
+							<columns sizable="true" menupopup="auto">
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('ACTUALIZACION.label', 'Actualización'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['ACTUALIZACIONAsc'])" sortDescending="@load(vm.comparators['ACTUALIZACIONDesc'])"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('ESTADO.label', 'Estado'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['ESTADOAsc'])" sortDescending="@load(vm.comparators['ESTADODesc'])"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('APLICACION.label', 'Aplicación Módulo'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['APLICACIONAsc'])" sortDescending="@load(vm.comparators['APLICACIONDesc'])"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('FECPREVISTA.label', 'Fec. Prevista'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['FECPREVISTAAsc'])" sortDescending="@load(vm.comparators['FECPREVISTADesc'])"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('FECINSTALACION.label', 'Fec. Instalación'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['FECINSTALACIONAsc'])" sortDescending="@load(vm.comparators['FECINSTALACIONDesc'])"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('RELEASE.label', 'Release'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['RELEASEAsc'])" sortDescending="@load(vm.comparators['RELEASEDesc'])"/>
+							       <column style="font-size:14px;" sclass=" text-capitalize " hflex="1" label="@load(vm.lang.getProperty('VERSION.label', 'Versión'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['VERSIONAsc'])" sortDescending="@load(vm.comparators['VERSIONDesc'])"/>
+ 							      <column style="font-size:14px;" hflex="1" label="Acciones" align="center" />
+							</columns >
+							<template name="model" var="item">
+						       <row style="text-align:right;cursor:pointer;"  onClick="@command('editData',item=item,page='masteractualizacionesread.zul')">
+							          <label  value="@load(item.actualizacion) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.estado) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.aplicacion) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.fecprevista) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.fecinstalacion) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.release) @converter(vm.fieldConverter)"></label>
+                                   
+							          <label  value="@load(item.version) @converter(vm.fieldConverter)"></label>
+                                   
+							
+                  			
+                  		<cell align="center">
+						  
+						<button
+						onClick="@command('editData',item=item,page='masteractualizacionesread.zul')"
+						iconSclass="s-icon s-icon-lapizplus" sclass="btn"    />
+						<space></space>
+						
+					    </cell>
+					   </row>
+                  		</template>
+							<foot>
+						     <footer span="4" align="right" label="@load(vm.labelTotal)" />
+						    </foot>
+						</grid>
+ </div>						
+</zk>						

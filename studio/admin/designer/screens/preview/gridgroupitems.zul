@@ -1,0 +1,48 @@
+					 <grid  height="600px" width="100%"	model="@load(vm.groups)" >  
+							<columns sizable="true" menupopup="auto">
+							       <column hflex="1" label="@load(vm.lang.getProperty('ITEM.label', 'Item'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['ITEMAsc'])" sortDescending="@load(vm.comparators['ITEMDesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('PAGE.label', 'Página'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['PAGEAsc'])" sortDescending="@load(vm.comparators['PAGEDesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('MENU.label', 'menu'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['MENUAsc'])" sortDescending="@load(vm.comparators['MENUDesc'])"/>
+							       <column hflex="1" label="@load(vm.lang.getProperty('KEYPROCESS.label', ''))" align="center" sort="auto"  sortAscending="@load(vm.comparators['KEYPROCESSAsc'])" sortDescending="@load(vm.comparators['KEYPROCESSDesc'])"/>
+ 							      <column hflex="1" align="center" />
+							</columns >
+							<!-- template for group -->
+                              <template name="model:group">
+                                <group label="@load(each)" style="text-align:left;"/>
+                              </template>
+							<template name="model" var="item">
+                  			<row style="text-align:right;">
+							         <label  value="@load(item.getFieldByAtribute('ITEM').value) @converter(vm.fieldConverter)"></label>
+                                   
+							         <label  value="@load(item.getFieldByAtribute('PAGE').value) @converter(vm.fieldConverter)"></label>
+                                   
+                                   <label  value="@load(item.getFieldByAtribute('menu').value) @converter(vm.fieldConverter)"></label>
+                                   <label  value="@load(item.getFieldByAtribute('keyprocess').value) @converter(vm.fieldConverter)"></label>
+							
+                  			
+                  		<cell align="center">
+						<button
+						onClick="@command('editData',item=item,page='masteritems.zul')"
+						iconSclass="icon-pencil7" sclass="btn btn-outline-secondary" />
+						<space></space>
+						<button
+						onClick="@command('removeData',item=item)"
+						iconSclass="icon-trash"
+						sclass="btn btn-outline-warning" />
+						
+					    </cell>
+					   </row>
+					   
+                  		</template>
+                  		            		 <!-- template for footer -->
+        <template name="model:groupfoot">
+            <groupfoot>
+                <cell colspan="5" style="text-align: right; padding-right: 15px">
+                    <label value="@load(each)" style="font-weight:bold;" />
+                </cell>
+            </groupfoot>
+        </template>
+							<foot>
+						     <footer span="4" align="right" label="@load(vm.labelTotal)" />
+						    </foot>
+						</grid>

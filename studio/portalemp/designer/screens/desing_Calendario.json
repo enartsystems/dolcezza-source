@@ -1,0 +1,20 @@
+{
+  "uid" : "61912",
+  "nameScreen" : "Calendario",
+  "nameEntidad" : "RRHHCALENDARIO",
+  "pageName" : "Calendario",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "popup",
+  "descripcion" : "Popup de calendario",
+  "title" : "Calendario",
+  "fecha" : 1693658688615,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : true
+}

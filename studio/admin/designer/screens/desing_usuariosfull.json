@@ -1,0 +1,20 @@
+{
+  "uid" : "61739",
+  "nameScreen" : "usuariosfull",
+  "nameEntidad" : "SSOUSUARIO",
+  "pageName" : "usuariosfull",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "Gestión Global de todos los usuarios",
+  "title" : "Gestión de todos los usuarios",
+  "fecha" : 1693686839574,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

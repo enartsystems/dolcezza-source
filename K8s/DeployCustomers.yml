@@ -1,0 +1,140 @@
+---
+# suinsit aplicacion
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: customers-apps
+  namespace: suin-dolcezza
+spec:
+  selector:
+    matchLabels:
+      app: customers-apps
+  replicas: 1    
+  #strategy:
+  #  type: Recreate
+  template:
+    metadata:
+      labels:
+        app: customers-apps
+    spec:
+      containers:
+# image to suinsit-app
+      - image: 2w1x0a76.gra7.container-registry.ovh.net/suinsit-proyect/enartsystems/suinsit-customers:2.0.4
+        name: customers-apps
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "50m"
+          limits:
+            memory: "2048Mi"
+            cpu: "750m"
+        env:
+          # Use secret in real usage
+        - name: JAVA_OPTIONS
+          value: -Duser.language=es -Duser.country=ES -Duser.timezone="Europe/Madrid" -Djetty.http.port=8080 -server -Xms256m -Xmx2048m -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxMetaspaceSize=256m -XX:+ScavengeBeforeFullGC
+        - name: SUINSIT_BBDD
+          value: default
+        - name: SUINSIT_BBDD_DRIVER
+          value: org.postgresql.Driver
+        - name: SUINSIT_BBDD_PASSWORD
+          valueFrom:
+            secretKeyRef:
+               name: bbdd
+               key: password
+        - name: SUINSIT_BBDD_URL
+          value: jdbc:postgresql://postgres-tcp:5432/suinsit
+        - name: SUINSIT_BBDD_USERNAME
+          valueFrom:
+            secretKeyRef:
+               name: bbdd
+               key: username
+        - name: AMQ_USER
+          valueFrom:
+            secretKeyRef:
+               name: rabbit-user
+               key: username
+        - name: AMQ_PASSWORD
+          valueFrom:
+            secretKeyRef:
+               name: rabbit-user
+               key: password
+        - name: AMQ_HOST
+          value: rabbitmq.suinsit-systems.svc.cluster.local      
+        - name: AMQ_PORT
+          value: "5672"            
+        - name: ROOT_LOG
+          value: INFO
+        - name: TECHNICAL_LOG
+          value: INFO   
+        - name: SUINSIT_LOGS
+          value: /opt/suinsit/logs      
+        - name: SUINSIT_CUSTOMER_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: suinsit-licence         
+              key: customer_name
+        - name: SUINSIT_CUSTOMER_LABEL
+          valueFrom:
+            configMapKeyRef:
+              name: suinsit-licence         
+              key: customer_label      
+        - name: SUINSIT_CUSTOMER_UID
+          valueFrom:
+            configMapKeyRef:
+              name: suinsit-licence         
+              key: customer_uid
+        - name: SUINSIT_VERSION
+          valueFrom:
+            configMapKeyRef:
+              name: suinsit-licence         
+              key: suinsit_branch  
+        - name: SUINSIT_ENVIROMENT
+          value: PRO
+        - name: SUINSIT_PRODUCT
+          value: office
+        - name: SUINSIT_APPLICATION
+          value: customers  
+        - name: SUINSIT_EXECUTION
+          value: cloud
+        - name: SUINSIT_HOME
+          value: /opt/suinsit/application
+        - name: SUINSIT_MODE
+          value: PROFESIONAL
+        - name: SUINSIT_STUDIO
+          value: /opt/suinsit/application/studio   
+        - name: SUNSIT_DEPLOY
+          value: /opt/suinsit/application/apps
+        - name: SUINSIT_SERVER_HOST
+          value: portal.labory.suinsit.cloud
+        - name: DISCOVERY_FORMANALIZER_URL
+          value: http://mic-discovery-formanalizer/v1
+        - name: SUINSIT_BPMN_SERVER
+          value: http://mic-suinsit-bpmn/v1           
+        ports:
+        - containerPort: 8080
+          #hostPort: 8080
+          #name: labs-app
+        volumeMounts:
+        - name: suinsit-persistent-storage
+          mountPath: /opt/suinsit
+          subPath: suinsit
+        
+      imagePullSecrets:
+      - name: regcred
+      volumes:
+      - name: suinsit-persistent-storage
+        persistentVolumeClaim:
+          claimName: pvc-suinsit
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: customers-apps
+  namespace: suin-dolcezza
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: customers-apps
+                  

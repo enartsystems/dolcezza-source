@@ -1,0 +1,20 @@
+{
+  "uid" : "44893",
+  "nameScreen" : "Nuevo Empleado",
+  "nameEntidad" : "RRHEMPLEADO",
+  "pageName" : "NuevoEmpleado",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "form",
+  "descripcion" : "Solicitud de nuevo empleado",
+  "title" : "Nuevo Empleado",
+  "fecha" : 1663573958167,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

@@ -1,0 +1,21 @@
+{
+  "uid" : "71858",
+  "nameScreen" : "centro",
+  "nameEntidad" : "FTSMCENTROS",
+  "pageName" : "centro",
+  "icon16" : "img/layout/pantalla-tablero.png",
+  "icon32" : "img/layout/pantalla-tablero.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "centro de trabajo",
+  "title" : "centro",
+  "fecha" : 1699458682443,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false,
+  "subview" : false
+}

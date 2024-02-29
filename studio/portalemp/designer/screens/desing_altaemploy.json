@@ -1,0 +1,20 @@
+{
+  "uid" : "17905",
+  "nameScreen" : "altaemploy",
+  "nameEntidad" : "RRHEMPLEADO",
+  "pageName" : "altaemploy",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "bpmn",
+  "descripcion" : "BPNM Alta empleado",
+  "title" : "Alta empleado",
+  "fecha" : 1670272052185,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

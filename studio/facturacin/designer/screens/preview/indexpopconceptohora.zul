@@ -1,0 +1,166 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="popconceptohora" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',env='preview',pagina='popconceptohora')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="popconceptohora" />
+<custom-attributes clase="org.suinsit.apps.facturacin.Erplineaconceptohora" />
+	   <custom-attributes namespace="facturacin" />
+	   <custom-attributes enviroment="preview" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+
+<div id="bWyjrOOGEe" style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12"  visible="true" >
+<div id="bWyjrOOGEe-row" class="row">
+
+
+
+
+
+   
+    <h:div class="col-md-6 border-field">
+    
+       <hbox spacing="3px" visible="@load(vm.isVisible('CONCEPTO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="  " value="@load(vm.lang.getProperty('CONCEPTO.label', 'Concepto'))"  />
+	   </hbox>
+	   <textbox   tabindex="1" id="161197" 
+	   placeholder="@load(vm.lang.getProperty('CONCEPTO.label', 'Concepto'))" 
+	   value="@bind(vm.beanData.concepto) @save(vm.beanData.concepto, before=('grabar')) "  sclass="margin-field form-control  form-control border" 
+	   visible="@load(vm.isVisible('CONCEPTO'))" disabled="@load(vm.isEditable('CONCEPTO')?false:true)"/>
+       <label sclass="text-danger" value="@load(vmsgs['161197'])"/>
+    </h:div>   
+
+
+
+
+
+
+
+
+
+  <h:div class="col-md-6 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('IMPORTEHORA'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('IMPORTEHORA.label', 'Importe Hora'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_IMPORTEHORA" />
+	   </hbox>
+    <decimalbox   tabindex="2" id="722488" onCreate="" placeholder="@load(vm.lang.getProperty('IMPORTEHORA.label', 'Importe Hora'))"   
+    value="@bind(vm.beanData.importehora) @save(vm.beanData.importehora, before=('grabar')) "  format="###,###,###,###,##0.00€"  sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('IMPORTEHORA'))" disabled="@load(vm.isEditable('IMPORTEHORA')?false:true)" onChange="@command('onChangeInput',field='IMPORTEHORA',evento=event,componente=self,calculate=true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['722488'])"/>
+    </h:div>
+
+
+
+
+
+<h:div class="col-md-6 border-field">
+   <hbox spacing="3px" sclass="margin-field">
+    <label sclass="fs-6 text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('idpromcategoria.label', 'Categoría'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_PoHLUPILAi" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idpromcategoria" placeholder="@load(vm.lang.getProperty('idpromcategoria').label,'Categoría')" model="@bind(vm.foreings['idpromcategoria'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idpromcategoria',item=self.selectedItem.value,changefk='idpromproducto')"  		selectedItem="@load(vm.beanData.idpromcategoria)"  onCreate="@command('onCreateCombo',component=self,alias='idpromcategoria')" value="@bind(vm.beanData.idpromcategoria .categoria)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.categoria)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idpromcategoria'])"/>
+   <popup id="pop_PoHLUPILAi" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idpromcategoria.helptext', 'idpromcategoria'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+
+<h:div class="col-md-6 border-field">
+   <hbox spacing="3px" sclass="margin-field">
+    <label sclass="fs-6 text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('idpromproducto.label', 'Producto'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_cPdPzdMgdu" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idpromproducto" placeholder="@load(vm.lang.getProperty('idpromproducto').label,'Producto')" model="@bind(vm.foreings['idpromproducto'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idpromproducto',item=self.selectedItem.value,updatebean='true')"  		selectedItem="@load(vm.beanData.idpromproducto)"  onCreate="@command('onCreateCombo',component=self,alias='idpromproducto',loadFkFrom='idpromcategoria')" value="@bind(vm.beanData.idpromproducto .producto)" disabled="@bind(vm.beanData.idpromcategoria.idxpromcategoria eq null) " ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.producto)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idpromproducto'])"/>
+   <popup id="pop_cPdPzdMgdu" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idpromproducto.helptext', 'idpromproducto'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+</div>
+</div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" disabled="true">
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " disabled="false">
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" disabled="true">
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['popconceptohora.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+
+
+
+                  
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$popconceptohora');
+  binder.command('doLoad');
+});
+function loadpopconceptohora(){
+  var binder = zkbind.$('$popconceptohora');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

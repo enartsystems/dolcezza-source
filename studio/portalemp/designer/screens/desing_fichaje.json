@@ -1,0 +1,20 @@
+{
+  "uid" : "96708",
+  "nameScreen" : "fichaje",
+  "nameEntidad" : "RHFICHAR",
+  "pageName" : "fichaje",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "Fichaje",
+  "title" : "Fichaje",
+  "fecha" : 1658817327870,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false
+}

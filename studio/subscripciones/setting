@@ -1,0 +1,13 @@
+#create with version org.enart [RELEASE]1.1.12 [Date]30-08-2022 19:45
+#Mon Apr 24 00:05:50 CEST 2023
+workspace.project.owner=mgonzalez
+workspace.project.id=0
+workspace.project.comment=Subscripciones
+workspace.project.versionar=true
+tech.artfacto.version=1.1.12
+workspace.project.create=lunes, 24 de abril de 2023
+workspace.project.version=1.0.0.SNAPSHOT
+workspace.project.name=subscripcion
+workspace.project.namespace=subscripciones
+workspace.architec.name=Suinsit No Code
+workspace.architec.id=1

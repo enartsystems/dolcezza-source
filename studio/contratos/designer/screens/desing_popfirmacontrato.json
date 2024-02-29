@@ -1,0 +1,20 @@
+{
+  "uid" : "77892",
+  "nameScreen" : "popfirmacontrato",
+  "nameEntidad" : "CRTRFIRMASCTO",
+  "pageName" : "popfirmacontrato",
+  "icon16" : "img/template.png",
+  "icon32" : "img/template.png",
+  "templateName" : "popup",
+  "descripcion" : "porpup firma de contratos",
+  "title" : "Firma Contratos",
+  "fecha" : 1663254906307,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : true
+}

@@ -1,0 +1,21 @@
+{
+  "uid" : "66651",
+  "nameScreen" : "pedido",
+  "nameEntidad" : "CMPPEDIDO",
+  "pageName" : "pedido",
+  "icon16" : "img/layout/pantalla-tablero.png",
+  "icon32" : "img/layout/pantalla-tablero.png",
+  "templateName" : "formViewModel",
+  "descripcion" : "pedido",
+  "title" : "pedido",
+  "fecha" : 1699300126486,
+  "typeEntidad" : null,
+  "scope" : "VIEWMODEL",
+  "type" : null,
+  "datamodel" : true,
+  "dataservice" : false,
+  "datamultiple" : false,
+  "createObject" : false,
+  "popup" : false,
+  "subview" : false
+}

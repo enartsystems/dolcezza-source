@@ -1,0 +1,130 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+	<idspace viewModel="@id('vm') @init('org.suinsit.nocode.web.FindEntityUI')">
+	<space></space>
+	  <custom-attributes pagina="Rol" />
+	  <custom-attributes paginaIndex="indexrol.zul" />
+			<h:div id="notificacion"></h:div>
+		<h:div class="row">
+			<h:div class="col-lg-12">
+				<div class="card">
+		<div class="card-header bg-primary-400 header-elements-inline">
+			<fragment exps="@load(vm.lang['Rol.screen'])" >
+							   <![CDATA[
+							        <h4 class='card-title'>
+							        <span textContent='@load(exps)'></span>
+							        </h4>
+                               ]]>   
+                             </fragment>
+			<h:div class="header-elements">
+				<h:div class="list-icons">
+				 <a
+									sclass="list-icons-item text-primary-800"
+									tooltiptext="add data" iconSclass="su-icon su-2x su-icon-menu-1"
+									>
+								</a>
+								<a
+									sclass="list-icons-item text-primary-800"
+									tooltiptext="add data" iconSclass="su-icon su-2x su-icon-menu-7"
+									>
+								</a>
+						    <a sclass="list-icons-item text-primary-800" tooltiptext="add data" iconSclass="su-icon su-3x su-icon-add" 
+						    onClick="@command('addData',page='masterrol.zul')"></a>
+				</h:div>
+			</h:div>
+		</div>
+		<div class="card-body">	
+<h:div class="table-responsive">
+<h:table class="" width="100%">
+		<h:tr>
+		      <h:td  >
+
+             </h:td>      
+		      <h:td  >
+
+             </h:td>      
+	   </h:tr>
+		<h:tr>
+	   </h:tr>
+		<h:tr>
+	   </h:tr>
+		<h:tr>
+	   </h:tr>
+</h:table>
+</h:div>		    <button tooltiptext="Find"
+							iconSclass="su-icon su-icon-search"
+							sclass="btn btn-outline bg-primary text-primary-800 btn-icon ml-2 legitRipple" />
+				</div>
+				</div>
+				<h:div class="card">
+					<h:div class="card-body">
+               <box orient="horizontal" spacing="10px"
+							width="98%" sclass="bg-white">
+							<cell align="left">
+							
+								<label value="${labels.MddMentity.pages}">	</label>
+							</cell>
+							<cell align="left" width="85%">
+								<paging id="topagin"
+									pageSize="@load(vm.scroll.maxRows)"
+									totalSize="@load(vm.scroll.totalRows)" mold="os" width="98%"
+									sclass="bg-white" />
+							</cell>
+							<cell align="left" width="15%">
+								<box orient="horizontal" spacing="15px"
+									width="100%">
+									<label
+										value="${labels.paging.mostrar}" />
+									<combobox
+										selectedItem="@bind(vm.scroll.maxRows)"
+										value="@bind(vm.scroll.maxRows)" width="75px">
+										<comboitem label="10"
+											value="10" />
+										<comboitem label="20"
+											value="20" />
+										<comboitem label="30"
+											value="30" />
+										<comboitem label="50"
+											value="50" />
+									</combobox>
+								</box>
+							</cell>
+						</box>  
+					 <grid  height="600px" width="100%"	model="@load(vm.beans)" >  
+							<columns sizable="true">
+                                  <column label="@load(vm.lang.getProperty('ALTA.label', 'Fec. Alta'))" align="center"/>
+                                  <column label="@load(vm.lang.getProperty('ROL.label', 'ROL'))" align="center"/>
+ 							      <column align="center" />
+							</columns >
+                  			<template name="model" var="item">
+                  			<row style="text-align:right;">
+                                   <label  value="@load(item.getFieldByAtribute('ALTA').value) @converter(vm.fieldConverter)"></label>
+                                   <label  value="@load(item.getFieldByAtribute('ROL').value) @converter(vm.fieldConverter)"></label>
+                  			
+                  		<cell align="center">
+						<button
+						onClick="@command('editData',item=item,page='masterrol.zul')"
+						tooltiptext="${labels.MddMentity.edit}"
+						iconSclass="icon-pencil7" sclass="btn btn-outline bg-primary text-primary-800 btn-icon ml-2 legitRipple" />
+						<space></space>
+						<button
+						onClick="@command('removeData',item=item)"
+						tooltiptext="${labels.MddMentity.remove}"
+						iconSclass="icon-trash"
+						sclass="btn btn-outline bg-danger text-primary-800 btn-icon ml-2 legitRipple" />
+					    </cell>
+					    </row>
+                  		</template>
+							<foot>
+						     <footer span="4" align="right" label="@load(vm.labelTotal)" />
+						    </foot>
+						</grid>
+					</h:div>
+				</h:div>
+			</h:div>
+		</h:div>
+	</idspace>
+</zk>

@@ -1,0 +1,215 @@
+<?component name="includeHTML" extends="include" class="org.enartframework.zk.utils.IncludeHTML"?>
+<?component name="extHTML" extends="html" class="org.suinsit.nocode.web.components.HtmlExt"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul/zul.xsd"
+	xmlns:h="xhtml"
+	xmlns:d="http://www.zkoss.org/2005/zk/client/attribute">
+<idspace id="empleadocontrato" viewModel="@id('vm') @init('org.suinsit.nocode.web.MasterBeanUI',pagina='empleadocontrato')" validationMessages="@id('vmsgs')">
+	   <space></space>
+	  <custom-attributes pagina="empleadocontrato" />
+<custom-attributes clase="org.suinsit.apps.portalemp.Rrhhrempcontra" />
+	   <custom-attributes namespace="portalemp" />
+			<panel >
+			<panelchildren>
+			<div class="row">
+					<h:div class="col-lg-12">
+					<h:div class="card">
+						<h:div class="card-body">
+						   <div class="row">				
+
+<div id="XhJOslFTKM" style="overflow:auto;" class=" col-lg-12 col-xlg-12 col-md-12"  visible="true" >
+<div id="XhJOslFTKM-row" class="row">
+
+
+				
+
+
+    <h:div class="col-md-3 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('INICIO'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('INICIO.label', 'Inicio Contrato'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_INICIO" />
+	   </hbox>
+	      <datebox     id="LXuiBOgYzj"  placeholder="@load(vm.lang.getProperty('INICIO.label', 'Inicio Contrato'))" tabindex="1" value="@bind(vm.beanData.inicio) @save(vm.beanData.inicio, before=('grabar')) "   format="dd-MM-yyyy"  
+    visible="@load(vm.isVisible('INICIO'))" disabled="@load(vm.isEditable('INICIO')?false:true)" sclass="margin-field"/>
+    <label sclass="text-danger" value="@load(vmsgs['LXuiBOgYzj'])"/>   
+    
+      </h:div>
+
+
+
+
+
+
+				
+
+
+    <h:div class="col-md-3 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('FIN'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('FIN.label', 'Fin de Contrato'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_FIN" />
+	   </hbox>
+	      <datebox     id="mNkTMiZCBT"  placeholder="@load(vm.lang.getProperty('FIN.label', 'fin'))" tabindex="2" value="@bind(vm.beanData.fin) @save(vm.beanData.fin, before=('grabar')) @validator(vm.validator,min=fx.INICIO ,oldValue=vm.beanDataCpy.fin)"   format="dd/MM/yy"  
+    visible="@load(vm.isVisible('FIN'))" disabled="@load(vm.isEditable('FIN')?false:true)" sclass="margin-field"/>
+    <label sclass="text-danger" value="@load(vmsgs['mNkTMiZCBT'])"/>   
+    
+      </h:div>
+
+
+
+
+
+
+ <h:div class="col-md-2 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('VIGENTE'))" sclass="margin-field" >
+	    <label sclass="form-check-label font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('VIGENTE.label', 'Vigente'))"/>
+	   </hbox>
+ <checkbox mold="default" id="872564" value="@bind(vm.beanData.vigente) @save(vm.beanData.vigente, before=('grabar'))" sclass="margin-field form-check-input" visible="@load(vm.isVisible('VIGENTE'))" disabled="@load(vm.isEditable('VIGENTE')?false:true)" checked="@bind(vm.beanData.vigente) @save(vm.beanData.vigente, before=('grabar'))"/>
+</h:div>
+
+
+
+
+<h:div class="col-md-4 border-field">
+   <hbox spacing="3px" sclass="margin-field">
+    <label sclass="fs-6 text  form-label text-capitalize font-weight-normal" style="" value="@load(vm.lang.getProperty('idrrhmtipoconta.label', 'Tipo de contrato'))"/>
+ 	 <a	iconSclass="mdi mdi-information-outline" popup="pop_jlNUdvOWdI" />
+   </hbox>
+<combobox mold="rounded" autodrop="true"  id="idrrhmtipoconta" placeholder="@load(vm.lang.getProperty('idrrhmtipoconta').label,'Tipo de contrato')" model="@bind(vm.foreings['idrrhmtipoconta'])"  buttonVisible="true"	onSelect="@command('onSelectForeing', alias='idrrhmtipoconta',item=self.selectedItem.value)"  		selectedItem="@load(vm.beanData.idrrhmtipoconta)"  onCreate="@command('onCreateCombo',component=self,alias='idrrhmtipoconta')" value="@bind(vm.beanData.idrrhmtipoconta .tipocontrato)"  ><template name="model" var="item"><comboitem value="@load(item)" label="@load(item.tipocontrato)" /></template></combobox>
+ <label sclass="text-danger" value="@load(vmsgs['idrrhmtipoconta'])"/>
+   <popup id="pop_jlNUdvOWdI" width="200px">
+	  <vbox>  
+     <fragment exps="@load(vm.lang.getProperty('idrrhmtipoconta.helptext', 'idrrhmtipoconta'))" >
+	 
+	    	<![CDATA[
+<span textContent='@load(exps)'></span>
+	    	  	]]>        
+	  </fragment></vbox>
+  </popup>
+</h:div>
+
+
+
+
+				
+
+
+  <h:div class="col-md-5 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('SALARYANUAL'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('SALARYANUAL.label', 'Salario Total Anual'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_SALARYANUAL" />
+	   </hbox>
+   <decimalbox   tabindex="5" id="tScXlpMbzO" onCreate="" placeholder="@load(vm.lang.getProperty('SALARYANUAL.label', 'Salario Total Anual'))"   
+    value="@bind(vm.beanData.salaryanual) @save(vm.beanData.salaryanual, before=('grabar')) "  format="###,###,###,###,##0.00€"  sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('SALARYANUAL'))" disabled="@load(vm.isEditable('SALARYANUAL')?false:true)" onChange="@command('onChangeInput',field='SALARYANUAL',evento=event,componente=self,calculate=true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['tScXlpMbzO'])"/>
+ 
+    </h:div>
+
+
+
+
+
+
+				
+
+
+  <h:div class="col-md-4 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('SALARYMENSUAL'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('SALARYMENSUAL.label', 'Salario Total Mensual'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_SALARYMENSUAL" />
+	   </hbox>
+   <decimalbox   tabindex="6" id="ozQJQQiREK" onCreate="" placeholder="@load(vm.lang.getProperty('SALARYMENSUAL.label', 'Salario Total Mensual'))"   
+    value="@bind(vm.beanData.salarymensual) @save(vm.beanData.salarymensual, before=('grabar')) "  format="###,###,###,###,##0.00€"  sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('SALARYMENSUAL'))" disabled="@load(vm.isEditable('SALARYMENSUAL')?false:true)" onChange="@command('onChangeInput',field='SALARYMENSUAL',evento=event,componente=self,calculate=true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['ozQJQQiREK'])"/>
+ 
+    </h:div>
+
+
+
+
+
+
+				
+
+
+  <h:div class="col-md-3 border-field">
+       <hbox spacing="3px" visible="@load(vm.isVisible('SALARYDAY'))" sclass="margin-field">
+	    <label sclass="fs-6 text form-label  text-capitalize  font-weight-normal align-text-middle" style="" value="@load(vm.lang.getProperty('SALARYDAY.label', 'Salario/ Dia'))"/>
+	    <a iconSclass="su-icon su-icon-question" popup="pop_SALARYDAY" />
+	   </hbox>
+   <decimalbox   tabindex="7" id="FZrdTlrgRf" onCreate="" placeholder="@load(vm.lang.getProperty('SALARYDAY.label', 'Salario/ Dia'))"   
+    value="@bind(vm.beanData.salaryday) @save(vm.beanData.salaryday, before=('grabar')) "  format="###,###,###,###,##0.00€"  sclass="margin-field form-control  form-control border" visible="@load(vm.isVisible('SALARYDAY'))" disabled="@load(vm.isEditable('SALARYDAY')?false:true)" onChange="@command('onChangeInput',field='SALARYDAY',evento=event,componente=self,calculate=true)"/>
+    <label sclass="text-danger" value="@load(vmsgs['FZrdTlrgRf'])"/>
+ 
+    </h:div>
+
+
+
+
+</div>
+</div>                     </div>           
+            </h:div>
+            <div class="hstack gap-2 justify-content-end">
+								
+									<button onClick="@command('grabar',action='continuar')"
+										class="btn btn-success" >
+										Guardar
+									</button>
+									<button onClick="@command('grabar',action='nuevo')"
+										class="btn " >
+										Guardar y Nuevo
+									</button>
+									<button onClick="@command('cerrarPopup')"
+										class="btn btn-light" >
+										Cerrar
+									</button>
+								
+							</div>
+           </h:div>
+          </h:div>
+         </div>   
+        		</panelchildren>
+		</panel> 
+            <fragment exps="@load(vm.lang['Empleado Contrato.screen'])" >
+				<![CDATA[
+				<div id="modal_iconified" class="modal fade" tabindex="-1" style="z-index: 99999;">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title"><span textContent='@load(exps)'></span></h5>
+							</div>
+							<div class="modal-body">
+								<h6 class="font-weight-semibold"><i class="icon-law mr-2"></i>Texto de ayuda pantalla</h6>
+								<span textContent='@load(exps)'></span>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-link" data-dismiss="modal"><i class="icon-cross2 font-size-base mr-1"></i> Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				]]>
+				</fragment>
+                 
+
+
+
+
+
+
+
+
+                  
+ </idspace>
+  <script>
+zk.afterMount(function() {
+ var binder = zkbind.$('$empleadocontrato');
+  binder.command('doLoad');
+});
+function loadempleadocontrato(){
+  var binder = zkbind.$('$empleadocontrato');
+  binder.command('doLoadBean');
+
+}
+</script>	
+</zk>

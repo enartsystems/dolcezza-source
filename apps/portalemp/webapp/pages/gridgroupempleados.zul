@@ -1,0 +1,54 @@
+					 <grid  height="600px" width="100%"	model="@load(vm.groups)" >  
+							<columns sizable="true" menupopup="auto">
+							       <column hflex="1" label="@load(vm.lang.getProperty('NOMBRE.label', 'Nombre'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['NOMBREAsc'])" sortDescending="@load(vm.comparators['NOMBREDesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('IDENTIFICADOR.label', 'DNI / NIF / NIE'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['IDENTIFICADORAsc'])" sortDescending="@load(vm.comparators['IDENTIFICADORDesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('EMPRESA.label', 'Empresa'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['EMPRESAAsc'])" sortDescending="@load(vm.comparators['EMPRESADesc'])"/>
+							       <column hflex="1" label="@load(vm.lang.getProperty('CIFNIF.label', 'NIF'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['CIFNIFAsc'])" sortDescending="@load(vm.comparators['CIFNIFDesc'])"/>
+							       <column hflex="1" label="@load(vm.lang.getProperty('CORREO.label', 'Email'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['CORREOAsc'])" sortDescending="@load(vm.comparators['CORREODesc'])" />
+							       <column hflex="1" label="@load(vm.lang.getProperty('ALTAEMPRESA.label', 'altaempresa'))" align="center" sort="auto"  sortAscending="@load(vm.comparators['ALTAEMPRESAAsc'])" sortDescending="@load(vm.comparators['ALTAEMPRESADesc'])" />
+ 							      <column hflex="1" align="center" />
+							</columns >
+							<!-- template for group -->
+                              <template name="model:group">
+                                <group label="@load(each)" style="text-align:left;"/>
+                              </template>
+							<template name="model" var="item">
+                  			<row style="text-align:right;">
+							         <label  value="@load(item.getFieldByAtribute('NOMBRE').value) @converter(vm.fieldConverter)"></label>
+                                   
+							         <label  value="@load(item.getFieldByAtribute('IDENTIFICADOR').value) @converter(vm.fieldConverter)"></label>
+                                   
+                                   <label  value="@load(item.getFieldByAtribute('empresa').value) @converter(vm.fieldConverter)"></label>
+                                   <label  value="@load(item.getFieldByAtribute('cifnif').value) @converter(vm.fieldConverter)"></label>
+							         <label  value="@load(item.getFieldByAtribute('CORREO').value) @converter(vm.fieldConverter)"></label>
+                                   
+							         <label  value="@load(item.getFieldByAtribute('ALTAEMPRESA').value) @converter(vm.fieldConverter)"></label>
+                                   
+							
+                  			
+                  		<cell align="center">
+						<button
+						onClick="@command('editData',item=item,page='masterempleados.zul')"
+						iconSclass="icon-pencil7" sclass="btn btn-outline-secondary" />
+						<space></space>
+						<button
+						onClick="@command('removeData',item=item)"
+						iconSclass="icon-trash"
+						sclass="btn btn-outline-warning" />
+						
+					    </cell>
+					   </row>
+					   
+                  		</template>
+                  		            		 <!-- template for footer -->
+        <template name="model:groupfoot">
+            <groupfoot>
+                <cell colspan="5" style="text-align: right; padding-right: 15px">
+                    <label value="@load(each)" style="font-weight:bold;" />
+                </cell>
+            </groupfoot>
+        </template>
+							<foot>
+						     <footer span="4" align="right" label="@load(vm.labelTotal)" />
+						    </foot>
+						</grid>
