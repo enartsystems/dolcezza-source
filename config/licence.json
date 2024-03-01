@@ -1,19 +1,23 @@
 {
   "maxuSers" : 15,
   "limitEmpresas" : 9999,
-  "customer" : "Rotadis Niño S.L.",
-  "customerID" : "2023/00005128",
+  "customer" : "HERNANDEZ MALDONADO S.L",
+  "customerID" : "SUIN/2023/0000005200",
   "customerIDX" : 0,
   "customerUUID" : "4afa94b6-2ecc-4702-af71-38f65fb307cc",
-  "vatid" : "B72210552",
-  "direccion" : "Calle Pintores 18 Pol. Rota, Rota 11520 ,Cádiz (España)",
+  "vatid" : "B90222407",
+  "direccion" : "C/Estornino, 5 Nave F",
   "alta" : 1685791067777,
   "renovacion" : 1717413467777,
   "producto" : "Suinsit Ecomm",
   "version" : "Kit Digital",
+  "revision" : null,
+  "release" : null,
+  "licencia" : null,
   "limitBBDD" : 5,
   "limitBackUp" : 10,
   "limitDocument" : 100,
   "limitOCR" : 2000,
-  "limits" : { }
+  "limits" : { },
+  "subscripciones" : [ ]
 }
